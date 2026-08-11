@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product Range — Truman Electronics</title>
+<meta name="description" content="The full Truman Electronics product range — satellite receivers, LED & UHD TVs, gas stoves & kettles, multiswitches, LNBs, DiSEqC, sat finders, wall mounts and cables.">
+<style>
+  :root{
+    --sans:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+    --disp:"Arial Black","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+    --ink:#081722; --ink-2:#0e2433; --ink-3:#15303f; --line:#20404f;
+    --paper:#F4EFE4; --amber:#E8A33D; --amber-deep:#c9832a; --steel:#8CA3B1; --steel-dim:#5f7887; --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  .mono{font-family:var(--mono)}
+
+  header{position:sticky;top:0;z-index:60;background:rgba(8,23,34,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+  .brandlogo{display:inline-flex;align-items:center}
+  .logo-img{height:30px;width:auto;display:block}
+  nav.menu{display:flex;gap:24px;align-items:center}
+  nav.menu a{font-size:14.5px;color:var(--steel);transition:color .2s}
+  nav.menu a:hover{color:var(--paper)}
+  .langbtn{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;border:1px solid var(--line);color:var(--paper);background:none;padding:8px 12px;border-radius:2px;cursor:pointer;transition:border-color .2s}
+  .langbtn:hover{border-color:var(--amber)}
+  .cta{font-family:var(--mono);font-size:13px;letter-spacing:.06em;border:1px solid var(--amber);color:var(--amber);padding:9px 16px;border-radius:2px;transition:all .2s;text-transform:uppercase}
+  .cta:hover{background:var(--amber);color:var(--ink)}
+  .burger{display:none;background:none;border:1px solid var(--line);color:var(--paper);width:42px;height:38px;border-radius:2px;font-size:18px;cursor:pointer}
+
+  .phead{padding:60px 0 30px;border-bottom:1px solid var(--line)}
+  .phead .back{font-family:var(--mono);font-size:12.5px;color:var(--amber);letter-spacing:.04em}
+  .phead h1{font-family:var(--disp);font-size:clamp(34px,6vw,62px);letter-spacing:-.02em;margin:14px 0 10px}
+  .phead p{color:var(--steel);max-width:56ch}
+
+  section.rsec{padding:52px 0;border-bottom:1px solid var(--line)}
+  .rsec .rtop{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px;flex-wrap:wrap}
+  .rsec h2{font-family:var(--disp);font-size:clamp(24px,3.6vw,38px);letter-spacing:-.02em}
+  .rsec .num{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.14em;text-transform:uppercase}
+  .rsec.light{background:var(--paper);color:#12242f}
+  .rsec.light .num{color:var(--amber-deep)}
+  .rsec.light .rrow{border-color:#d9d2c2}
+  .rsec.light .rrow .rm{color:#16303c}
+  .rsec.light .rrow .rs{color:#5f6d74}
+  .rsec.light .photo{background:#fff;border-color:#e3ddcd}
+
+  .rbody{display:grid;grid-template-columns:320px 1fr;gap:34px;align-items:start}
+  .rbody.nolead{grid-template-columns:1fr}
+  .photo{background:#f6f7f8;border:1px solid var(--line);border-radius:6px;height:240px;background-repeat:no-repeat;background-position:center;background-size:contain;background-origin:content-box;padding:20px}
+  .groups{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .rcat{background:var(--ink-2);padding:22px 22px 24px}
+  .rsec.light .rcat{background:#efe9da}
+  .rcat h3{font-family:var(--disp);font-size:16px;margin-bottom:10px}
+  .rlist{display:flex;flex-direction:column;gap:8px}
+  .rrow{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:7px}
+  .rrow:last-child{border-bottom:none;padding-bottom:0}
+  .rrow .rm{font-family:var(--mono);font-size:12.5px;color:#dfe6ea;direction:ltr}
+  .rrow .rs{font-family:var(--mono);font-size:11.5px;color:var(--steel);direction:ltr;text-align:end}
+  .note{color:var(--steel);font-size:14.5px;max-width:60ch}
+  .rsec.light .note{color:#5f6d74}
+
+  .cta-band{padding:56px 0;text-align:center}
+  .cta-band p{color:var(--steel);max-width:52ch;margin:0 auto 22px}
+  .btn-solid{background:var(--amber);color:var(--ink);font-weight:700;font-size:15px;padding:14px 24px;border-radius:2px;display:inline-block}
+  .btn-solid:hover{background:#f2b556}
+
+  footer{background:var(--ink);border-top:1px solid var(--line);padding:36px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .foot small{font-family:var(--mono);font-size:12px;color:var(--steel-dim)}
+  .flinks{display:flex;gap:20px;flex-wrap:wrap}
+  .flinks a{font-size:13px;color:var(--steel)}
+  .flinks a:hover{color:var(--paper)}
+
+  /* RTL */
+  html[dir="rtl"] body{direction:rtl}
+  html[dir="rtl"] .num,html[dir="rtl"] .phead .back{letter-spacing:normal}
+  html[dir="rtl"] .phead p,html[dir="rtl"] .note{max-width:none}
+
+  @media (max-width:820px){
+    nav.menu{gap:14px}
+    .rbody{grid-template-columns:1fr}
+    .photo{height:200px}
+  }
+  @media (max-width:600px){
+    .groups{grid-template-columns:1fr}
+    nav.menu a:not(.cta){display:none}
+  }
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brandlogo" aria-label="Truman Electronics — home"><img src="assets/logo.png" alt="Truman Electronics" class="logo-img"></a>
+    <nav class="menu">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="index.html#satellite" data-i18n="nav_sat">Satellite Systems</a>
+      <a href="index.html#heritage" data-i18n="nav_company">Company</a>
+      <button class="langbtn" id="langbtn" aria-label="Switch language">العربية</button>
+      <a href="index.html#contact" class="cta" data-i18n="nav_cta">Contact Sales</a>
+    </nav>
+  </div>
+</header>
+
+<div class="phead">
+  <div class="wrap">
+    <a href="index.html" class="back" data-i18n="rp_back">← Back to home</a>
+    <h1 data-i18n="rp_title">Product Range</h1>
+    <p data-i18n="rp_intro">Every model across receivers, televisions, the kitchen, satellite systems, accessories, cables and more.</p>
+  </div>
+</div>
+
+<!-- ENTERTAINMENT -->
+<section id="entertainment" class="rsec">
+  <div class="wrap">
+    <div class="rtop"><span class="num">01</span><h2 data-i18n="s_entertainment">Entertainment</h2></div>
+    <div class="rbody">
+      <div class="photo" style="background-image:url('assets/p-tv.jpg')"></div>
+      <div class="groups">
+        <div class="rcat"><h3 data-i18n="g_tv">LED &amp; UHD TVs</h3><div class="rlist">
+          <div class="rrow"><span class="rm">TM-3201K</span><span class="rs">32" · 1366×768 · HD</span></div>
+          <div class="rrow"><span class="rm">TM-4301SK</span><span class="rs">43" · FHD · RJ45</span></div>
+          <div class="rrow"><span class="rm">TM-4301K</span><span class="rs">43" · FHD Smart · 3×HDMI</span></div>
+          <div class="rrow"><span class="rm">TM-5001SK</span><span class="rs">50" · 4K UHD Smart</span></div>
+        </div></div>
+        <div class="rcat"><h3 data-i18n="g_mount">TV Wall Mounts</h3><div class="rlist">
+          <div class="rrow"><span class="rm">P4 / P6 / P65</span><span class="rs">Full-motion 32–85"</span></div>
+          <div class="rrow"><span class="rm">Bracket 502 Plus</span><span class="rs">Full-motion 32–70"</span></div>
+          <div class="rrow"><span class="rm">YT-1442 / YT-2663</span><span class="rs">Fixed mounts</span></div>
+          <div class="rrow"><span class="rm">TM-K40 / AN55T</span><span class="rs">Tilt &amp; moving</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECEIVERS -->
+<section id="receivers" class="rsec light">
+  <div class="wrap">
+    <div class="rtop"><span class="num">02</span><h2 data-i18n="s_receivers">Satellite Receivers</h2></div>
+    <div class="rbody">
+      <div class="photo" style="background-image:url('assets/p-receiver.jpg')"></div>
+      <div class="groups">
+        <div class="rcat"><h3 data-i18n="g_rx">Receivers</h3><div class="rlist">
+          <div class="rrow"><span class="rm">TM I World Pro</span><span class="rs">2 GB · 2500 tp · BT</span></div>
+          <div class="rrow"><span class="rm">TM i-visionPro Gold</span><span class="rs">8000 ch · e-cast</span></div>
+          <div class="rrow"><span class="rm">TM G200</span><span class="rs">U-cast · library</span></div>
+          <div class="rrow"><span class="rm">TM V55 Ultra</span><span class="rs">8000 ch · 4K</span></div>
+          <div class="rrow"><span class="rm">TM 1010</span><span class="rs">8000 ch · 4K</span></div>
+        </div></div>
+        <div class="rcat"><h3 data-i18n="g_rx2">Receivers</h3><div class="rlist">
+          <div class="rrow"><span class="rm">TM 7K</span><span class="rs">4K UHD · e-cast</span></div>
+          <div class="rrow"><span class="rm">TM 4K</span><span class="rs">4K UHD · e-cast</span></div>
+          <div class="rrow"><span class="rm">TM AN 38</span><span class="rs">Qur'an · YouTube</span></div>
+          <div class="rrow"><span class="rm">TM-SKG 25</span><span class="rs">8000 ch · EPG</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AIR CONDITIONERS -->
+<section id="ac" class="rsec">
+  <div class="wrap">
+    <div class="rtop"><span class="num">03</span><h2 data-i18n="s_ac">Air Conditioners</h2></div>
+    <div class="rbody nolead">
+      <div class="groups">
+        <div class="rcat"><h3 data-i18n="g_ac">Split Units</h3><div class="rlist">
+          <div class="rrow"><span class="rm">1.5 HP</span><span class="rs">Cool · Split</span></div>
+          <div class="rrow"><span class="rm">3 HP</span><span class="rs">Cool · Split</span></div>
+        </div></div>
+        <div class="rcat"><p class="note" data-i18n="n_ac">A full air-conditioning range (1.5 & 3 HP, cool / hot-cool) is available through sales.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME COMFORT -->
+<section id="comfort" class="rsec light">
+  <div class="wrap">
+    <div class="rtop"><span class="num">04</span><h2 data-i18n="s_comfort">Home Comfort</h2></div>
+    <div class="rbody nolead">
+      <div class="groups">
+        <div class="rcat"><h3 data-i18n="g_fan">Fans &amp; Water Dispensers</h3><div class="rlist">
+          <div class="rrow"><span class="rm">Standing Fan</span><span class="rs">Oscillating · 3-speed</span></div>
+          <div class="rrow"><span class="rm">Water Dispenser</span><span class="rs">Hot &amp; cold</span></div>
+        </div></div>
+        <div class="rcat"><p class="note" data-i18n="n_comfort">Standing fans and hot/cold water dispensers — model details on request.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KITCHEN -->
+<section id="kitchen" class="rsec">
+  <div class="wrap">
+    <div class="rtop"><span class="num">05</span><h2 data-i18n="s_kitchen">Kitchen Appliances</h2></div>
+    <div class="rbody">
+      <div class="photo" style="background-image:url('assets/p-stove.jpg')"></div>
+      <div class="groups">
+        <div class="rcat"><h3 data-i18n="g_stove">Gas Stoves</h3><div class="rlist">
+          <div class="rrow"><span class="rm">TM-G2501</span><span class="rs">Shining SS · 3.1 kW</span></div>
+          <div class="rrow"><span class="rm">TM-G2502</span><span class="rs">Matt SS · 3 burners</span></div>
+          <div class="rrow"><span class="rm">TM-G2503</span><span class="rs">Marble · auto-ignition</span></div>
+        </div></div>
+        <div class="rcat"><h3 data-i18n="g_kettle">Kettles</h3><div class="rlist">
+          <div class="rrow"><span class="rm">TM-k2501</span><span class="rs">Black · 1500 W</span></div>
+          <div class="rrow"><span class="rm">TM-k2502</span><span class="rs">Blue · 1.7 L glass</span></div>
+          <div class="rrow"><span class="rm">TM-k2503</span><span class="rs">Pink · glass</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section id="security" class="rsec light">
+  <div class="wrap">
+    <div class="rtop"><span class="num">06</span><h2 data-i18n="s_security">Security &amp; Access</h2></div>
+    <div class="rbody nolead">
+      <div class="groups">
+        <div class="rcat"><h3 data-i18n="g_cam">Cameras &amp; Recorders</h3><div class="rlist">
+          <div class="rrow"><span class="rm">CCTV Cameras</span><span class="rs">AHD / IP</span></div>
+          <div class="rrow"><span class="rm">XVR Recorders</span><span class="rs">Multi-channel</span></div>
+          <div class="rrow"><span class="rm">Smart Locks</span><span class="rs">Access control</span></div>
+        </div></div>
+        <div class="rcat"><p class="note" data-i18n="n_security">Surveillance cameras, XVR recorders and smart locks — project details on request.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRIBUTION -->
+<section id="distribution" class="rsec">
+  <div class="wrap">
+    <div class="rtop"><span class="num">07</span><h2 data-i18n="s_distribution">Distribution Hardware</h2></div>
+    <div class="rbody">
+      <div class="photo" style="background-image:url('assets/p-multiswitch.jpg')"></div>
+      <div class="groups">
+        <div class="rcat"><h3 data-i18n="g_ms">Multiswitches</h3><div class="rlist">
+          <div class="rrow"><span class="rm">TM-9908CC</span><span class="rs">9 → 8 · 4K HDR</span></div>
+          <div class="rrow"><span class="rm">TM-9916CC</span><span class="rs">9 → 16 · 4K HDR</span></div>
+          <div class="rrow"><span class="rm">TM-9924CC</span><span class="rs">9 → 24 · 4K UHD</span></div>
+          <div class="rrow"><span class="rm">TM-9932CC</span><span class="rs">9 → 32 · 4K HDR</span></div>
+        </div></div>
+        <div class="rcat"><h3 data-i18n="g_lnb">LNB · DiSEqC · Finder</h3><div class="rlist">
+          <div class="rrow"><span class="rm">TM-121 / 221</span><span class="rs">Single / Twin · 0.1 dB</span></div>
+          <div class="rrow"><span class="rm">TM-421 / 821</span><span class="rs">Quad / Octo</span></div>
+          <div class="rrow"><span class="rm">TR-801 · 4 / 8</span><span class="rs">DiSEqC switch</span></div>
+          <div class="rrow"><span class="rm">3700 GC</span><span class="rs">HD Sat Finder</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CABLES -->
+<section id="cables" class="rsec light">
+  <div class="wrap">
+    <div class="rtop"><span class="num">08</span><h2 data-i18n="s_cables">Cables &amp; Connectivity</h2></div>
+    <div class="rbody nolead">
+      <div class="groups">
+        <div class="rcat"><h3 data-i18n="g_coax">Coaxial &amp; Network</h3><div class="rlist">
+          <div class="rrow"><span class="rm">Coaxial RG6</span><span class="rs">30 / 250 yard · 75 Ω</span></div>
+          <div class="rrow"><span class="rm">Cat-6</span><span class="rs">10/100/1000 Mbps</span></div>
+        </div></div>
+        <div class="rcat"><h3 data-i18n="g_hdmi">HDMI 4K</h3><div class="rlist">
+          <div class="rrow"><span class="rm">Cable 4K</span><span class="rs">1.5 / 3 / 5 m</span></div>
+          <div class="rrow"><span class="rm">Cable 4K</span><span class="rs">10 / 20 m</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service" class="rsec">
+  <div class="wrap">
+    <div class="rtop"><span class="num">09</span><h2 data-i18n="s_service">Service &amp; Support</h2></div>
+    <p class="note" data-i18n="n_service">Skilled engineers, warranty and after-sales coverage across Egypt. Reach the hotline on 19903.</p>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap">
+    <p data-i18n="rp_cta">For pricing and stock availability, download the full catalogue or contact the sales team.</p>
+    <a href="assets/Truman-Catalogue.pdf" target="_blank" rel="noopener" class="btn-solid" data-i18n="con_cat">Download the catalogue</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="brandlogo"><img src="assets/logo.png" alt="Truman Electronics" class="logo-img"></a>
+    <div class="flinks">
+      <a href="index.html#products" data-i18n="nav_products">Products</a>
+      <a href="index.html#satellite" data-i18n="nav_sat">Satellite</a>
+      <a href="index.html#reach" data-i18n="nav_reach">Reach</a>
+      <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+    </div>
+    <small data-i18n="foot_tag">Your life partner · Since 1987 · Hotline 19903</small>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+</body>
+</html>
