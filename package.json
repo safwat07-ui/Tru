@@ -1,0 +1,12 @@
+{
+  "name": "truman-electronics-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Corporate website for Truman Electronics — satellite & home electronics since 1987.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

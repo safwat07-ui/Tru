@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shop — Truman Electronics</title>
+<meta name="description" content="Buy Truman Electronics products online — satellite receivers, LED & UHD televisions, gas stoves and multiswitches. Secure payment by card, wallet or kiosk.">
+<style>
+  :root{
+    --sans:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+    --disp:"Arial Black","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+    --ink:#081722; --ink-2:#0e2433; --ink-3:#15303f; --line:#20404f;
+    --paper:#F4EFE4; --amber:#E8A33D; --amber-deep:#c9832a;
+    --steel:#8CA3B1; --steel-dim:#5f7887; --ok:#57c9a8; --err:#e07a6b; --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+
+  header{position:sticky;top:0;z-index:60;background:rgba(8,23,34,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+  .brandlogo{display:inline-flex;align-items:center}
+  .logo-img{height:30px;width:auto;display:block}
+  nav.menu{display:flex;gap:22px;align-items:center}
+  nav.menu a{font-size:14.5px;color:var(--steel);transition:color .2s}
+  nav.menu a:hover{color:var(--paper)}
+  .langbtn{font-family:var(--mono);font-size:12.5px;border:1px solid var(--line);color:var(--paper);background:none;padding:8px 12px;border-radius:2px;cursor:pointer}
+  .langbtn:hover{border-color:var(--amber)}
+  .cartbtn{position:relative;font-family:var(--mono);font-size:13px;letter-spacing:.06em;border:1px solid var(--amber);color:var(--amber);padding:9px 16px;border-radius:2px;cursor:pointer;background:none;text-transform:uppercase}
+  .cartbtn:hover{background:var(--amber);color:var(--ink)}
+  .cartbtn .count{display:inline-block;min-width:18px;margin-inline-start:6px;background:var(--amber);color:var(--ink);border-radius:9px;font-size:11px;padding:1px 6px;font-weight:700}
+  .cartbtn:hover .count{background:var(--ink);color:var(--amber)}
+
+  .phead{padding:54px 0 28px;border-bottom:1px solid var(--line)}
+  .phead .back{font-family:var(--mono);font-size:12.5px;color:var(--amber)}
+  .phead h1{font-family:var(--disp);font-size:clamp(32px,5.4vw,56px);letter-spacing:-.02em;margin:14px 0 10px}
+  .phead p{color:var(--steel);max-width:56ch}
+
+  .filters{display:flex;gap:8px;flex-wrap:wrap;padding:26px 0 0}
+  .filt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);color:var(--steel);background:none;padding:8px 14px;border-radius:2px;cursor:pointer;transition:all .2s}
+  .filt:hover{color:var(--paper)}
+  .filt.on{border-color:var(--amber);color:var(--amber)}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:26px 0 70px}
+  .card{background:var(--ink-2);border:1px solid var(--line);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+  .card:hover{transform:translateY(-3px);border-color:var(--amber-deep)}
+  .card .ph{height:190px;background-color:#f6f7f8;background-repeat:no-repeat;background-position:center;background-size:contain;background-origin:content-box;padding:18px;border-bottom:1px solid var(--line)}
+  .card .body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+  .card .sku{font-family:var(--mono);font-size:11.5px;color:var(--amber);letter-spacing:.04em;direction:ltr}
+  .card h3{font-family:var(--disp);font-size:18px;margin-top:6px;line-height:1.25}
+  .card .desc{font-size:13.5px;color:var(--steel);margin-top:8px;flex:1}
+  .specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .specs span{font-family:var(--mono);font-size:11px;color:#c4d1d9;background:var(--ink-3);border:1px solid var(--line);padding:4px 8px;border-radius:2px;direction:ltr}
+  .buyrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;flex-wrap:wrap}
+  .price{font-family:var(--disp);font-size:21px;letter-spacing:-.01em;direction:ltr}
+  .price small{font-size:12px;color:var(--steel);font-family:var(--mono);margin-inline-start:4px}
+  .add{background:var(--amber);color:var(--ink);font-weight:700;font-size:14px;padding:10px 18px;border:none;border-radius:2px;cursor:pointer;transition:background .2s}
+  .add:hover{background:#f2b556}
+  .add.added{background:var(--ok);color:var(--ink)}
+
+  /* cart drawer */
+  .scrim{position:fixed;inset:0;background:rgba(4,12,18,.6);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s;z-index:80}
+  .scrim.on{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;inset-inline-end:0;height:100%;width:min(430px,100%);background:var(--ink-2);border-inline-start:1px solid var(--line);z-index:90;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .28s ease}
+  html[dir="rtl"] .drawer{transform:translateX(-100%)}
+  .drawer.on{transform:none!important}
+  .dhead{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line)}
+  .dhead h2{font-family:var(--disp);font-size:19px}
+  .closex{background:none;border:1px solid var(--line);color:var(--paper);width:34px;height:32px;border-radius:2px;cursor:pointer;font-size:16px}
+  .ditems{flex:1;overflow-y:auto;padding:8px 22px}
+  .citem{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+  .citem .thumb{width:56px;height:44px;background-color:#f6f7f8;background-repeat:no-repeat;background-position:center;background-size:contain;background-origin:content-box;padding:4px;border-radius:3px;border:1px solid var(--line)}
+  .citem .nm{font-size:13.5px;line-height:1.3}
+  .citem .sk{font-family:var(--mono);font-size:11px;color:var(--amber);direction:ltr}
+  .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+  .qty button{width:24px;height:24px;border:1px solid var(--line);background:var(--ink-3);color:var(--paper);border-radius:2px;cursor:pointer;font-size:14px;line-height:1}
+  .qty span{font-family:var(--mono);font-size:13px;min-width:18px;text-align:center}
+  .citem .lt{font-family:var(--mono);font-size:13.5px;white-space:nowrap;direction:ltr}
+  .rm{background:none;border:none;color:var(--steel-dim);font-size:11px;cursor:pointer;text-decoration:underline;padding:0;margin-top:6px}
+  .rm:hover{color:var(--err)}
+  .empty{color:var(--steel);text-align:center;padding:50px 0;font-size:14.5px}
+  .dfoot{border-top:1px solid var(--line);padding:18px 22px 22px;background:var(--ink)}
+  .trow{display:flex;justify-content:space-between;font-size:14px;color:var(--steel);margin-bottom:6px}
+  .trow.total{color:var(--paper);font-family:var(--disp);font-size:20px;margin:10px 0 16px}
+  .trow span:last-child{font-family:var(--mono);direction:ltr}
+  .btn-solid{background:var(--amber);color:var(--ink);font-weight:700;font-size:15px;padding:14px 22px;border:none;border-radius:2px;cursor:pointer;width:100%;transition:background .2s}
+  .btn-solid:hover{background:#f2b556}
+  .btn-solid:disabled{opacity:.55;cursor:not-allowed}
+
+  /* checkout form */
+  .co{padding:4px 22px 10px}
+  .co h3{font-family:var(--disp);font-size:16px;margin-bottom:4px}
+  .co .note{font-size:12.5px;color:var(--steel);margin-bottom:14px}
+  .f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .field{margin-bottom:10px}
+  .field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--steel);margin-bottom:5px}
+  .field input{width:100%;background:var(--ink);border:1px solid var(--line);color:var(--paper);border-radius:3px;padding:10px 12px;font-family:var(--sans);font-size:14.5px}
+  .field input:focus{outline:none;border-color:var(--amber)}
+  .field input.bad{border-color:var(--err)}
+  .msg{font-size:13px;padding:10px 12px;border-radius:3px;margin-bottom:12px;display:none}
+  .msg.on{display:block;background:rgba(224,122,107,.12);border:1px solid var(--err);color:var(--err)}
+  .secure{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:12px;font-size:11.5px;color:var(--steel-dim);font-family:var(--mono)}
+  .demo-note{font-size:11.5px;color:var(--amber);border:1px dashed var(--amber-deep);padding:8px 10px;border-radius:3px;margin-bottom:12px;display:none}
+  .demo-note.on{display:block}
+
+  footer{border-top:1px solid var(--line);padding:34px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .foot small{font-family:var(--mono);font-size:12px;color:var(--steel-dim)}
+  .flinks{display:flex;gap:18px;flex-wrap:wrap}
+  .flinks a{font-size:13px;color:var(--steel)}
+  .flinks a:hover{color:var(--paper)}
+
+  html[dir="rtl"] body{direction:rtl}
+  html[dir="rtl"] .sku,html[dir="rtl"] .price,html[dir="rtl"] .specs span{letter-spacing:normal}
+  html[dir="rtl"] .phead p{max-width:none}
+
+  @media (max-width:940px){ .grid{grid-template-columns:1fr 1fr} nav.menu a:not(.cartbtn){display:none} }
+  @media (max-width:640px){ .grid{grid-template-columns:1fr} .f2{grid-template-columns:1fr} }
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brandlogo" aria-label="Truman Electronics — home"><img src="assets/logo.png" alt="Truman Electronics" class="logo-img"></a>
+    <nav class="menu">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="range.html" data-i18n="nav_range">Range</a>
+      <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+      <button class="langbtn" id="langbtn" aria-label="Switch language">العربية</button>
+      <button class="cartbtn" id="cartbtn"><span data-i18n="sh_cart">Cart</span><span class="count" id="cartCount">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="phead">
+  <div class="wrap">
+    <a href="index.html" class="back" data-i18n="rp_back">← Back to home</a>
+    <h1 data-i18n="sh_title">Shop</h1>
+    <p data-i18n="sh_intro">Order Truman products online. Pay securely by card, mobile wallet or at a kiosk — delivered across Egypt.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="brandlogo"><img src="assets/logo.png" alt="Truman Electronics" class="logo-img"></a>
+    <div class="flinks">
+      <a href="index.html#products" data-i18n="nav_products">Products</a>
+      <a href="range.html" data-i18n="nav_range">Range</a>
+      <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+    </div>
+    <small data-i18n="foot_tag">Your life partner · Since 1987 · Hotline 19903</small>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="dhead">
+    <h2 data-i18n="sh_yourcart">Your cart</h2>
+    <button class="closex" id="closeCart" aria-label="Close">✕</button>
+  </div>
+  <div class="ditems" id="ditems"></div>
+  <div class="dfoot" id="dfoot"></div>
+</aside>
+
+<script src="assets/i18n.js"></script>
+<script>
+(function(){
+  var CUR = 'EGP', SHIP = {flat_rate_cents:0, free_over_cents:null}, PRODUCTS = [], FILTER = 'all', LIVE = true;
+  var cart = {};                       // sku -> qty
+  try { cart = JSON.parse(localStorage.getItem('truman_cart') || '{}'); } catch(e){ cart = {}; }
+
+  function isAr(){ return document.documentElement.dir === 'rtl'; }
+  function t(en, ar){ return isAr() ? ar : en; }
+  function money(cents){
+    var v = (cents/100).toLocaleString(isAr() ? 'ar-EG' : 'en-EG', {minimumFractionDigits:2, maximumFractionDigits:2});
+    return v + ' ' + t('EGP','ج.م');
+  }
+  function persist(){ try{ localStorage.setItem('truman_cart', JSON.stringify(cart)); }catch(e){} }
+
+  // ---------- catalogue ----------
+  fetch('/api/catalog').then(function(r){ return r.json(); }).then(function(d){
+    CUR = d.currency || 'EGP'; SHIP = d.shipping || SHIP; PRODUCTS = d.products || []; LIVE = (d.payments_live !== false);
+    renderFilters(); renderGrid(); renderCart();
+  }).catch(function(){
+    document.getElementById('grid').innerHTML =
+      '<p style="color:var(--steel)">'+t('Could not load products. Please refresh.','تعذّر تحميل المنتجات. يرجى التحديث.')+'</p>';
+  });
+
+  var CATS = {
+    all:       ['All products','كل المنتجات'],
+    receivers: ['Receivers','رسيفرات'],
+    tv:        ['Televisions','شاشات'],
+    kitchen:   ['Kitchen','المطبخ'],
+    distribution:['Distribution','التوزيع']
+  };
+  function renderFilters(){
+    var present = ['all'].concat(PRODUCTS.map(function(p){return p.category;})
+      .filter(function(v,i,a){ return a.indexOf(v)===i; }));
+    document.getElementById('filters').innerHTML = present.map(function(c){
+      var lbl = CATS[c] ? t(CATS[c][0], CATS[c][1]) : c;
+      return '<button class="filt'+(c===FILTER?' on':'')+'" data-cat="'+c+'">'+lbl+'</button>';
+    }).join('');
+  }
+  document.getElementById('filters').addEventListener('click', function(e){
+    var b = e.target.closest('.filt'); if(!b) return;
+    FILTER = b.getAttribute('data-cat'); renderFilters(); renderGrid();
+  });
+
+  function renderGrid(){
+    var list = PRODUCTS.filter(function(p){ return FILTER==='all' || p.category===FILTER; });
+    document.getElementById('grid').innerHTML = list.map(function(p){
+      return '<article class="card">'+
+        '<div class="ph" style="background-image:url(\''+p.image+'\')"></div>'+
+        '<div class="body">'+
+          '<span class="sku">'+p.sku+'</span>'+
+          '<h3>'+(isAr()? p.name_ar : p.name_en)+'</h3>'+
+          '<p class="desc">'+(isAr()? p.desc_ar : p.desc_en)+'</p>'+
+          '<div class="specs">'+(p.specs||[]).map(function(s){return '<span>'+s+'</span>';}).join('')+'</div>'+
+          '<div class="buyrow">'+
+            '<span class="price">'+money(p.price_cents)+'</span>'+
+            '<button class="add" data-sku="'+p.sku+'">'+t('Add to cart','أضف للسلة')+'</button>'+
+          '</div>'+
+        '</div></article>';
+    }).join('');
+  }
+  document.getElementById('grid').addEventListener('click', function(e){
+    var b = e.target.closest('.add'); if(!b) return;
+    var sku = b.getAttribute('data-sku');
+    cart[sku] = (cart[sku]||0) + 1; persist(); renderCart();
+    b.textContent = t('Added ✓','تمت الإضافة ✓'); b.classList.add('added');
+    setTimeout(function(){ b.textContent = t('Add to cart','أضف للسلة'); b.classList.remove('added'); }, 1200);
+  });
+
+  // ---------- cart ----------
+  function lines(){
+    return Object.keys(cart).map(function(sku){
+      var p = PRODUCTS.find(function(x){ return x.sku===sku; });
+      if(!p) return null;
+      return { p:p, qty:cart[sku], total:p.price_cents*cart[sku] };
+    }).filter(Boolean);
+  }
+  function totals(){
+    var L = lines(), sub = L.reduce(function(a,l){ return a+l.total; },0);
+    var ship = L.length===0 ? 0
+             : (SHIP.free_over_cents!=null && sub>=SHIP.free_over_cents) ? 0
+             : (SHIP.flat_rate_cents||0);
+    return { sub:sub, ship:ship, total:sub+ship, count:L.reduce(function(a,l){return a+l.qty;},0) };
+  }
+
+  function renderCart(){
+    var L = lines(), T = totals();
+    document.getElementById('cartCount').textContent = T.count;
+
+    document.getElementById('ditems').innerHTML = L.length ? L.map(function(l){
+      return '<div class="citem">'+
+        '<div class="thumb" style="background-image:url(\''+l.p.image+'\')"></div>'+
+        '<div><div class="nm">'+(isAr()? l.p.name_ar : l.p.name_en)+'</div>'+
+        '<div class="sk">'+l.p.sku+'</div>'+
+        '<div class="qty"><button data-dec="'+l.p.sku+'">−</button><span>'+l.qty+'</span><button data-inc="'+l.p.sku+'">+</button></div>'+
+        '<button class="rm" data-rm="'+l.p.sku+'">'+t('Remove','إزالة')+'</button></div>'+
+        '<div class="lt">'+money(l.total)+'</div></div>';
+    }).join('') : '<p class="empty">'+t('Your cart is empty.','سلتك فارغة.')+'</p>';
+
+    document.getElementById('dfoot').innerHTML = L.length ? (
+      '<div class="trow"><span>'+t('Subtotal','الإجمالي الفرعي')+'</span><span>'+money(T.sub)+'</span></div>'+
+      '<div class="trow"><span>'+t('Shipping','الشحن')+'</span><span>'+(T.ship===0? t('Free','مجاني') : money(T.ship))+'</span></div>'+
+      '<div class="trow total"><span>'+t('Total','الإجمالي')+'</span><span>'+money(T.total)+'</span></div>'+
+      '<button class="btn-solid" id="toCheckout">'+t('Checkout','إتمام الشراء')+'</button>'+
+      '<div class="secure">🔒 '+t('Secure payment by Paymob','دفع آمن عبر Paymob')+'</div>'
+    ) : '';
+  }
+
+  document.getElementById('ditems').addEventListener('click', function(e){
+    var inc=e.target.getAttribute('data-inc'), dec=e.target.getAttribute('data-dec'), rm=e.target.getAttribute('data-rm');
+    if(inc){ cart[inc]=Math.min(20,(cart[inc]||0)+1); }
+    else if(dec){ cart[dec]=(cart[dec]||0)-1; if(cart[dec]<1) delete cart[dec]; }
+    else if(rm){ delete cart[rm]; }
+    else return;
+    persist(); renderCart();
+  });
+
+  function openCart(o){
+    document.getElementById('drawer').classList.toggle('on', o);
+    document.getElementById('scrim').classList.toggle('on', o);
+  }
+  document.getElementById('cartbtn').addEventListener('click', function(){ openCart(true); });
+  document.getElementById('closeCart').addEventListener('click', function(){ openCart(false); });
+  document.getElementById('scrim').addEventListener('click', function(){ openCart(false); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') openCart(false); });
+
+  // ---------- checkout ----------
+  document.getElementById('dfoot').addEventListener('click', function(e){
+    if(e.target.id === 'toCheckout') showCheckout();
+  });
+
+  function showCheckout(){
+    var T = totals();
+    document.getElementById('ditems').innerHTML =
+      '<div class="co">'+
+        '<h3>'+t('Delivery details','بيانات التوصيل')+'</h3>'+
+        '<p class="note">'+t('We only use these to deliver your order and issue the receipt.','نستخدمها فقط لتوصيل طلبك وإصدار الإيصال.')+'</p>'+
+        '<div class="demo-note" id="demoNote">'+t('Demo mode: no live payment keys are configured yet, so no money will be charged.','وضع تجريبي: لم يتم ضبط مفاتيح الدفع بعد، ولن يتم خصم أي مبلغ.')+'</div>'+
+        '<div class="msg" id="coMsg"></div>'+
+        '<div class="f2">'+
+          '<div class="field"><label>'+t('First name','الاسم الأول')+'</label><input id="f_first" autocomplete="given-name"></div>'+
+          '<div class="field"><label>'+t('Last name','اسم العائلة')+'</label><input id="f_last" autocomplete="family-name"></div>'+
+        '</div>'+
+        '<div class="field"><label>'+t('Email','البريد الإلكتروني')+'</label><input id="f_email" type="email" autocomplete="email" dir="ltr"></div>'+
+        '<div class="field"><label>'+t('Mobile number','رقم الموبايل')+'</label><input id="f_phone" type="tel" placeholder="01xxxxxxxxx" autocomplete="tel" dir="ltr"></div>'+
+        '<div class="field"><label>'+t('Address','العنوان')+'</label><input id="f_street" autocomplete="street-address"></div>'+
+        '<div class="field"><label>'+t('City','المدينة')+'</label><input id="f_city" autocomplete="address-level2"></div>'+
+      '</div>';
+    document.getElementById('dfoot').innerHTML =
+      '<div class="trow total"><span>'+t('Total','الإجمالي')+'</span><span>'+money(T.total)+'</span></div>'+
+      '<button class="btn-solid" id="payNow">'+t('Pay now','ادفع الآن')+'</button>'+
+      '<div class="secure">🔒 '+t('You will be redirected to Paymob to pay','سيتم تحويلك إلى Paymob للدفع')+'</div>';
+
+    if(!LIVE) document.getElementById('demoNote').classList.add('on');
+    document.getElementById('payNow').addEventListener('click', pay);
+  }
+
+  function pay(){
+    var msg = document.getElementById('coMsg');
+    var get = function(id){ return (document.getElementById(id).value||'').trim(); };
+    var billing = {
+      first_name:get('f_first'), last_name:get('f_last'), email:get('f_email'),
+      phone:get('f_phone'), street:get('f_street'), city:get('f_city')
+    };
+    ['f_first','f_last','f_email','f_phone'].forEach(function(id){ document.getElementById(id).classList.remove('bad'); });
+    var bad = [];
+    if(!billing.first_name) bad.push('f_first');
+    if(!billing.last_name)  bad.push('f_last');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(billing.email)) bad.push('f_email');
+    if(!/^(\+?20)?0?1[0-9]{9}$/.test(billing.phone.replace(/[\s-]/g,''))) bad.push('f_phone');
+    if(bad.length){
+      bad.forEach(function(id){ document.getElementById(id).classList.add('bad'); });
+      msg.textContent = t('Please check the highlighted fields — a valid Egyptian mobile number is required.',
+                          'يرجى مراجعة الحقول المظللة — مطلوب رقم موبايل مصري صحيح.');
+      msg.classList.add('on'); return;
+    }
+    msg.classList.remove('on');
+
+    var items = Object.keys(cart).map(function(sku){ return { sku:sku, qty:cart[sku] }; });
+    var btn = document.getElementById('payNow');
+    btn.disabled = true; btn.textContent = t('Preparing payment…','جارٍ تجهيز الدفع…');
+
+    fetch('/api/checkout', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ items: items, billing: billing })
+    }).then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
+      .then(function(res){
+        if(!res.ok || !res.j.ok) throw new Error(res.j.error || 'failed');
+        try { localStorage.setItem('truman_last_order', res.j.order_ref); } catch(e){}
+        cart = {}; persist();                     // cart is now represented by the order
+        window.location.href = res.j.checkout_url;
+      })
+      .catch(function(err){
+        btn.disabled = false; btn.textContent = t('Pay now','ادفع الآن');
+        var m = document.getElementById('coMsg');
+        m.textContent = err.message === 'empty_cart'
+          ? t('Your cart is empty.','سلتك فارغة.')
+          : t('Could not start payment. Please try again, or call 19903.',
+              'تعذّر بدء الدفع. يرجى المحاولة مرة أخرى أو الاتصال بـ 19903.');
+        m.classList.add('on');
+      });
+  }
+
+  // re-render on language switch
+  var obs = new MutationObserver(function(){ renderFilters(); renderGrid(); renderCart(); });
+  obs.observe(document.documentElement, { attributes:true, attributeFilter:['dir'] });
+})();
+</script>
+</body>
+</html>

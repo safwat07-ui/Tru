@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Order status — Truman Electronics</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --sans:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+    --disp:"Arial Black","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+    --ink:#081722; --ink-2:#0e2433; --ink-3:#15303f; --line:#20404f;
+    --paper:#F4EFE4; --amber:#E8A33D; --steel:#8CA3B1; --steel-dim:#5f7887;
+    --ok:#57c9a8; --err:#e07a6b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:17px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:720px;margin:0 auto;padding:0 26px;width:100%}
+  header{border-bottom:1px solid var(--line);padding:16px 0}
+  .logo-img{height:30px;width:auto;display:block}
+  main{flex:1;display:flex;align-items:center;padding:56px 0}
+  .panel{background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:40px 38px;width:100%}
+  .icon{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:27px;margin-bottom:20px}
+  .icon.ok{background:rgba(87,201,168,.14);border:1px solid var(--ok);color:var(--ok)}
+  .icon.wait{background:rgba(232,163,61,.14);border:1px solid var(--amber);color:var(--amber)}
+  .icon.err{background:rgba(224,122,107,.14);border:1px solid var(--err);color:var(--err)}
+  h1{font-family:var(--disp);font-size:clamp(25px,4.4vw,38px);letter-spacing:-.02em;line-height:1.1}
+  .lede{color:var(--steel);margin-top:12px;font-size:15.5px}
+  .ref{font-family:var(--mono);font-size:13px;color:var(--amber);background:var(--ink-3);border:1px solid var(--line);padding:9px 13px;border-radius:3px;display:inline-block;margin-top:20px;direction:ltr}
+  .sum{margin-top:24px;border-top:1px solid var(--line);padding-top:18px}
+  .ln{display:flex;justify-content:space-between;gap:14px;font-size:14px;color:var(--steel);padding:6px 0}
+  .ln span:last-child{font-family:var(--mono);color:#dfe6ea;direction:ltr;white-space:nowrap}
+  .ln.tot{color:var(--paper);font-family:var(--disp);font-size:18px;border-top:1px solid var(--line);margin-top:8px;padding-top:14px}
+  .acts{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+  .btn{background:var(--amber);color:var(--ink);font-weight:700;font-size:15px;padding:13px 22px;border-radius:2px;border:none;cursor:pointer}
+  .btn:hover{background:#f2b556}
+  .btn-ghost{border:1px solid var(--line);color:var(--paper);padding:13px 22px;border-radius:2px;font-size:15px}
+  .btn-ghost:hover{border-color:var(--steel)}
+  .demo{margin-top:20px;font-size:12.5px;color:var(--amber);border:1px dashed #c9832a;padding:10px 12px;border-radius:3px}
+  footer{border-top:1px solid var(--line);padding:22px 0}
+  footer small{font-family:var(--mono);font-size:12px;color:var(--steel-dim)}
+  html[dir="rtl"] body{direction:rtl}
+</style>
+</head>
+<body>
+
+<header><div class="wrap"><a href="index.html"><img src="assets/logo.png" alt="Truman Electronics" class="logo-img"></a></div></header>
+
+<main><div class="wrap"><div class="panel" id="panel">
+  <div class="icon wait">⋯</div>
+  <h1 id="h">Checking your payment…</h1>
+  <p class="lede" id="p">One moment while we confirm with the payment provider.</p>
+</div></div></main>
+
+<footer><div class="wrap"><small>Truman Electronics · Hotline 19903 · info@trumanelectronics.com</small></div></footer>
+
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var isAr = false;
+  try { isAr = (localStorage.getItem('truman_lang') === 'ar'); } catch(e){}
+  if(isAr){ document.documentElement.lang='ar'; document.documentElement.dir='rtl'; }
+  function t(en, ar){ return isAr ? ar : en; }
+
+  var ref = q.get('order') || q.get('merchant_order_id') || q.get('special_reference');
+  if(!ref){ try { ref = localStorage.getItem('truman_last_order'); } catch(e){} }
+  var demo = q.get('demo') === '1';
+
+  function money(cents){
+    var v=(cents/100).toLocaleString(isAr?'ar-EG':'en-EG',{minimumFractionDigits:2,maximumFractionDigits:2});
+    return v + ' ' + t('EGP','ج.م');
+  }
+
+  function render(state, order){
+    var icon = state==='paid' ? '<div class="icon ok">✓</div>'
+             : state==='failed' ? '<div class="icon err">!</div>'
+             : '<div class="icon wait">⋯</div>';
+    var title = state==='paid'    ? t('Payment received','تم استلام الدفع')
+              : state==='failed'  ? t('Payment not completed','لم تكتمل عملية الدفع')
+              :                     t('Payment is being confirmed','جارٍ تأكيد الدفع');
+    var lede  = state==='paid'
+        ? t('Thank you. Your order is confirmed and our team will contact you to arrange delivery.',
+            'شكرًا لك. تم تأكيد طلبك وسيتواصل معك فريقنا لترتيب التوصيل.')
+      : state==='failed'
+        ? t('No charge was completed. You can try again, or call 19903 and we will take the order by phone.',
+            'لم يتم خصم أي مبلغ. يمكنك المحاولة مرة أخرى أو الاتصال بـ 19903 وسنستقبل الطلب هاتفيًا.')
+        : t('This can take a few seconds. The page updates by itself — no need to pay again.',
+            'قد يستغرق ذلك بضع ثوانٍ. تُحدَّث الصفحة تلقائيًا — لا داعي للدفع مرة أخرى.');
+
+    var sum = '';
+    if(order && order.lines && order.lines.length){
+      sum = '<div class="sum">' + order.lines.map(function(l){
+        return '<div class="ln"><span>'+l.name+' × '+l.qty+'</span><span>'+money(l.line_total_cents)+'</span></div>';
+      }).join('') +
+      '<div class="ln tot"><span>'+t('Total','الإجمالي')+'</span><span>'+money(order.total_cents)+'</span></div></div>';
+    }
+
+    document.getElementById('panel').innerHTML =
+      icon + '<h1>'+title+'</h1><p class="lede">'+lede+'</p>' +
+      (ref ? '<div class="ref">'+t('Order reference','رقم الطلب')+': '+ref+'</div>' : '') +
+      sum +
+      (demo ? '<div class="demo">'+t('Demo mode — no live payment keys are configured, so no money was charged. Add your Paymob keys to take real payments.',
+                                     'وضع تجريبي — لم يتم ضبط مفاتيح الدفع، ولم يُخصم أي مبلغ. أضف مفاتيح Paymob لاستقبال مدفوعات حقيقية.')+'</div>' : '') +
+      '<div class="acts">' +
+        (state==='failed' ? '<a href="shop.html" class="btn">'+t('Try again','حاول مرة أخرى')+'</a>' : '') +
+        '<a href="shop.html" class="btn-ghost">'+t('Continue shopping','متابعة التسوق')+'</a>' +
+        '<a href="index.html" class="btn-ghost">'+t('Home','الرئيسية')+'</a>' +
+      '</div>';
+  }
+
+  if(demo){ render('pending', null); document.querySelector('.lede').textContent =
+      t('This is a demo order — payment was not processed.','هذا طلب تجريبي — لم تتم معالجة الدفع.'); }
+
+  if(!ref){ render('pending', null); return; }
+
+  // The redirect is only a hint. Status comes from the server, which sets it
+  // from the HMAC-verified webhook. Poll briefly since the webhook may land first.
+  var tries = 0;
+  (function poll(){
+    fetch('/api/order?ref='+encodeURIComponent(ref))
+      .then(function(r){ return r.json(); })
+      .then(function(o){
+        if(!o.ok){ render('pending', null); return; }
+        if(o.status === 'paid'){ render('paid', o); return; }
+        if(o.status === 'payment_failed' || o.status === 'failed'){ render('failed', o); return; }
+        render(demo ? 'pending' : 'pending', o);
+        if(++tries < 10) setTimeout(poll, 2000);
+      })
+      .catch(function(){ render('pending', null); });
+  })();
+})();
+</script>
+</body>
+</html>
