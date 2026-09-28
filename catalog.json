@@ -1,0 +1,118 @@
+{
+  "_comment": "SOURCE OF TRUTH FOR PRICING. The server reads prices from this file and recomputes every order total itself — prices sent by the browser are ignored. Prices below are PLACEHOLDERS in EGP piastres (price_cents). 100000 = EGP 1,000.00. Replace with real retail prices before going live.",
+  "currency": "EGP",
+  "products": [
+    {
+      "sku": "TM-G200",
+      "name_en": "TM G200 Satellite Receiver",
+      "name_ar": "رسيفر ساتلايت TM G200",
+      "desc_en": "Full-HD DVB-S2 with built-in Wi-Fi, U-cast phone mirroring and an online video library.",
+      "desc_ar": "DVB-S2 عالي الوضوح مع واي-فاي مدمج وبث شاشة الهاتف U-cast ومكتبة فيديو أونلاين.",
+      "category": "receivers",
+      "price_cents": 145000,
+      "image": "assets/p-receiver.jpg",
+      "specs": ["DVB-S2", "1080p", "U-cast", "Wi-Fi"],
+      "in_stock": true
+    },
+    {
+      "sku": "TM-5001SK",
+      "name_en": "50\" UHD Smart TV",
+      "name_ar": "شاشة UHD ذكية 50 بوصة",
+      "desc_en": "4K resolution (3840×2160) with three HDMI inputs and RJ45.",
+      "desc_ar": "دقة 4K (3840×2160) مع ثلاثة منافذ HDMI ومنفذ RJ45.",
+      "category": "tv",
+      "price_cents": 2650000,
+      "image": "assets/p-tv.jpg",
+      "specs": ["50\"", "3840×2160", "3× HDMI", "RJ45"],
+      "in_stock": true
+    },
+    {
+      "sku": "TM-4301K",
+      "name_en": "43\" FHD Smart LED TV",
+      "name_ar": "شاشة LED ذكية 43 بوصة",
+      "desc_en": "Full-HD 1920×1080 panel with three HDMI inputs.",
+      "desc_ar": "لوحة Full-HD بدقة 1920×1080 مع ثلاثة منافذ HDMI.",
+      "category": "tv",
+      "price_cents": 1580000,
+      "image": "assets/p-tv.jpg",
+      "specs": ["43\"", "1920×1080", "3× HDMI", "65 W"],
+      "in_stock": true
+    },
+    {
+      "sku": "TM-3201K",
+      "name_en": "32\" HD LED TV",
+      "name_ar": "شاشة LED 32 بوصة",
+      "desc_en": "1366×768 display with dual USB and HDMI.",
+      "desc_ar": "شاشة 1366×768 مع منفذي USB و HDMI.",
+      "category": "tv",
+      "price_cents": 990000,
+      "image": "assets/p-tv.jpg",
+      "specs": ["32\"", "1366×768", "2× HDMI", "48 W"],
+      "in_stock": true
+    },
+    {
+      "sku": "TM-G2501",
+      "name_en": "Gas Stove — Shining SS Finish",
+      "name_ar": "بوتاجاز — ستانلس ستيل لامع",
+      "desc_en": "Three cast-iron burners with auto-ignition and precise flame control — 3.1 kW, LPG.",
+      "desc_ar": "ثلاث شعلات من الحديد الزهر مع إشعال أوتوماتيكي وتحكم دقيق في اللهب — 3.1 كيلوواط، غاز LPG.",
+      "category": "kitchen",
+      "price_cents": 380000,
+      "image": "assets/p-stove.jpg",
+      "specs": ["3 burners", "Auto-ignition", "LPG"],
+      "in_stock": true
+    },
+    {
+      "sku": "TM-G2503",
+      "name_en": "Gas Stove — Marble Surface",
+      "name_ar": "بوتاجاز — سطح رخامي",
+      "desc_en": "Marble surface finish, three burners, auto-ignition — 3.1 kW, LPG.",
+      "desc_ar": "تشطيب سطح رخامي، ثلاث شعلات، إشعال أوتوماتيكي — 3.1 كيلوواط، غاز LPG.",
+      "category": "kitchen",
+      "price_cents": 395000,
+      "image": "assets/p-stove.jpg",
+      "specs": ["Marble", "3 burners", "LPG"],
+      "in_stock": true
+    },
+    {
+      "sku": "TM-k2501",
+      "name_en": "Electric Glass Kettle — Black",
+      "name_ar": "غلاية زجاجية كهربائية — أسود",
+      "desc_en": "1500 W tempered-glass kettle, 304 stainless element, auto shut-off, cordless base.",
+      "desc_ar": "غلاية 1500 واط من الزجاج المقوّى، عنصر ستانلس 304، فصل أوتوماتيكي، قاعدة لاسلكية.",
+      "category": "kitchen",
+      "price_cents": 145000,
+      "image": "assets/p-stove.jpg",
+      "specs": ["1500 W", "1.7 L", "Cordless"],
+      "in_stock": true
+    },
+    {
+      "sku": "TM-9916CC",
+      "name_en": "9/16 Cascade Multiswitch",
+      "name_ar": "مالتي سويتش متتابع 9/16",
+      "desc_en": "Distributes satellite & terrestrial signal to up to 16 subscribers — 4K HDR and 3D ready.",
+      "desc_ar": "يوزّع إشارة الساتلايت والأرضي حتى 16 مشتركًا — يدعم 4K HDR والأبعاد الثلاثية.",
+      "category": "distribution",
+      "price_cents": 720000,
+      "image": "assets/p-multiswitch.jpg",
+      "specs": ["9-in", "16-out", "4K HDR"],
+      "in_stock": true
+    },
+    {
+      "sku": "TM-9908CC",
+      "name_en": "9/8 Cascade Multiswitch",
+      "name_ar": "مالتي سويتش متتابع 9/8",
+      "desc_en": "Distributes satellite & terrestrial signal to up to 8 subscribers — 4K HDR.",
+      "desc_ar": "يوزّع إشارة الساتلايت والأرضي حتى 8 مشتركين — يدعم 4K HDR.",
+      "category": "distribution",
+      "price_cents": 480000,
+      "image": "assets/p-multiswitch.jpg",
+      "specs": ["9-in", "8-out", "4K HDR"],
+      "in_stock": true
+    }
+  ],
+  "shipping": {
+    "flat_rate_cents": 15000,
+    "free_over_cents": 2000000
+  }
+}
