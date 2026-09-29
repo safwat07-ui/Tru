@@ -8,7 +8,7 @@
       "name_ar": "رسيفر TM I World Pro — أسود",
       "desc_en": "Top of the receiver range: 2 GB RAM, Bluetooth and standard remotes, internal Wi-Fi antenna, USB PVR and up to 2,500 transponders.",
       "desc_ar": "قمة تشكيلة الرسيفرات: ذاكرة 2 جيجا، ريموت بلوتوث وعادي، هوائي واي-فاي داخلي، تسجيل USB وحتى 2500 تردد.",
-      "image": "assets/p-receiver.jpg",
+      "image": "TM-IWORLD-PRO.jpg",
       "specs": ["2 GB RAM", "2500 tp", "Bluetooth remote", "Wi-Fi"] },
 
     { "sku": "TM-IVISION-GOLD", "category": "receivers", "in_stock": true, "price_cents": 195000,
@@ -16,7 +16,7 @@
       "name_ar": "رسيفر TM i-visionPro — ذهبي",
       "desc_en": "Full-HD DVB-S2 receiver with e-cast phone mirroring, internal Wi-Fi antenna and USB PVR.",
       "desc_ar": "رسيفر DVB-S2 عالي الوضوح مع بث شاشة الهاتف e-cast وهوائي واي-فاي داخلي وتسجيل USB.",
-      "image": "assets/p-receiver.jpg",
+      "image": "TM-IVISION-GOLD.jpg",
       "specs": ["1080p", "e-cast", "Wi-Fi", "USB PVR"] },
 
     { "sku": "TM-G200", "category": "receivers", "in_stock": true, "price_cents": 145000,
@@ -24,7 +24,7 @@
       "name_ar": "رسيفر ساتلايت TM G200",
       "desc_en": "Full-HD DVB-S2 with built-in Wi-Fi, U-cast phone mirroring and an online video library. SunPlus 1506, 512 MB DDR2.",
       "desc_ar": "DVB-S2 عالي الوضوح مع واي-فاي مدمج وبث شاشة الهاتف U-cast ومكتبة فيديو أونلاين. معالج SunPlus 1506 وذاكرة 512 ميجا.",
-      "image": "assets/p-receiver.jpg",
+      "image": "TM-G200.jpg",
       "specs": ["DVB-S2", "1080p", "U-cast", "Wi-Fi"] },
 
     { "sku": "TM-V55-ULTRA", "category": "receivers", "in_stock": true, "price_cents": 165000,
@@ -32,7 +32,7 @@
       "name_ar": "رسيفر TM V55 Ultra",
       "desc_en": "Supports up to 8,000 channels with Full-HD 1080p and 4K resolution output.",
       "desc_ar": "يدعم حتى 8000 قناة بدقة Full HD 1080p و4K.",
-      "image": "assets/p-receiver.jpg",
+      "image": "TM-V55-ULTRA.jpg",
       "specs": ["8000 ch", "4K", "DVB-S2"] },
 
     { "sku": "TM-1010", "category": "receivers", "in_stock": true, "price_cents": 155000,
@@ -40,7 +40,7 @@
       "name_ar": "رسيفر TM 1010",
       "desc_en": "8,000-channel capacity with internal Wi-Fi antenna, Full-HD and 4K resolution support.",
       "desc_ar": "سعة 8000 قناة مع هوائي واي-فاي داخلي ودعم دقة Full HD و4K.",
-      "image": "assets/p-receiver.jpg",
+      "image": "TM-1010.jpg",
       "specs": ["8000 ch", "4K", "Wi-Fi"] },
 
     { "sku": "TM-SKG25", "category": "receivers", "in_stock": true, "price_cents": 115000,
@@ -48,7 +48,7 @@
       "name_ar": "رسيفر TM-SKG 25",
       "desc_en": "Two USB ports, 8,000-channel capacity, EPG and timer support. Works with any remote without conversion.",
       "desc_ar": "منفذا USB، سعة 8000 قناة، دليل برامج ومؤقّت. يعمل مع أي ريموت دون تحويل.",
-      "image": "assets/p-receiver.jpg",
+      "image": "TM-SKG25.jpg",
       "specs": ["8000 ch", "2× USB", "EPG", "Timer"] },
 
     { "sku": "TM-7K", "category": "receivers", "in_stock": true, "price_cents": 160000,
@@ -56,7 +56,7 @@
       "name_ar": "رسيفر TM 7K",
       "desc_en": "4K Ultra HD output with e-cast phone mirroring and 8,000-channel capacity.",
       "desc_ar": "خرج 4K Ultra HD مع بث شاشة الهاتف e-cast وسعة 8000 قناة.",
-      "image": "assets/p-receiver.jpg",
+      "image": "TM-7K.jpg",
       "specs": ["4K UHD", "e-cast", "8000 ch"] },
 
     { "sku": "TM-4K", "category": "receivers", "in_stock": true, "price_cents": 158000,
@@ -64,7 +64,7 @@
       "name_ar": "رسيفر TM 4K",
       "desc_en": "4K Ultra HD output with e-cast phone mirroring, 8,000 channels and multi-language menus.",
       "desc_ar": "خرج 4K Ultra HD مع بث شاشة الهاتف e-cast و8000 قناة وقوائم متعددة اللغات.",
-      "image": "assets/p-receiver.jpg",
+      "image": "TM-4K.jpg",
       "specs": ["4K UHD", "e-cast", "8000 ch"] },
 
     { "sku": "TM-AN38", "category": "receivers", "in_stock": true, "price_cents": 125000,
@@ -72,7 +72,7 @@
       "name_ar": "رسيفر TM AN 38",
       "desc_en": "Includes a Holy Qur'an library and YouTube access, with 5,000-channel capacity.",
       "desc_ar": "يتضمن مكتبة القرآن الكريم والوصول إلى يوتيوب، بسعة 5000 قناة.",
-      "image": "assets/p-receiver.jpg",
+      "image": "TM-AN38.jpg",
       "specs": ["Qur'an library", "YouTube", "5000 ch"] },
 
     { "sku": "TM-3201K", "category": "tv", "in_stock": true, "price_cents": 990000,
@@ -80,7 +80,7 @@
       "name_ar": "شاشة LED مقاس 32 بوصة",
       "desc_en": "1366×768 display with two USB and two HDMI inputs. 48 W.",
       "desc_ar": "شاشة 1366×768 مع منفذي USB ومنفذي HDMI. 48 واط.",
-      "image": "assets/p-tv.jpg",
+      "image": "TM-3201K.jpg",
       "specs": ["32\"", "1366×768", "2× HDMI", "48 W"] },
 
     { "sku": "TM-4301SK", "category": "tv", "in_stock": true, "price_cents": 1480000,
@@ -88,7 +88,7 @@
       "name_ar": "شاشة LED مقاس 43 بوصة",
       "desc_en": "Full-HD 1920×1080 panel with three HDMI inputs and an RJ45 network port.",
       "desc_ar": "لوحة Full HD بدقة 1920×1080 مع ثلاثة منافذ HDMI ومنفذ شبكة RJ45.",
-      "image": "assets/p-tv.jpg",
+      "image": "TM-4301SK.jpg",
       "specs": ["43\"", "1920×1080", "3× HDMI", "RJ45"] },
 
     { "sku": "TM-4301K", "category": "tv", "in_stock": true, "price_cents": 1580000,
@@ -96,7 +96,7 @@
       "name_ar": "شاشة LED ذكية مقاس 43 بوصة",
       "desc_en": "Full-HD 1920×1080 smart panel with three HDMI inputs. 65 W.",
       "desc_ar": "شاشة ذكية Full HD بدقة 1920×1080 مع ثلاثة منافذ HDMI. 65 واط.",
-      "image": "assets/p-tv.jpg",
+      "image": "TM-4301K.jpg",
       "specs": ["43\"", "1920×1080", "3× HDMI", "65 W"] },
 
     { "sku": "TM-5001SK", "category": "tv", "in_stock": true, "price_cents": 2650000,
@@ -104,7 +104,7 @@
       "name_ar": "شاشة UHD ذكية مقاس 50 بوصة",
       "desc_en": "4K resolution (3840×2160) with three HDMI inputs and RJ45 — for home or professional use.",
       "desc_ar": "دقة 4K (3840×2160) مع ثلاثة منافذ HDMI ومنفذ RJ45 — للمنزل أو الاستخدام الاحترافي.",
-      "image": "assets/p-tv.jpg",
+      "image": "TM-5001SK.jpg",
       "specs": ["50\"", "3840×2160", "3× HDMI", "RJ45"] },
 
     { "sku": "TM-G2501", "category": "kitchen", "in_stock": true, "price_cents": 380000,
@@ -112,7 +112,7 @@
       "name_ar": "بوتاجاز — ستانلس ستيل لامع",
       "desc_en": "Three cast-iron burners with auto-ignition and precise flame control. 3.1 kW, LPG.",
       "desc_ar": "ثلاث شعلات من الحديد الزهر مع إشعال أوتوماتيكي وتحكم دقيق في اللهب. 3.1 كيلوواط، غاز LPG.",
-      "image": "assets/p-stove.jpg",
+      "image": "TM-G2501.jpg",
       "specs": ["3 burners", "Auto-ignition", "3.1 kW", "LPG"] },
 
     { "sku": "TM-G2502", "category": "kitchen", "in_stock": true, "price_cents": 385000,
@@ -120,7 +120,7 @@
       "name_ar": "بوتاجاز — ستانلس ستيل مطفي",
       "desc_en": "Matt stainless finish, three cast-iron burners, auto-ignition. 3.1 kW, LPG.",
       "desc_ar": "تشطيب ستانلس مطفي، ثلاث شعلات من الحديد الزهر، إشعال أوتوماتيكي. 3.1 كيلوواط، غاز LPG.",
-      "image": "assets/p-stove.jpg",
+      "image": "TM-G2502.jpg",
       "specs": ["3 burners", "Matt SS", "3.1 kW", "LPG"] },
 
     { "sku": "TM-G2503", "category": "kitchen", "in_stock": true, "price_cents": 395000,
@@ -128,7 +128,7 @@
       "name_ar": "بوتاجاز — سطح رخامي",
       "desc_en": "Marble surface finish with three cast-iron burners and auto-ignition. 3.1 kW, LPG.",
       "desc_ar": "تشطيب سطح رخامي مع ثلاث شعلات من الحديد الزهر وإشعال أوتوماتيكي. 3.1 كيلوواط، غاز LPG.",
-      "image": "assets/p-stove.jpg",
+      "image": "TM-G2503.jpg",
       "specs": ["3 burners", "Marble", "3.1 kW", "LPG"] },
 
     { "sku": "TM-k2501", "category": "kitchen", "in_stock": true, "price_cents": 145000,
@@ -136,7 +136,7 @@
       "name_ar": "غلاية زجاجية كهربائية — أسود",
       "desc_en": "1500 W for fast boiling, with an indicator light and cordless base.",
       "desc_ar": "1500 واط للغليان السريع، مع لمبة بيان وقاعدة لاسلكية.",
-      "image": "assets/ph-kettle.svg",
+      "image": "TM-k2501.jpg",
       "specs": ["1500 W", "Indicator light", "Cordless"] },
 
     { "sku": "TM-k2502", "category": "kitchen", "in_stock": true, "price_cents": 145000,
@@ -144,7 +144,7 @@
       "name_ar": "غلاية زجاجية كهربائية — أزرق",
       "desc_en": "1500 W for fast boiling, with an indicator light and cordless base.",
       "desc_ar": "1500 واط للغليان السريع، مع لمبة بيان وقاعدة لاسلكية.",
-      "image": "assets/ph-kettle.svg",
+      "image": "TM-k2502.jpg",
       "specs": ["1500 W", "Indicator light", "Cordless"] },
 
     { "sku": "TM-k2503", "category": "kitchen", "in_stock": true, "price_cents": 145000,
@@ -152,7 +152,7 @@
       "name_ar": "غلاية زجاجية كهربائية — وردي",
       "desc_en": "1500 W for fast boiling, with an indicator light and cordless base.",
       "desc_ar": "1500 واط للغليان السريع، مع لمبة بيان وقاعدة لاسلكية.",
-      "image": "assets/ph-kettle.svg",
+      "image": "TM-k2503.jpg",
       "specs": ["1500 W", "Indicator light", "Cordless"] },
 
     { "sku": "TM-9908CC", "category": "distribution", "in_stock": true, "price_cents": 480000,
@@ -160,7 +160,7 @@
       "name_ar": "مالتي سويتش متتابع 9/8",
       "desc_en": "Distributes satellite and terrestrial signal to up to 8 subscribers. Full HD, 4K HDR and 3D ready.",
       "desc_ar": "يوزّع إشارة الساتلايت والأرضي حتى 8 مشتركين. يدعم Full HD و4K HDR والأبعاد الثلاثية.",
-      "image": "assets/p-multiswitch.jpg",
+      "image": "TM-9908CC.jpg",
       "specs": ["9-in", "8-out", "4K HDR"] },
 
     { "sku": "TM-9916CC", "category": "distribution", "in_stock": true, "price_cents": 720000,
@@ -168,7 +168,7 @@
       "name_ar": "مالتي سويتش متتابع 9/16",
       "desc_en": "Distributes satellite and terrestrial signal to up to 16 subscribers. 40–860 MHz ANT, 950–2150 MHz SAT.",
       "desc_ar": "يوزّع إشارة الساتلايت والأرضي حتى 16 مشتركًا. نطاق 40–860 ميجاهرتز أرضي و950–2150 ميجاهرتز ساتلايت.",
-      "image": "assets/p-multiswitch.jpg",
+      "image": "TM-9916CC.jpg",
       "specs": ["9-in", "16-out", "4K HDR", "3D"] },
 
     { "sku": "TM-9924CC", "category": "distribution", "in_stock": true, "price_cents": 980000,
@@ -176,7 +176,7 @@
       "name_ar": "مالتي سويتش متتابع 9/24",
       "desc_en": "Distributes satellite and terrestrial signal across 24 outputs. For large or expanding systems.",
       "desc_ar": "يوزّع إشارة الساتلايت والأرضي على 24 مخرجًا. للأنظمة الكبيرة أو المتوسعة.",
-      "image": "assets/p-multiswitch.jpg",
+      "image": "TM-9924CC.jpg",
       "specs": ["9-in", "24-out", "4K UHD"] },
 
     { "sku": "TM-9932CC", "category": "distribution", "in_stock": true, "price_cents": 1250000,
@@ -184,7 +184,7 @@
       "name_ar": "مالتي سويتش متتابع 9/32",
       "desc_en": "The largest of the range, feeding up to 32 subscriber outputs from nine inputs.",
       "desc_ar": "الأكبر في التشكيلة، يغذي حتى 32 مخرجًا للمشتركين من تسعة مداخل.",
-      "image": "assets/p-multiswitch.jpg",
+      "image": "TM-9932CC.jpg",
       "specs": ["9-in", "32-out", "4K HDR"] },
 
     { "sku": "TM-121", "category": "accessories", "in_stock": true, "price_cents": 28000,
@@ -192,7 +192,7 @@
       "name_ar": "وحدة LNB يونيفرسال — منفذ واحد",
       "desc_en": "Single-port Universal KU-Band LNB. Easy to install, low noise figure.",
       "desc_ar": "وحدة LNB يونيفرسال بمنفذ واحد. سهلة التركيب وبمعامل ضوضاء منخفض.",
-      "image": "assets/ph-lnb.svg",
+      "image": "TM-121.jpg",
       "specs": ["Single", "KU-Band", "Universal"] },
 
     { "sku": "TM-221", "category": "accessories", "in_stock": true, "price_cents": 38000,
@@ -200,7 +200,7 @@
       "name_ar": "وحدة LNB يونيفرسال — منفذان",
       "desc_en": "Twin-port KU-Band LNB, feeding two receivers with the same performance as the single-port version.",
       "desc_ar": "وحدة LNB بمنفذين تغذي رسيفرين بنفس أداء نسخة المنفذ الواحد.",
-      "image": "assets/ph-lnb.svg",
+      "image": "TM-221.jpg",
       "specs": ["Twin", "KU-Band", "Universal"] },
 
     { "sku": "TM-421", "category": "accessories", "in_stock": true, "price_cents": 55000,
@@ -208,7 +208,7 @@
       "name_ar": "وحدة LNB يونيفرسال — 4 منافذ",
       "desc_en": "Quad LNB for feeding up to four receivers from a single dish.",
       "desc_ar": "وحدة LNB رباعية لتغذية حتى أربعة رسيفرات من طبق واحد.",
-      "image": "assets/ph-lnb.svg",
+      "image": "TM-421.jpg",
       "specs": ["Quad", "KU-Band", "Universal"] },
 
     { "sku": "TM-821", "category": "accessories", "in_stock": true, "price_cents": 85000,
@@ -216,7 +216,7 @@
       "name_ar": "وحدة LNB يونيفرسال — 8 منافذ",
       "desc_en": "Octo LNB supporting up to eight receivers. Suited to larger installations.",
       "desc_ar": "وحدة LNB ثمانية تدعم حتى ثمانية رسيفرات. مناسبة للتركيبات الكبيرة.",
-      "image": "assets/ph-lnb.svg",
+      "image": "TM-821.jpg",
       "specs": ["Octo", "KU-Band", "Universal"] },
 
     { "sku": "TR-801-4", "category": "accessories", "in_stock": true, "price_cents": 18000,
@@ -224,7 +224,7 @@
       "name_ar": "مفتاح DiSEqC موديل TR-801 — 4 منافذ",
       "desc_en": "Connects up to four satellites to a single receiver. Compact, sleek construction.",
       "desc_ar": "يربط حتى أربعة أقمار برسيفر واحد. تصميم أنيق ومدمج.",
-      "image": "assets/ph-lnb.svg",
+      "image": "TR-801-4.jpg",
       "specs": ["4 ports", "DiSEqC"] },
 
     { "sku": "TR-801-8", "category": "accessories", "in_stock": true, "price_cents": 26000,
@@ -232,7 +232,7 @@
       "name_ar": "مفتاح DiSEqC موديل TR-801 — 8 منافذ",
       "desc_en": "Supports up to eight satellites, with the same efficiency as the four-port version.",
       "desc_ar": "يدعم حتى ثمانية أقمار بنفس كفاءة نسخة الأربعة منافذ.",
-      "image": "assets/ph-lnb.svg",
+      "image": "TR-801-8.jpg",
       "specs": ["8 ports", "DiSEqC"] },
 
     { "sku": "3700GC", "category": "accessories", "in_stock": true, "price_cents": 350000,
@@ -240,7 +240,7 @@
       "name_ar": "جهاز ضبط الطبق 3700 GC",
       "desc_en": "DVB-S/S2 meter with a 3.5\" screen, spectrum analyzer and CCTV camera testing for fast dish alignment.",
       "desc_ar": "جهاز DVB-S/S2 بشاشة 3.5 بوصة مع محلل طيف واختبار كاميرات المراقبة لضبط الطبق بسرعة.",
-      "image": "assets/ph-finder.svg",
+      "image": "3700GC.jpg",
       "specs": ["3.5\" screen", "DVB-S2", "Spectrum", "CCTV test"] },
 
     { "sku": "MOUNT-P4", "category": "accessories", "in_stock": true, "price_cents": 65000,
@@ -248,7 +248,7 @@
       "name_ar": "حامل شاشة متحرك P4",
       "desc_en": "Full-motion wall mount with tilt and swivel.",
       "desc_ar": "حامل جداري كامل الحركة مع إمالة ودوران.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-P4.jpg",
       "specs": ["Full-motion", "Tilt", "Swivel"] },
 
     { "sku": "MOUNT-P6", "category": "accessories", "in_stock": true, "price_cents": 78000,
@@ -256,7 +256,7 @@
       "name_ar": "حامل شاشة متحرك P6",
       "desc_en": "Full-motion wall mount for larger panels.",
       "desc_ar": "حامل جداري كامل الحركة للشاشات الأكبر.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-P6.jpg",
       "specs": ["Full-motion", "Large panels"] },
 
     { "sku": "MOUNT-P65", "category": "accessories", "in_stock": true, "price_cents": 95000,
@@ -264,7 +264,7 @@
       "name_ar": "حامل شاشة متحرك P65",
       "desc_en": "Heavy-duty full-motion mount for the largest screens in the range.",
       "desc_ar": "حامل كامل الحركة وتحمّل عالٍ لأكبر الشاشات في التشكيلة.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-P65.jpg",
       "specs": ["Full-motion", "Heavy duty"] },
 
     { "sku": "MOUNT-502-PLUS", "category": "accessories", "in_stock": true, "price_cents": 88000,
@@ -272,7 +272,7 @@
       "name_ar": "حامل متحرك Bracket 502 Plus",
       "desc_en": "Moving wall mount with extended reach for corner and angled installations.",
       "desc_ar": "حامل جداري متحرك بذراع ممتد للتركيب في الأركان والزوايا.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-502-PLUS.jpg",
       "specs": ["Moving", "Extended reach"] },
 
     { "sku": "MOUNT-TM-K40", "category": "accessories", "in_stock": true, "price_cents": 72000,
@@ -280,7 +280,7 @@
       "name_ar": "حامل شاشة متحرك TM-K40",
       "desc_en": "Moving wall mount with tilt and swivel adjustment.",
       "desc_ar": "حامل جداري متحرك مع ضبط الإمالة والدوران.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-TM-K40.jpg",
       "specs": ["Moving", "Tilt & swivel"] },
 
     { "sku": "MOUNT-YT-1442", "category": "accessories", "in_stock": true, "price_cents": 28000,
@@ -288,7 +288,7 @@
       "name_ar": "حامل شاشة ثابت YT-1442",
       "desc_en": "Slim fixed wall mount that holds the screen close to the wall.",
       "desc_ar": "حامل جداري ثابت نحيف يبقي الشاشة قريبة من الحائط.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-YT-1442.jpg",
       "specs": ["Fixed", "Slim profile"] },
 
     { "sku": "MOUNT-YT-2663", "category": "accessories", "in_stock": true, "price_cents": 34000,
@@ -296,7 +296,7 @@
       "name_ar": "حامل شاشة ثابت YT-2663",
       "desc_en": "Fixed wall mount for medium and large panels.",
       "desc_ar": "حامل جداري ثابت للشاشات المتوسطة والكبيرة.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-YT-2663.jpg",
       "specs": ["Fixed", "Medium & large"] },
 
     { "sku": "MOUNT-BR-12-47", "category": "accessories", "in_stock": true, "price_cents": 24000,
@@ -304,7 +304,7 @@
       "name_ar": "حامل ثابت TM Bracket 12–47",
       "desc_en": "Fixed bracket for screens from 12 to 47 inches.",
       "desc_ar": "حامل ثابت للشاشات من 12 إلى 47 بوصة.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-BR-12-47.jpg",
       "specs": ["Fixed", "12–47\""] },
 
     { "sku": "MOUNT-BR-32-73", "category": "accessories", "in_stock": true, "price_cents": 42000,
@@ -312,7 +312,7 @@
       "name_ar": "حامل ثابت TM Bracket 32–73",
       "desc_en": "Fixed bracket for screens from 32 to 73 inches.",
       "desc_ar": "حامل ثابت للشاشات من 32 إلى 73 بوصة.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-BR-32-73.jpg",
       "specs": ["Fixed", "32–73\""] },
 
     { "sku": "MOUNT-AN32T", "category": "accessories", "in_stock": true, "price_cents": 22000,
@@ -320,7 +320,7 @@
       "name_ar": "حامل شاشة ثابت TM-AN32T",
       "desc_en": "Compact fixed bracket for smaller screens.",
       "desc_ar": "حامل ثابت مدمج للشاشات الصغيرة.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-AN32T.jpg",
       "specs": ["Fixed", "Compact"] },
 
     { "sku": "MOUNT-AN55T", "category": "accessories", "in_stock": true, "price_cents": 36000,
@@ -328,7 +328,7 @@
       "name_ar": "حامل شاشة ثابت TM-AN55T",
       "desc_en": "Fixed bracket rated for panels up to 55 inches.",
       "desc_ar": "حامل ثابت مخصص للشاشات حتى 55 بوصة.",
-      "image": "assets/ph-mount.svg",
+      "image": "MOUNT-AN55T.jpg",
       "specs": ["Fixed", "Up to 55\""] },
 
     { "sku": "COAX-RG6-30", "category": "cables", "in_stock": true, "price_cents": 45000,
@@ -336,7 +336,7 @@
       "name_ar": "كابل محوري RG6 — 30 ياردة",
       "desc_en": "Weather and heat resistant dish cable with copper internal components. Suits runs up to 30 yards.",
       "desc_ar": "كابل طبق مقاوم للطقس والحرارة بمكونات داخلية نحاسية. مناسب للتمديدات حتى 30 ياردة.",
-      "image": "assets/ph-cable.svg",
+      "image": "COAX-RG6-30.jpg",
       "specs": ["RG6", "30 yard", "Copper"] },
 
     { "sku": "COAX-RG6-250", "category": "cables", "in_stock": true, "price_cents": 290000,
@@ -344,7 +344,7 @@
       "name_ar": "كابل محوري RG6 — 250 ياردة",
       "desc_en": "Full drum of weather-resistant RG6 with copper internal components, for installations up to 250 yards.",
       "desc_ar": "بكرة كاملة من كابل RG6 المقاوم للطقس بمكونات نحاسية، للتركيبات حتى 250 ياردة.",
-      "image": "assets/ph-cable.svg",
+      "image": "COAX-RG6-250.jpg",
       "specs": ["RG6", "250 yard", "Copper"] },
 
     { "sku": "CAT6-LAN", "category": "cables", "in_stock": true, "price_cents": 38000,
@@ -352,7 +352,7 @@
       "name_ar": "كابل شبكة Cat-6",
       "desc_en": "Cat-6 Ethernet cable for home and office networks, routers and switches. 10/100/1000 Mbps.",
       "desc_ar": "كابل إيثرنت Cat-6 لشبكات المنزل والمكتب والراوترات والسويتشات. 10/100/1000 ميجابت.",
-      "image": "assets/ph-cable.svg",
+      "image": "CAT6-LAN.jpg",
       "specs": ["Cat-6", "1000 Mbps", "LAN"] },
 
     { "sku": "HDMI-4K-1.5M", "category": "cables", "in_stock": true, "price_cents": 9000,
@@ -360,7 +360,7 @@
       "name_ar": "كابل HDMI 4K — 1.5 متر",
       "desc_en": "High-speed 4K HDMI cable, resistant to vibration and cuts. Supports HD TV 2.0 transmission.",
       "desc_ar": "كابل HDMI 4K عالي السرعة مقاوم للاهتزاز والقطع. يدعم نقل HD TV 2.0.",
-      "image": "assets/ph-cable.svg",
+      "image": "HDMI-4K-1.5M.jpg",
       "specs": ["4K", "1.5 m", "HDMI 2.0"] },
 
     { "sku": "HDMI-4K-3M", "category": "cables", "in_stock": true, "price_cents": 13000,
@@ -368,7 +368,7 @@
       "name_ar": "كابل HDMI 4K — 3 متر",
       "desc_en": "High-speed 4K HDMI cable with the same durability over a longer run.",
       "desc_ar": "كابل HDMI 4K عالي السرعة بنفس المتانة لمسافة أطول.",
-      "image": "assets/ph-cable.svg",
+      "image": "HDMI-4K-3M.jpg",
       "specs": ["4K", "3 m", "HDMI 2.0"] },
 
     { "sku": "HDMI-4K-5M", "category": "cables", "in_stock": true, "price_cents": 18000,
@@ -376,7 +376,7 @@
       "name_ar": "كابل HDMI 4K — 5 متر",
       "desc_en": "High-speed 4K HDMI cable for wall-mounted screens and longer runs.",
       "desc_ar": "كابل HDMI 4K عالي السرعة للشاشات المعلّقة والمسافات الأطول.",
-      "image": "assets/ph-cable.svg",
+      "image": "HDMI-4K-5M.jpg",
       "specs": ["4K", "5 m", "HDMI 2.0"] },
 
     { "sku": "HDMI-4K-10M", "category": "cables", "in_stock": true, "price_cents": 32000,
@@ -384,7 +384,7 @@
       "name_ar": "كابل HDMI 4K — 10 متر",
       "desc_en": "High-speed 4K HDMI cable for room-to-room and projector installations.",
       "desc_ar": "كابل HDMI 4K عالي السرعة للتمديد بين الغرف وتركيبات البروجيكتور.",
-      "image": "assets/ph-cable.svg",
+      "image": "HDMI-4K-10M.jpg",
       "specs": ["4K", "10 m", "HDMI 2.0"] },
 
     { "sku": "HDMI-4K-20M", "category": "cables", "in_stock": true, "price_cents": 58000,
@@ -392,7 +392,7 @@
       "name_ar": "كابل HDMI 4K — 20 متر",
       "desc_en": "The longest 4K HDMI run in the range, for large rooms and commercial installations.",
       "desc_ar": "أطول كابل HDMI 4K في التشكيلة، للقاعات الكبيرة والتركيبات التجارية.",
-      "image": "assets/ph-cable.svg",
+      "image": "HDMI-4K-20M.jpg",
       "specs": ["4K", "20 m", "HDMI 2.0"] }
 
   ],
