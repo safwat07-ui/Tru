@@ -28,8 +28,11 @@
 //                       PAYMOB_SECRET_KEY, PAYMOB_PUBLIC_KEY,
 //                       PAYMOB_HMAC_SECRET, PAYMOB_INTEGRATION_IDS, SITE_URL
 //
+//  EDITING PAGES      Files in the repo (index.html, shop.html, ...) take
+//                     priority over the copies bundled below.
+//
 //  CATALOGUE PDF      Not bundled (~4 MB). To offer the download, place the
-//                     file at assets/Truman-Catalogue.pdf next to this file.
+//                     file at Truman-Catalogue.pdf next to this file.
 // ===========================================================================
 // ---------------------------------------------------------------------------
 // Truman Electronics — static server + shop + Paymob payments
@@ -833,12 +836,11 @@ function serveFile(res, file, req) {
     res.end(req && req.method === 'HEAD' ? undefined : data);
   };
 
-  // 1. bundled in this file
-  if (SITE[rel]) return finish(SITE[rel]);
-
-  // 2. a real file sitting next to the server (e.g. assets/Truman-Catalogue.pdf)
+  // 1. a real file in the repo wins, so uploading a new index.html etc. takes effect
+  // 2. otherwise fall back to the copy bundled in this file
   fs.readFile(file, (err, data) => {
     if (!err) return finish(data);
+    if (SITE[rel]) return finish(SITE[rel]);
     if (SITE['404.html']) { res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' }); return res.end(SITE['404.html']); }
     send(res, 404, 'text/plain', 'Not found');
   });

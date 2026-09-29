@@ -200,7 +200,9 @@
     receivers: ['Receivers','رسيفرات'],
     tv:        ['Televisions','شاشات'],
     kitchen:   ['Kitchen','المطبخ'],
-    distribution:['Distribution','التوزيع']
+    distribution:['Distribution','التوزيع'],
+    accessories:['Accessories','إكسسوارات'],
+    cables:    ['Cables','كابلات']
   };
   function renderFilters(){
     var present = ['all'].concat(PRODUCTS.map(function(p){return p.category;})
@@ -355,7 +357,7 @@
 
     fetch('/api/checkout', {
       method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ items: items, billing: billing })
+      body: JSON.stringify({ items: items, billing: billing, lang: isAr() ? 'ar' : 'en' })
     }).then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
       .then(function(res){
         if(!res.ok || !res.j.ok) throw new Error(res.j.error || 'failed');
