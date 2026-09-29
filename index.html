@@ -87,37 +87,28 @@
   header.open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
 
   /* ================= HERO ================= */
-  .hero{position:relative;min-height:min(100vh,860px);display:flex;align-items:center;overflow:hidden;padding:110px 0 70px}
-  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-  .scene,.marks{position:absolute;inset:0;width:100%;height:100%}
-  .scene{transform:scale(1.04);animation:drift 26s ease-in-out infinite alternate}
-  @keyframes drift{to{transform:scale(1.1) translateX(-1.5%)}}
-  .marks{pointer-events:none}
-  .hero-shade{position:absolute;inset:0;background:
-     linear-gradient(100deg,rgba(8,23,34,.97) 0%,rgba(8,23,34,.88) 36%,rgba(8,23,34,.45) 66%,rgba(8,23,34,.2) 100%),
-     linear-gradient(0deg,var(--ink) 0%,rgba(8,23,34,0) 30%)}
-  html[dir="rtl"] .hero-shade{background:
-     linear-gradient(260deg,rgba(8,23,34,.97) 0%,rgba(8,23,34,.88) 36%,rgba(8,23,34,.45) 66%,rgba(8,23,34,.2) 100%),
-     linear-gradient(0deg,var(--ink) 0%,rgba(8,23,34,0) 30%)}
-  html[dir="rtl"] .marks{display:none}
+  .hero{position:relative;overflow:hidden;padding:116px 0 64px;
+    background:radial-gradient(55% 65% at 78% 50%,rgba(232,163,61,.09),transparent 65%),linear-gradient(180deg,#0b1f2d 0%,var(--ink) 100%)}
+  html[dir="rtl"] .hero{background:radial-gradient(55% 65% at 22% 50%,rgba(232,163,61,.09),transparent 65%),linear-gradient(180deg,#0b1f2d 0%,var(--ink) 100%)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center}
+  .hero-inner{min-width:0;max-width:600px}
+  .hero-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;border:1px solid var(--line-2);border-radius:40px;
+    padding:7px 16px 7px 12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--steel);background:rgba(8,23,34,.5);max-width:100%}
+  .hero-logo{width:min(300px,64%);height:auto;margin-bottom:20px}
+  .hero-subtitle{font-family:var(--disp);font-weight:800;font-stretch:85%;letter-spacing:-.025em;line-height:1;font-size:clamp(34px,4.1vw,62px);overflow-wrap:break-word}
+  .hero-subtitle .glow{color:var(--amber);display:block}
+  .hero .lede{max-width:44ch;color:#d6cfc1;margin-top:20px;font-size:clamp(16px,1.25vw,18px);line-height:1.6}
+  .hero-actions{display:flex;align-items:center;gap:12px 14px;margin-top:28px;flex-wrap:wrap}
+  .hero-hot{display:flex;flex-basis:100%;align-items:center;gap:10px;margin-top:8px;font-family:var(--mono);font-size:11.5px;color:var(--steel);letter-spacing:.08em;text-transform:uppercase}
+  .hero-hot a{font-family:var(--disp);font-weight:800;font-size:22px;color:var(--paper);letter-spacing:.02em}
+  .hero-hot a:hover{color:var(--amber)}
+  .hero-art{position:relative;margin:0;direction:ltr;width:100%;max-width:600px;justify-self:end;border:1px solid var(--line-2);border-radius:14px;overflow:hidden;
+    background:#0e2433;box-shadow:0 40px 90px -40px rgba(0,0,0,.85)}
+  .hero-art svg{display:block;width:100%;height:auto;aspect-ratio:1/1}
+  .hero-chips{display:none}
   .pulse{fill:none;stroke:#E8A33D;stroke-width:2}
   .live .pulse{animation:mkp 2.6s ease-out infinite}
   @keyframes mkp{0%{opacity:.85;r:5}70%{opacity:0;r:16}100%{opacity:0;r:16}}
-  .hero .wrap{position:relative;z-index:2;width:100%}
-  .hero-inner{max-width:600px}
-  .hero-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;border:1px solid var(--line-2);border-radius:40px;
-    padding:7px 16px 7px 12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--steel);background:rgba(8,23,34,.5);backdrop-filter:blur(6px)}
-  .hero-logo{width:min(400px,78%);height:auto;margin-bottom:26px}
-  .hero-subtitle{font-family:var(--disp);font-weight:800;font-stretch:85%;letter-spacing:-.025em;line-height:.98;font-size:clamp(40px,6.2vw,80px)}
-  .hero-subtitle .glow{color:var(--amber);display:block}
-  .hero .lede{max-width:42ch;color:#d6cfc1;margin-top:26px;font-size:18px;line-height:1.65}
-  .hero-actions{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
-  .hero-hot{display:flex;align-items:center;gap:12px;margin-top:34px;font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:.08em;text-transform:uppercase}
-  .hero-hot a{font-family:var(--disp);font-weight:800;font-size:22px;color:var(--paper);letter-spacing:.02em}
-  .hero-hot a:hover{color:var(--amber)}
-  .scroll-cue{position:absolute;left:50%;bottom:22px;z-index:2;transform:translateX(-50%);width:22px;height:36px;border:1.5px solid var(--line-2);border-radius:12px}
-  .scroll-cue::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--amber);animation:cue 1.8s infinite}
-  @keyframes cue{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
 
   /* stat band */
   .statband{position:relative;z-index:3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink)}
@@ -343,6 +334,9 @@
     .f-cab p,.f-svc p{display:none}
   }
   @media (max-width:940px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-inner{max-width:640px}
+    .hero-art{justify-self:start;max-width:560px}
     .sec-head{grid-template-columns:1fr;gap:18px}
     .sec-head p{justify-self:start}
     .stats-in{grid-template-columns:repeat(2,1fr)}
@@ -360,8 +354,12 @@
     .wrap{padding:0 16px}
     section{padding:80px 0}
     .est{display:none}
-    .hero{padding:96px 0 64px;min-height:auto}
-    .scroll-cue{display:none}
+    .hero{padding:92px 0 48px}
+    .hero-art{border-radius:10px}
+    .hero-art .lbl{display:none}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:6px;padding:12px 12px 14px;border-top:1px solid var(--line);background:var(--ink-2)}
+    .hero-chips span{font-family:var(--mono);font-size:11px;color:var(--steel);border:1px solid var(--line-2);border-radius:30px;padding:3px 9px}
+    .hero-actions .btn{flex:1 1 auto;justify-content:center}
     .bento{grid-template-columns:1fr;grid-auto-rows:auto;
       grid-template-areas:"ent" "rx" "ac" "com" "kit" "sec" "dis" "cab" "svc"}
     .fam{min-height:280px;padding:20px 20px 22px}
@@ -408,8 +406,20 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true">
-<svg class="scene" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice">
+  <div class="wrap hero-grid">
+    <div class="hero-inner">
+      <span class="hero-tag"><span class="dot"></span> <span data-i18n="hero_tag">Signal locked · Satellite &amp; home electronics</span></span>
+      <img class="hero-logo" data-logo src="" alt="Truman Electronics — your life partner">
+      <h1 class="hero-subtitle" data-i18n="hero_sub">Reception you can <span class="glow">build a home around.</span></h1>
+      <p class="lede" data-i18n="hero_lede">Since 1987, Truman has engineered Egypt's satellite receivers, televisions and household electronics — German-grade technology, made and serviced across the region.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-solid"><span data-i18n="hero_cta1">Explore products</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a href="#satellite" class="btn btn-ghost" data-i18n="hero_cta2">Satellite solutions</a>
+        <span class="hero-hot"><span data-i18n="hero_hot">Hotline</span> <a href="tel:19903">19903</a></span>
+      </div>
+    </div>
+    <figure class="hero-art" aria-hidden="true">
+      <svg viewBox="740 0 700 700" preserveAspectRatio="xMidYMid meet">
   <defs>
     <linearGradient id="wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15303f"/><stop offset="1" stop-color="#0e2433"/></linearGradient>
     <linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c2130"/><stop offset="1" stop-color="#081722"/></linearGradient>
@@ -420,15 +430,6 @@
   <rect x="0" y="0" width="1440" height="470" fill="url(#wl)"/>
   <rect x="0" y="470" width="1440" height="230" fill="url(#fl)"/>
   <line x1="0" y1="470" x2="1440" y2="470" stroke="#20404f" stroke-width="2"/>
-  <!-- window (left, ambiance) -->
-  <g><rect x="60" y="96" width="286" height="300" rx="4" fill="#0b1b27" stroke="#F4EFE4" stroke-width="6"/>
-    <rect x="72" y="108" width="262" height="276" fill="url(#dk)"/>
-    <g fill="#0e2433" opacity=".8"><rect x="82" y="290" width="34" height="94"/><rect x="124" y="250" width="28" height="134"/><rect x="162" y="284" width="38" height="100"/><rect x="212" y="238" width="26" height="146"/><rect x="250" y="292" width="42" height="92"/><rect x="300" y="264" width="34" height="120"/></g>
-    <line x1="203" y1="108" x2="203" y2="384" stroke="#F4EFE4" stroke-width="6"/><line x1="72" y1="246" x2="334" y2="246" stroke="#F4EFE4" stroke-width="6"/></g>
-  <!-- sofa (center, ambiance) + plant -->
-  <ellipse cx="640" cy="642" rx="360" ry="40" fill="#0e2433" opacity=".6"/>
-  <g transform="translate(360,478)"><rect x="0" y="60" width="430" height="118" rx="16" fill="#33586b"/><rect x="-18" y="70" width="58" height="116" rx="16" fill="#2b4c5d"/><rect x="392" y="70" width="58" height="116" rx="16" fill="#2b4c5d"/><rect x="26" y="0" width="188" height="86" rx="14" fill="#3c6076"/><rect x="232" y="0" width="188" height="86" rx="14" fill="#3c6076"/><rect x="16" y="146" width="404" height="30" rx="8" fill="#2b4c5d"/></g>
-  <g transform="translate(300,486)"><rect x="0" y="120" width="50" height="66" rx="6" fill="#12242f"/><g fill="#3f7a5a"><path d="M25 120 q-36 -46 -16 -98 q20 36 16 98"/><path d="M25 120 q36 -42 18 -94 q-22 38 -18 94"/><path d="M25 120 q0 -56 0 -104 q10 52 0 104"/></g></g>
   <ellipse cx="1010" cy="470" rx="210" ry="180" fill="url(#lg)"/>
   <!-- split AC (upper right) -->
   <g transform="translate(1090,86)"><rect x="0" y="0" width="250" height="66" rx="12" fill="#F4EFE4"/><rect x="0" y="44" width="250" height="16" rx="4" fill="#dcd4c4"/><line x1="14" y1="52" x2="236" y2="52" stroke="#b9b0a0" stroke-width="2"/><circle cx="222" cy="22" r="4" fill="#57c9a8"/><g stroke="#8CA3B1" stroke-width="3" fill="none" opacity=".55"><path d="M60 80 q-16 20 0 40"/><path d="M120 80 q-16 20 0 40"/><path d="M180 80 q-16 20 0 40"/></g></g>
@@ -456,33 +457,21 @@
   <g transform="translate(1036,300)"><path d="M46 4 h34 l-8 30 h-18 z" fill="#E8A33D" opacity=".85"/><rect x="-20" y="238" width="42" height="10" rx="3" fill="#8CA3B1"/></g>
   <!-- standing fan (front right, drawn last) -->
   <g transform="translate(1300,300)"><circle cx="0" cy="0" r="66" fill="none" stroke="#8CA3B1" stroke-width="5"/><circle cx="0" cy="0" r="48" fill="none" stroke="#8CA3B1" stroke-width="2" opacity=".6"/><g fill="#cfd8dd" opacity=".9"><path d="M0 0 L32 -28 A44 44 0 0 1 42 8 Z"/><path d="M0 0 L-8 -42 A44 44 0 0 1 32 -28 Z"/><path d="M0 0 L-42 8 A44 44 0 0 1 -8 -42 Z"/><path d="M0 0 L8 42 A44 44 0 0 1 -42 8 Z"/><path d="M0 0 L42 8 A44 44 0 0 1 8 42 Z"/></g><circle cx="0" cy="0" r="9" fill="#8CA3B1"/><rect x="-5" y="66" width="10" height="176" fill="#8CA3B1"/><path d="M-44 242 h88 l-15 20 h-58 z" fill="#8CA3B1"/></g>
-</svg>
-    <div class="hero-shade"></div>
-<svg class="marks" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice">
-<g class="mk" transform="translate(1210,120)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g transform="translate(1116,104)"><rect x="0" y="-11" width="70" height="20" rx="4" fill="#081722" fill-opacity="0.9" stroke="#c9832a" stroke-width="1"/><text x="8" y="3.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="11" letter-spacing="0.5">Split AC</text></g>
-<g class="mk" transform="translate(1372,52)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g transform="translate(1276,44)"><rect x="0" y="-11" width="52" height="20" rx="4" fill="#081722" fill-opacity="0.9" stroke="#c9832a" stroke-width="1"/><text x="8" y="3.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="11" letter-spacing="0.5">CCTV</text></g>
-<g class="mk" transform="translate(970,258)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g transform="translate(884,240)"><rect x="0" y="-11" width="62" height="20" rx="4" fill="#081722" fill-opacity="0.9" stroke="#c9832a" stroke-width="1"/><text x="8" y="3.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="11" letter-spacing="0.5">LED TV</text></g>
-<g class="mk" transform="translate(806,442)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g transform="translate(806,472)"><rect x="0" y="-11" width="74" height="20" rx="4" fill="#081722" fill-opacity="0.9" stroke="#c9832a" stroke-width="1"/><text x="8" y="3.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="11" letter-spacing="0.5">Receiver</text></g>
-<g class="mk" transform="translate(976,470)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g transform="translate(908,500)"><rect x="0" y="-11" width="56" height="20" rx="4" fill="#081722" fill-opacity="0.9" stroke="#c9832a" stroke-width="1"/><text x="8" y="3.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="11" letter-spacing="0.5">Water</text></g>
-<g class="mk" transform="translate(1300,300)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g transform="translate(1206,300)"><rect x="0" y="-11" width="42" height="20" rx="4" fill="#081722" fill-opacity="0.9" stroke="#c9832a" stroke-width="1"/><text x="8" y="3.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="11" letter-spacing="0.5">Fan</text></g>
-<g class="mk" transform="translate(1390,530)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g transform="translate(1310,512)"><rect x="0" y="-11" width="54" height="20" rx="4" fill="#081722" fill-opacity="0.9" stroke="#c9832a" stroke-width="1"/><text x="8" y="3.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="11" letter-spacing="0.5">Kettle</text></g>
-<g class="mk" transform="translate(1230,634)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g transform="translate(1146,654)"><rect x="0" y="-11" width="50" height="20" rx="4" fill="#081722" fill-opacity="0.9" stroke="#c9832a" stroke-width="1"/><text x="8" y="3.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="11" letter-spacing="0.5">Oven</text></g>
-</svg>
+
+      <g class="hotspots">
+<g class="mk" transform="translate(1210,120)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g class="lbl" transform="translate(1100,104)"><rect x="0" y="-13" width="87" height="25" rx="5" fill="#081722" fill-opacity="0.92" stroke="#c9832a" stroke-width="1.2"/><text x="9" y="4.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="14" letter-spacing="0.3">Split AC</text></g>
+<g class="mk" transform="translate(1372,52)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g class="lbl" transform="translate(1276,44)"><rect x="0" y="-13" width="52" height="25" rx="5" fill="#081722" fill-opacity="0.92" stroke="#c9832a" stroke-width="1.2"/><text x="9" y="4.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="14" letter-spacing="0.3">CCTV</text></g>
+<g class="mk" transform="translate(970,258)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g class="lbl" transform="translate(884,240)"><rect x="0" y="-13" width="70" height="25" rx="5" fill="#081722" fill-opacity="0.92" stroke="#c9832a" stroke-width="1.2"/><text x="9" y="4.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="14" letter-spacing="0.3">LED TV</text></g>
+<g class="mk" transform="translate(806,442)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g class="lbl" transform="translate(806,472)"><rect x="0" y="-13" width="87" height="25" rx="5" fill="#081722" fill-opacity="0.92" stroke="#c9832a" stroke-width="1.2"/><text x="9" y="4.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="14" letter-spacing="0.3">Receiver</text></g>
+<g class="mk" transform="translate(976,470)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g class="lbl" transform="translate(908,500)"><rect x="0" y="-13" width="61" height="25" rx="5" fill="#081722" fill-opacity="0.92" stroke="#c9832a" stroke-width="1.2"/><text x="9" y="4.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="14" letter-spacing="0.3">Water</text></g>
+<g class="mk" transform="translate(1300,300)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g class="lbl" transform="translate(1206,300)"><rect x="0" y="-13" width="44" height="25" rx="5" fill="#081722" fill-opacity="0.92" stroke="#c9832a" stroke-width="1.2"/><text x="9" y="4.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="14" letter-spacing="0.3">Fan</text></g>
+<g class="mk" transform="translate(1390,530)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g class="lbl" transform="translate(1310,512)"><rect x="0" y="-13" width="70" height="25" rx="5" fill="#081722" fill-opacity="0.92" stroke="#c9832a" stroke-width="1.2"/><text x="9" y="4.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="14" letter-spacing="0.3">Kettle</text></g>
+<g class="mk" transform="translate(1230,634)"><circle class="pulse" r="7"/><circle r="10" fill="none" stroke="#E8A33D" stroke-width="1.5" opacity="0.9"/><circle r="3.4" fill="#E8A33D"/></g><g class="lbl" transform="translate(1146,654)"><rect x="0" y="-13" width="52" height="25" rx="5" fill="#081722" fill-opacity="0.92" stroke="#c9832a" stroke-width="1.2"/><text x="9" y="4.5" fill="#F4EFE4" font-family="ui-monospace,monospace" font-size="14" letter-spacing="0.3">Oven</text></g>
+</g>
+      </svg>
+      <figcaption class="hero-chips"><span>LED TV</span><span>Receiver</span><span>Split AC</span><span>CCTV</span><span>Water</span><span>Fan</span><span>Kettle</span><span>Oven</span></figcaption>
+    </figure>
   </div>
-  <div class="wrap">
-    <div class="hero-inner">
-      <span class="hero-tag"><span class="dot"></span> <span data-i18n="hero_tag">Signal locked · Satellite &amp; home electronics</span></span>
-      <img class="hero-logo" data-logo src="" alt="Truman Electronics — your life partner">
-      <h1 class="hero-subtitle" data-i18n="hero_sub">Reception you can <span class="glow">build a home around.</span></h1>
-      <p class="lede" data-i18n="hero_lede">Since 1987, Truman has engineered Egypt's satellite receivers, televisions and household electronics — German-grade technology, made and serviced across the region.</p>
-      <div class="hero-actions">
-        <a href="#products" class="btn btn-solid"><span data-i18n="hero_cta1">Explore products</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
-        <a href="#satellite" class="btn btn-ghost" data-i18n="hero_cta2">Satellite solutions</a>
-      </div>
-      <div class="hero-hot"><span data-i18n="hero_hot">Hotline</span> <a href="tel:19903">19903</a></div>
-    </div>
-  </div>
-  <span class="scroll-cue" aria-hidden="true"></span>
 </section>
 
 <div class="statband"><div class="wrap"><div class="stats-in">
