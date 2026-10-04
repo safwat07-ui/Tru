@@ -138,8 +138,8 @@
   html[dir="rtl"] .sec-head p{justify-self:start}
 
   /* ---------- family bento ---------- */
-  .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:268px;gap:14px;
-    grid-template-areas:"ent ent rx rx" "ac com rx rx" "kit sec dis dis" "cab cab svc svc"}
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:420px 268px 268px 420px;gap:14px;
+    grid-template-areas:"com com kit kit" "ent ent rx rx" "ac dis dis cab" "sec sec svc svc"}
   .fam{position:relative;overflow:hidden;border-radius:6px;background:var(--ink-3);isolation:isolate;
     display:flex;flex-direction:column;justify-content:space-between;gap:36px;padding:22px 24px 24px;
     box-shadow:inset 0 0 0 1px rgba(140,163,177,.12);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
@@ -168,10 +168,10 @@
   .f-ent{grid-area:ent}.f-rx{grid-area:rx}.f-ac{grid-area:ac}.f-com{grid-area:com}.f-kit{grid-area:kit}
   .f-sec{grid-area:sec}.f-dis{grid-area:dis}.f-cab{grid-area:cab}.f-svc{grid-area:svc}
   /* compact cards: hide description, keep it on wide ones */
-  .f-ac p,.f-com p,.f-kit p,.f-sec p{display:none}
-  .f-rx{padding:30px 32px 32px}
-  .f-rx h3{font-size:clamp(30px,3.2vw,44px)}
-  .f-rx p{font-size:16px;max-width:36ch}
+  .f-ac p,.f-cab p{display:none}
+  .f-com,.f-kit,.f-sec,.f-svc{padding:30px 32px 32px}
+  .f-com h3,.f-kit h3,.f-sec h3,.f-svc h3{font-size:clamp(30px,3.2vw,44px)}
+  .f-com p,.f-kit p,.f-sec p,.f-svc p{font-size:16px;max-width:40ch}
   .flag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--amber);color:var(--ink);
     padding:4px 9px;border-radius:30px;margin-bottom:14px;display:inline-block;font-weight:500}
   .bento-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:26px;flex-wrap:wrap}
@@ -179,11 +179,23 @@
 
   /* ---------- featured ---------- */
   .feat{padding-top:0}
-  .prods{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  a.card{color:inherit}
+  .specs span,.card .model{direction:ltr;unicode-bidi:isolate}
+  .card .top.dark{background:radial-gradient(90% 90% at 50% 45%,#16324a 0%,#0d2130 75%);padding:0}
+  .card .top.dark img{width:100%;height:100%;max-height:none;object-fit:cover;mix-blend-mode:normal}
+  .cfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .cprice{font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:19px;letter-spacing:-.01em;white-space:nowrap}
+  .cprice small{font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--steel);margin-inline-end:5px;letter-spacing:.06em}
+  .cprice [data-i18n="f_quote"]{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--steel);letter-spacing:.02em}
+  .cgo{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);white-space:nowrap;transition:transform .25s var(--ease)}
+  .card:hover .cgo{transform:translateX(4px)}
+  html[dir="rtl"] .card:hover .cgo{transform:translateX(-4px)}
+  @media (max-width:1180px){ .prods{grid-template-columns:repeat(3,1fr)} }
   .card{background:var(--ink-2);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;
     transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
   .card:hover{transform:translateY(-4px);border-color:var(--amber-deep);box-shadow:0 24px 50px -24px rgba(0,0,0,.7)}
-  .card .top{position:relative;height:210px;background:radial-gradient(90% 90% at 50% 45%,#ffffff 0%,#efebe2 70%,#e2dccf 100%);
+  .card .top{position:relative;height:190px;background:radial-gradient(90% 90% at 50% 45%,#ffffff 0%,#efebe2 70%,#e2dccf 100%);
     display:flex;align-items:center;justify-content:center;padding:22px;overflow:hidden}
   .card .top img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply;transition:transform .6s var(--ease)}
   .card:hover .top img{transform:scale(1.06)}
@@ -192,7 +204,7 @@
   html[dir="rtl"] .badge{left:auto;right:14px}
   .card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
   .card .model{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.08em}
-  .card h4{font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:21px;margin-top:6px;letter-spacing:-.01em}
+  .card h4{font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:19px;margin-top:6px;letter-spacing:-.01em}
   .card .desc{font-size:14px;color:var(--steel);margin-top:8px;flex:1;line-height:1.55}
   .specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;padding-top:16px;border-top:1px dashed var(--line-2)}
   .specs span{font-family:var(--mono);font-size:11px;color:#c4d1d9;background:var(--ink-3);border:1px solid var(--line);padding:4px 8px;border-radius:3px}
@@ -329,9 +341,10 @@
     header.open nav.menu{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;
       background:var(--ink);border-bottom:1px solid var(--line);padding:22px 28px 26px;gap:18px}
     header.open nav.menu a:not(.cta){font-size:17px}
-    .bento{grid-template-columns:1fr 1fr;grid-auto-rows:minmax(280px,auto);
-      grid-template-areas:"ent ent" "rx rx" "rx rx" "ac com" "kit sec" "dis dis" "cab svc"}
-    .f-cab p,.f-svc p{display:none}
+    .bento{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:minmax(280px,auto);
+      grid-template-areas:"com kit" "ent rx" "ac cab" "dis dis" "sec svc"}
+    .f-com,.f-kit,.f-sec,.f-svc{min-height:380px}
+    .f-ent p,.f-rx p{display:none}
   }
   @media (max-width:940px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
@@ -360,12 +373,18 @@
     .hero-chips{display:flex;flex-wrap:wrap;gap:6px;padding:12px 12px 14px;border-top:1px solid var(--line);background:var(--ink-2)}
     .hero-chips span{font-family:var(--mono);font-size:11px;color:var(--steel);border:1px solid var(--line-2);border-radius:30px;padding:3px 9px}
     .hero-actions .btn{flex:1 1 auto;justify-content:center}
-    .bento{grid-template-columns:1fr;grid-auto-rows:auto;
-      grid-template-areas:"ent" "rx" "ac" "com" "kit" "sec" "dis" "cab" "svc"}
+    .bento{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:auto;
+      grid-template-areas:"com" "kit" "ent" "rx" "ac" "dis" "cab" "sec" "svc"}
     .fam{min-height:280px;padding:20px 20px 22px}
-    .f-rx{min-height:400px;padding:22px 22px 26px}
+    .f-com,.f-kit,.f-sec,.f-svc{min-height:360px;padding:22px 22px 26px}
+    .f-ac{min-height:360px}
     .fam p{display:block!important}
     .prods,.tiers,.quick{grid-template-columns:1fr}
+    .prods{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;overflow-x:auto;scroll-snap-type:x mandatory;
+      margin:0 -16px;padding:4px 16px 14px;scroll-padding:0 16px;scrollbar-width:none}
+    .prods::-webkit-scrollbar{display:none}
+    .prods > .card{scroll-snap-align:start}
+    .prods .card:hover{transform:none}
     .chain .nb{width:44px;height:44px}
     .chain .nb svg{width:19px;height:19px}
     .chain::before{top:44px}.chain .beam{top:41px}
@@ -499,38 +518,8 @@
     </div>
 
     <div class="bento stagger">
-      <a class="fam f-ent" href="range.html#entertainment">
-        <img class="fam-img" src="https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&q=70&w=900" srcset="https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&q=70&w=600 600w, https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&q=70&w=900 900w, https://images.unsplash.com/photo-1593784991251-92ded75ea290?auto=format&fit=crop&q=70&w=1400 1400w" sizes="(max-width:640px) 100vw, (max-width:1080px) 50vw, 50vw" alt="" loading="lazy" decoding="async" style="object-position:center">
-        <div class="fam-top"><span class="ch">CH 01</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <div class="fam-body">
-          <h3 data-i18n="fam1h">Entertainment</h3>
-          <p data-i18n="fam1p">LED &amp; smart televisions from 32" to 43", built for home and commercial rooms.</p>
-          <div class="items"><span class="chip">LED TVs</span><span class="chip">Smart TVs</span><span class="chip">Wall mounts</span></div>
-          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
-        </div>
-      </a>
-      <a class="fam f-rx" href="range.html#receivers">
-        <img class="fam-img" src="https://images.unsplash.com/photo-1590433333434-09df2b2a35a5?auto=format&fit=crop&q=70&w=900" srcset="https://images.unsplash.com/photo-1590433333434-09df2b2a35a5?auto=format&fit=crop&q=70&w=600 600w, https://images.unsplash.com/photo-1590433333434-09df2b2a35a5?auto=format&fit=crop&q=70&w=900 900w, https://images.unsplash.com/photo-1590433333434-09df2b2a35a5?auto=format&fit=crop&q=70&w=1400 1400w" sizes="(max-width:640px) 100vw, (max-width:1080px) 50vw, 50vw" alt="" loading="lazy" decoding="async" style="object-position:center">
-        <div class="fam-top"><span class="ch">CH 02</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20a12 12 0 0 1 12-12M4 20a7 7 0 0 1 7-7M4 20h.01"/><circle cx="18" cy="6" r="2"/></svg></div>
-        <div class="fam-body"><span class="flag" data-i18n="fam_flag">Flagship line</span>
-          <h3 data-i18n="fam2h">Satellite Receivers</h3>
-          <p data-i18n="fam2p">The flagship line — 4K UHD reception, 8,000-channel capacity, EPG and timer support.</p>
-          <div class="items"><span class="chip">HD / 4K</span><span class="chip">CAS</span><span class="chip">Hybrid</span></div>
-          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
-        </div>
-      </a>
-      <a class="fam f-ac" href="range.html#ac">
-        <img class="fam-img" src="https://images.unsplash.com/photo-1762341123870-d706f257a12e?auto=format&fit=crop&q=70&w=900" srcset="https://images.unsplash.com/photo-1762341123870-d706f257a12e?auto=format&fit=crop&q=70&w=600 600w, https://images.unsplash.com/photo-1762341123870-d706f257a12e?auto=format&fit=crop&q=70&w=900 900w, https://images.unsplash.com/photo-1762341123870-d706f257a12e?auto=format&fit=crop&q=70&w=1400 1400w" sizes="(max-width:640px) 100vw, (max-width:1080px) 50vw, 50vw" alt="" loading="lazy" decoding="async" style="object-position:center">
-        <div class="fam-top"><span class="ch">CH 03</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="8" rx="2"/><path d="M6 18h2M11 18h2M16 18h2"/></svg></div>
-        <div class="fam-body">
-          <h3 data-i18n="fam3h">Air Conditioners</h3>
-          <p data-i18n="fam3p">Split systems tuned for the region's climate, sized from 1.5 HP for homes and offices.</p>
-          <div class="items"><span class="chip">1.5 HP</span><span class="chip">Split</span><span class="chip">Inverter</span></div>
-          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
-        </div>
-      </a>
       <a class="fam f-com" href="range.html#comfort">
-        <img class="fam-img" src="https://images.unsplash.com/photo-1601084195907-44baaa49dabd?auto=format&fit=crop&q=70&w=900" srcset="https://images.unsplash.com/photo-1601084195907-44baaa49dabd?auto=format&fit=crop&q=70&w=600 600w, https://images.unsplash.com/photo-1601084195907-44baaa49dabd?auto=format&fit=crop&q=70&w=900 900w, https://images.unsplash.com/photo-1601084195907-44baaa49dabd?auto=format&fit=crop&q=70&w=1400 1400w" sizes="(max-width:640px) 100vw, (max-width:1080px) 50vw, 50vw" alt="" loading="lazy" decoding="async" style="object-position:center">
+        <img class="fam-img" src="fam-comfort.jpg?v=2" alt="" width="1400" height="1000" loading="lazy" decoding="async" style="object-position:85% 50%">
         <div class="fam-top"><span class="ch">CH 04</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M5 12a7 7 0 0 1 14 0M5 12a7 7 0 0 0 14 0"/><path d="M12 5V3"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam4h">Home Comfort</h3>
@@ -540,7 +529,7 @@
         </div>
       </a>
       <a class="fam f-kit" href="range.html#kitchen">
-        <img class="fam-img" src="https://images.unsplash.com/photo-1728509741559-44172bcd86b3?auto=format&fit=crop&q=70&w=900" srcset="https://images.unsplash.com/photo-1728509741559-44172bcd86b3?auto=format&fit=crop&q=70&w=600 600w, https://images.unsplash.com/photo-1728509741559-44172bcd86b3?auto=format&fit=crop&q=70&w=900 900w, https://images.unsplash.com/photo-1728509741559-44172bcd86b3?auto=format&fit=crop&q=70&w=1400 1400w" sizes="(max-width:640px) 100vw, (max-width:1080px) 50vw, 50vw" alt="" loading="lazy" decoding="async" style="object-position:center">
+        <img class="fam-img" src="fam-kitchen.jpg" alt="" width="1170" height="827" loading="lazy" decoding="async">
         <div class="fam-top"><span class="ch">CH 05</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="12" cy="10" r="3"/><path d="M7 20h10"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam5h">Kitchen Appliances</h3>
@@ -549,18 +538,38 @@
           <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
         </div>
       </a>
-      <a class="fam f-sec" href="range.html#security">
-        <img class="fam-img" src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=70&w=900" srcset="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=70&w=600 600w, https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=70&w=900 900w, https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=70&w=1400 1400w" sizes="(max-width:640px) 100vw, (max-width:1080px) 50vw, 50vw" alt="" loading="lazy" decoding="async" style="object-position:center">
-        <div class="fam-top"><span class="ch">CH 06</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+      <a class="fam f-ent" href="range.html#entertainment">
+        <img class="fam-img" src="fam-entertainment.jpg" alt="" width="1237" height="734" loading="lazy" decoding="async">
+        <div class="fam-top"><span class="ch">CH 01</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
         <div class="fam-body">
-          <h3 data-i18n="fam6h">Security &amp; Access</h3>
-          <p data-i18n="fam6p">CCTV, NVR bundles and smart locks for homes, retail and hospitality sites.</p>
-          <div class="items"><span class="chip">CCTV</span><span class="chip">NVR</span><span class="chip">Smart locks</span></div>
+          <h3 data-i18n="fam1h">Entertainment</h3>
+          <p data-i18n="fam1p">LED &amp; smart televisions from 32" to 43", built for home and commercial rooms.</p>
+          <div class="items"><span class="chip">LED TVs</span><span class="chip">Smart TVs</span><span class="chip">Wall mounts</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-rx" href="range.html#receivers">
+        <img class="fam-img" src="fam-receivers.jpg" alt="" width="1400" height="785" loading="lazy" decoding="async">
+        <div class="fam-top"><span class="ch">CH 02</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20a12 12 0 0 1 12-12M4 20a7 7 0 0 1 7-7M4 20h.01"/><circle cx="18" cy="6" r="2"/></svg></div>
+        <div class="fam-body"><span class="flag" data-i18n="fam_flag">Flagship line</span>
+          <h3 data-i18n="fam2h">Satellite Receivers</h3>
+          <p data-i18n="fam2p">The flagship line — 4K UHD reception, 8,000-channel capacity, EPG and timer support.</p>
+          <div class="items"><span class="chip">HD / 4K</span><span class="chip">CAS</span><span class="chip">Hybrid</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-ac" href="range.html#ac">
+        <img class="fam-img" src="fam-ac.jpg" alt="" width="1400" height="1000" loading="lazy" decoding="async" style="object-position:50% 0%">
+        <div class="fam-top"><span class="ch">CH 03</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="8" rx="2"/><path d="M6 18h2M11 18h2M16 18h2"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam3h">Air Conditioners</h3>
+          <p data-i18n="fam3p">Split systems tuned for the region's climate, sized from 1.5 HP for homes and offices.</p>
+          <div class="items"><span class="chip">1.5 HP</span><span class="chip">Split</span><span class="chip">Inverter</span></div>
           <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
         </div>
       </a>
       <a class="fam f-dis" href="range.html#distribution">
-        <img class="fam-img" src="https://images.unsplash.com/photo-1529527495849-f010c791e839?auto=format&fit=crop&q=70&w=900" srcset="https://images.unsplash.com/photo-1529527495849-f010c791e839?auto=format&fit=crop&q=70&w=600 600w, https://images.unsplash.com/photo-1529527495849-f010c791e839?auto=format&fit=crop&q=70&w=900 900w, https://images.unsplash.com/photo-1529527495849-f010c791e839?auto=format&fit=crop&q=70&w=1400 1400w" sizes="(max-width:640px) 100vw, (max-width:1080px) 50vw, 50vw" alt="" loading="lazy" decoding="async" style="object-position:center">
+        <img class="fam-img" src="fam-distribution.jpg" alt="" width="690" height="460" loading="lazy" decoding="async">
         <div class="fam-top"><span class="ch">CH 07</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="16" height="6" rx="1.5"/><path d="M8 9V6M16 9V6M8 18v-3M16 18v-3"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam7h">Distribution Hardware</h3>
@@ -570,12 +579,22 @@
         </div>
       </a>
       <a class="fam f-cab" href="range.html#cables">
-        <img class="fam-img" src="https://images.unsplash.com/photo-1760377821967-8bb2f250e041?auto=format&fit=crop&q=70&w=900" srcset="https://images.unsplash.com/photo-1760377821967-8bb2f250e041?auto=format&fit=crop&q=70&w=600 600w, https://images.unsplash.com/photo-1760377821967-8bb2f250e041?auto=format&fit=crop&q=70&w=900 900w, https://images.unsplash.com/photo-1760377821967-8bb2f250e041?auto=format&fit=crop&q=70&w=1400 1400w" sizes="(max-width:640px) 100vw, (max-width:1080px) 50vw, 50vw" alt="" loading="lazy" decoding="async" style="object-position:center">
+        <img class="fam-img" src="fam-cables.jpg" alt="" width="790" height="568" loading="lazy" decoding="async">
         <div class="fam-top"><span class="ch">CH 08</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4v6a3 3 0 0 0 3 3h6a3 3 0 0 1 3 3v4"/><circle cx="6" cy="4" r="2"/><circle cx="18" cy="20" r="2"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam8h">Cables &amp; Connectivity</h3>
           <p data-i18n="fam8p">4K HDMI, Cat-6 and coaxial cabling rated for stable, interference-free signal.</p>
           <div class="items"><span class="chip">HDMI 4K</span><span class="chip">Cat-6</span><span class="chip">Coaxial</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-sec" href="range.html#security">
+        <img class="fam-img" src="fam-security.jpg" alt="" width="1600" height="1018" loading="lazy" decoding="async" style="object-position:78% 30%">
+        <div class="fam-top"><span class="ch">CH 06</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam6h">Security &amp; Access</h3>
+          <p data-i18n="fam6p">CCTV, NVR bundles and smart locks for homes, retail and hospitality sites.</p>
+          <div class="items"><span class="chip">CCTV</span><span class="chip">NVR</span><span class="chip">Smart locks</span></div>
           <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
         </div>
       </a>
@@ -602,66 +621,92 @@
   <div class="wrap">
     <div class="sec-head rise">
       <div>
-        <span class="eyebrow" data-i18n="feat_eye">Best sellers</span>
+        <span class="eyebrow" data-i18n="feat_eye">Best of each family</span>
         <h2 class="h2" data-i18n="feat_h">Featured lineup</h2>
       </div>
-      <p data-i18n="feat_p">The models our distributors order first — proven sellers across the FY26 range.</p>
+      <p data-i18n="feat_p">The top model from every Truman product family, from the flagship 4K screen to the largest multiswitch.</p>
     </div>
     <div class="prods stagger">
-      <article class="card">
-        <div class="top"><img src="TM-G200.jpg" alt="Satellite Receiver — Truman TM G200" loading="lazy" width="640" height="480"><span class="badge">Hero SKU</span></div>
-        <div class="body">
-          <span class="model">TM G200</span>
-          <h4 data-i18n="f1h">Satellite Receiver</h4>
-          <p class="desc" data-i18n="f1p">The flagship receiver — Full-HD DVB-S2 with built-in Wi-Fi, U-cast phone mirroring and an online video library.</p>
-          <div class="specs"><span>DVB-S2</span><span>1080p</span><span>U-cast</span><span>Wi-Fi</span></div>
-        </div>
-      </article>
-      <article class="card">
-        <div class="top"><img src="TM-5001SK.jpg" alt="50" UHD Smart TV — Truman TM-5001SK" loading="lazy" width="640" height="480"><span class="badge">4K UHD</span></div>
+      <a class="card" href="range.html?p=TM-5001SK" data-sku="TM-5001SK">
+        <div class="top"><img src="TM-5001SK.jpg" alt="50-inch UHD Smart TV — Truman TM-5001SK" loading="lazy"><span class="badge" data-i18n="f_b1">Entertainment</span></div>
         <div class="body">
           <span class="model">TM-5001SK</span>
-          <h4 data-i18n="f2h">50" UHD Smart TV</h4>
-          <p class="desc" data-i18n="f2p">Stunning 4K resolution (3840×2160) with three HDMI inputs and RJ45 — built for home or professional use.</p>
-          <div class="specs"><span>50"</span><span>3840×2160</span><span>3× HDMI</span><span>RJ45</span></div>
+          <h4 data-i18n="f1h">50&quot; UHD Smart TV</h4>
+          <p class="desc" data-i18n="f1p">The top of the TV range: 4K (3840×2160) at 250 cd/m², with three HDMI inputs and RJ45.</p>
+          <div class="specs"><span>50&quot;</span><span>3840×2160</span><span>3× HDMI</span><span>RJ45</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
         </div>
-      </article>
-      <article class="card">
-        <div class="top"><img src="TM-4301K.jpg" alt="43" FHD Smart LED TV — Truman TM-4301K" loading="lazy" width="640" height="480"><span class="badge">Smart</span></div>
+      </a>
+      <a class="card" href="range.html?p=TM-IWORLD-PRO" data-sku="TM-IWORLD-PRO">
+        <div class="top"><img src="TM-IWORLD-PRO.jpg" alt="Truman TM I World Pro receiver" loading="lazy"><span class="badge" data-i18n="f_b2">Receivers</span></div>
         <div class="body">
-          <span class="model">TM-4301K</span>
-          <h4 data-i18n="f3h">43" FHD Smart LED TV</h4>
-          <p class="desc" data-i18n="f3p">Full-HD 1920×1080 panel with three HDMI inputs — a premium picture for modern living rooms.</p>
-          <div class="specs"><span>43"</span><span>1920×1080</span><span>3× HDMI</span><span>65 W</span></div>
+          <span class="model">TM I World Pro</span>
+          <h4 data-i18n="f2h">I World Pro Receiver</h4>
+          <p class="desc" data-i18n="f2p">Top of the receiver line: Sunplus 2517 with 2 GB RAM, Bluetooth remote, internal Wi-Fi and USB recording.</p>
+          <div class="specs"><span>2 GB RAM</span><span>2500 tp</span><span>Bluetooth</span><span>Wi-Fi</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
         </div>
-      </article>
-      <article class="card">
-        <div class="top"><img src="TM-3201K.jpg" alt="32" HD LED TV — Truman TM-3201K" loading="lazy" width="640" height="480"><span class="badge">Compact</span></div>
+      </a>
+      <a class="card" href="range.html#ac">
+        <div class="top"><img src="AC-SPLIT.jpg" alt="Truman split air conditioner" loading="lazy"><span class="badge" data-i18n="f_b3">Air Conditioning</span></div>
         <div class="body">
-          <span class="model">TM-3201K</span>
-          <h4 data-i18n="f4h">32" HD LED TV</h4>
-          <p class="desc" data-i18n="f4p">1366×768 display with dual USB and HDMI — versatile for home entertainment or business screens.</p>
-          <div class="specs"><span>32"</span><span>1366×768</span><span>2× HDMI</span><span>48 W</span></div>
+          <span class="model">Split · 3 HP</span>
+          <h4 data-i18n="f3h">3 HP Split Air Conditioner</h4>
+          <p class="desc" data-i18n="f3p">The largest unit in the split range, for big living rooms and offices. Cool and hot-cool versions.</p>
+          <div class="specs"><span>3 HP</span><span>Split</span><span>Hot / cool</span><span>Temp display</span></div>
+          <div class="cfoot"><span class="cprice" data-price><span data-i18n="f_quote">Price on request</span></span><span class="cgo" data-i18n="f_go">View →</span></div>
         </div>
-      </article>
-      <article class="card">
-        <div class="top"><img src="TM-G2501.jpg" alt="Gas Stove — SS Finish — Truman TM-G2501" loading="lazy" width="640" height="480"><span class="badge">Kitchen</span></div>
+      </a>
+      <a class="card" href="range.html#comfort">
+        <div class="top"><img src="FAN-STANDING.jpg" alt="Truman standing fan" loading="lazy"><span class="badge" data-i18n="f_b4">Home Comfort</span></div>
         <div class="body">
-          <span class="model">TM-G2501</span>
-          <h4 data-i18n="f5h">Gas Stove — SS Finish</h4>
-          <p class="desc" data-i18n="f5p">Three cast-iron burners with auto-ignition and precise flame control — 3.1 kW, LPG.</p>
-          <div class="specs"><span>3 burners</span><span>Auto-ignition</span><span>LPG</span></div>
+          <span class="model">Standing fan</span>
+          <h4 data-i18n="f4h">Standing Fan</h4>
+          <p class="desc" data-i18n="f4p">Five-blade pedestal fan with a digital control panel and an adjustable chrome pole.</p>
+          <div class="specs"><span>5 blades</span><span>Oscillating</span><span>3-speed</span><span>Digital panel</span></div>
+          <div class="cfoot"><span class="cprice" data-price><span data-i18n="f_quote">Price on request</span></span><span class="cgo" data-i18n="f_go">View →</span></div>
         </div>
-      </article>
-      <article class="card">
-        <div class="top"><img src="TM-9916CC.jpg" alt="9/16 Cascade Multiswitch — Truman TM-9916CC" loading="lazy" width="640" height="480"><span class="badge">Distribution</span></div>
+      </a>
+      <a class="card" href="range.html?p=TM-G2503" data-sku="TM-G2503">
+        <div class="top"><img src="TM-G2503.jpg" alt="Gas stove with marble surface — Truman TM-G2503" loading="lazy"><span class="badge" data-i18n="f_b5">Kitchen</span></div>
         <div class="body">
-          <span class="model">TM-9916CC</span>
-          <h4 data-i18n="f6h">9/16 Cascade Multiswitch</h4>
-          <p class="desc" data-i18n="f6p">Distributes satellite &amp; terrestrial signal to up to 16 subscribers — 4K HDR and 3D ready.</p>
-          <div class="specs"><span>9-in</span><span>16-out</span><span>4K HDR</span><span>Cascadable</span></div>
+          <span class="model">TM-G2503</span>
+          <h4 data-i18n="f5h">Gas Stove — Marble Surface</h4>
+          <p class="desc" data-i18n="f5p">Marble-finish top with three cast-iron burners, auto-ignition and precise flame control. 3.1 kW, LPG.</p>
+          <div class="specs"><span>3 burners</span><span>Auto-ignition</span><span>3.1 kW</span><span>LPG</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
         </div>
-      </article>
+      </a>
+      <a class="card" href="range.html#security">
+        <div class="top dark"><img src="CAM-BULLET-1080.jpg" alt="Truman 1080p bullet CCTV camera" loading="lazy"><span class="badge" data-i18n="f_b6">Security</span></div>
+        <div class="body">
+          <span class="model">Lite Series</span>
+          <h4 data-i18n="f6h">1080p Bullet Camera</h4>
+          <p class="desc" data-i18n="f6p">Full-HD outdoor camera with 20 m infrared night vision, IP67 weather sealing and 12 V DC power.</p>
+          <div class="specs"><span>1080p</span><span>20 m IR</span><span>IP67</span><span>DC 12 V</span></div>
+          <div class="cfoot"><span class="cprice" data-price><span data-i18n="f_quote">Price on request</span></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+      <a class="card" href="range.html?p=TM-9932CC" data-sku="TM-9932CC">
+        <div class="top"><img src="TM-9932CC.jpg" alt="9/32 cascade multiswitch — Truman TM-9932CC" loading="lazy"><span class="badge" data-i18n="f_b7">Distribution</span></div>
+        <div class="body">
+          <span class="model">TM-9932CC</span>
+          <h4 data-i18n="f7h">9/32 Cascade Multiswitch</h4>
+          <p class="desc" data-i18n="f7p">The largest in the range: nine inputs feeding up to 32 subscribers, with 4K HDR and 3D support.</p>
+          <div class="specs"><span>9-in</span><span>32-out</span><span>4K HDR</span><span>3D</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+      <a class="card" href="range.html?p=COAX-RG6-250" data-sku="COAX-RG6-250">
+        <div class="top"><img src="COAX-RG6-250.jpg" alt="RG6 coaxial cable drum, 250 yard" loading="lazy"><span class="badge" data-i18n="f_b8">Cables</span></div>
+        <div class="body">
+          <span class="model">COAX-RG6-250</span>
+          <h4 data-i18n="f8h">RG6 Coaxial — 250 Yard</h4>
+          <p class="desc" data-i18n="f8p">A full drum of weather- and heat-resistant RG6 with copper internals, for whole-building installs.</p>
+          <div class="specs"><span>RG6</span><span>250 yard</span><span>Copper</span><span>Weatherproof</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -880,13 +925,17 @@
     fam8h:"الكابلات والتوصيل", fam8p:"كابلات HDMI 4K وCat-6 ومحورية بإشارة ثابتة خالية من التشويش.",
     fam9h:"الخدمة والدعم", fam9p:"مهندسون مهرة وتغطية ما بعد البيع لكل وحدة في جميع أنحاء مصر.",
     // featured
-    feat_h:"منتجات مختارة", feat_p:"الموديلات التي يطلبها موزّعونا أولًا — الأكثر مبيعًا في تشكيلة العام.",
-    f1h:"رسيفر ساتلايت", f1p:"الرسيفر الرئيسي — DVB-S2 عالي الوضوح مع واي-فاي مدمج وبث شاشة الهاتف U-cast ومكتبة فيديو أونلاين.",
-    f2h:'شاشة UHD ذكية "50', f2p:"دقة 4K مذهلة (3840×2160) مع ثلاثة منافذ HDMI ومنفذ RJ45 — للمنزل أو الاستخدام الاحترافي.",
-    f3h:'شاشة LED ذكية FHD "43', f3p:"لوحة Full-HD بدقة 1920×1080 مع ثلاثة منافذ HDMI — صورة راقية لغرف المعيشة الحديثة.",
-    f4h:'شاشة LED مقاس "32', f4p:"شاشة 1366×768 مع منفذي USB وHDMI — متعددة الاستخدامات للمنزل أو العرض التجاري.",
-    f5h:"بوتاجاز — ستانلس ستيل", f5p:"ثلاث شعلات من الحديد الزهر بإشعال أوتوماتيكي وتحكم دقيق في اللهب — 3.1 كيلوواط، غاز LPG.",
-    f6h:"مالتي سويتش متتابع 9/16", f6p:"يوزّع إشارة الساتلايت والأرضي حتى 16 مشتركًا — يدعم 4K HDR والأبعاد الثلاثية.",
+    feat_h:"منتجات مختارة", feat_p:"أفضل موديل من كل عائلة منتجات ترومان، من شاشة 4K الرائدة إلى أكبر مالتي سويتش.",
+    f_b1:"الترفيه", f_b2:"الرسيفرات", f_b3:"التكييفات", f_b4:"راحة المنزل", f_b5:"المطبخ", f_b6:"الأمان", f_b7:"التوزيع", f_b8:"الكابلات",
+    f_quote:"السعر عند الطلب", f_go:"عرض ←",
+    f1h:'شاشة UHD ذكية "50', f1p:"قمة تشكيلة الشاشات: دقة 4K (3840×2160) وسطوع 250 شمعة/م² مع ثلاثة منافذ HDMI ومنفذ RJ45.",
+    f2h:"رسيفر I World Pro", f2p:"قمة خط الرسيفرات: معالج Sunplus 2517 وذاكرة 2 جيجا وريموت بلوتوث وواي-فاي داخلي وتسجيل USB.",
+    f3h:"تكييف سبليت 3 حصان", f3p:"أكبر وحدة في تشكيلة السبليت، لغرف المعيشة الكبيرة والمكاتب. متوفر بارد وبارد/ساخن.",
+    f4h:"مروحة عمودية", f4p:"مروحة بخمس ريش مع لوحة تحكم رقمية وعمود كروم قابل لضبط الارتفاع.",
+    f5h:"بوتاجاز — سطح رخامي", f5p:"سطح بتشطيب رخامي مع ثلاث شعلات من الحديد الزهر وإشعال أوتوماتيكي وتحكم دقيق في اللهب. 3.1 كيلوواط، غاز LPG.",
+    f6h:"كاميرا 1080p خارجية", f6p:"كاميرا خارجية Full HD برؤية ليلية بالأشعة تحت الحمراء حتى 20 مترًا، وعزل IP67 وتغذية 12 فولت.",
+    f7h:"مالتي سويتش متتابع 9/32", f7p:"الأكبر في التشكيلة: تسعة مداخل تغذي حتى 32 مشتركًا، مع دعم 4K HDR والأبعاد الثلاثية.",
+    f8h:"كابل محوري RG6 — 250 ياردة", f8p:"بكرة كاملة من كابل RG6 المقاوم للطقس والحرارة بمكونات نحاسية، لتمديدات المباني بالكامل.",
     // satellite tiers
     sat_h:"حلول تلفزيون الساتلايت،<br>بمقاس كل موقع.",
     sat_p:"من شقة واحدة إلى فندق أو ملعب، تحدّد ترومان السلسلة الكاملة — الطبق والتوزيع والرسيفرات والاشتراكات.",
@@ -942,7 +991,7 @@
     hero_hot:"الخط الساخن", stat3u:"مناطق",
     prod_eye:"عائلات المنتجات", fam_flag:"الخط الرائد",
     fam_note:"كل عائلة مدعومة بضمان ترومان وخدمة ما بعد البيع في كل أنحاء مصر.", fam_all:"تصفّح التشكيلة كاملة",
-    feat_eye:"الأكثر مبيعًا",
+    feat_eye:"الأفضل من كل عائلة",
     chain_eye:"سلسلة الإشارة", chain_1:"الطبق", chain_3:"مالتي سويتش", chain_4:"الرسيفر", chain_5:"الشاشة",
     her_yrs:"عامًا من الهندسة في مصر",
     foot_explore:"تصفّح", foot_about:"عن ترومان", foot_cat:"الكتالوج (PDF)", foot_rights:"جميع الحقوق محفوظة.",
@@ -1028,6 +1077,27 @@
   })();
   // hide broken family photos gracefully
   document.querySelectorAll('.fam-img').forEach(function(img){ img.addEventListener('error',function(){ img.style.display='none'; }); });
+})();
+
+/* featured lineup: live prices from the shop catalogue */
+(function(){
+  var cards=document.querySelectorAll('.prods .card[data-sku]'); if(!cards.length) return;
+  var prices={};
+  function paint(){
+    var ar=document.documentElement.lang==='ar';
+    cards.forEach(function(c){
+      var el=c.querySelector('[data-price]'), v=prices[c.getAttribute('data-sku')];
+      if(v==null){ el.innerHTML='<span data-i18n="f_quote">'+(ar?'السعر عند الطلب':'Price on request')+'</span>'; return; }
+      var n=(v/100).toLocaleString('en-US',{maximumFractionDigits:2});
+      el.innerHTML='<small>'+(ar?'ج.م':'EGP')+'</small>'+n;
+    });
+  }
+  function load(u){ return fetch(u).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
+  load('/api/catalog').catch(function(){ return load('catalog.json'); }).then(function(d){
+    (d.products||[]).forEach(function(p){ if(p.in_stock!==false && p.price_cents!=null) prices[p.sku]=p.price_cents; });
+    paint();
+    new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  }).catch(function(){});
 })();
 </script>
 </body>

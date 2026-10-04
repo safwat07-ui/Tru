@@ -253,6 +253,11 @@
   .item .ico svg{width:19px;height:19px}
   .item b{display:block;font-size:15px}
   .item small{display:block;font-family:var(--mono);font-size:11.5px;color:var(--steel);margin-top:4px}
+  .item.has-img{padding:0;overflow:hidden}
+  .item.has-img .pic{display:block;background:#fff;height:220px;padding:14px;margin-bottom:14px}
+  .item.has-img .pic img{width:100%;height:100%;object-fit:contain}
+  .item.has-img b,.item.has-img small{padding:0 18px}
+  .item.has-img small{padding-bottom:18px}
   .quote{border:1px solid var(--amber);border-radius:8px;padding:22px;display:flex;flex-direction:column;gap:12px;justify-content:space-between;background:linear-gradient(160deg,rgba(232,163,61,.12),transparent 70%)}
   .quote p{color:#d6cfc1;font-size:14.5px}
   .quote .row{display:flex;gap:8px;flex-wrap:wrap}
@@ -577,7 +582,7 @@
     <div class="fhead rv"><span class="fnum">04</span><div><h2 data-i18n="s_comfort">Home Comfort</h2><p data-i18n="d_comfort">Standing fans and hot / cold water dispensers that keep everyday spaces cool and working.</p></div><span class="fcount" data-i18n="via_sales">Via sales</span></div>
     <div class="sales rv">
       <div class="items">
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="6"/><path d="M12 15v6M8 21h8M12 9l3-3M12 9 9 12"/></svg></span><b data-i18n="cf_fan">Standing fan</b><small data-i18n="cf_fan_s">Oscillating · 3-speed</small></div>
+        <div class="item has-img"><span class="pic"><img src="FAN-STANDING.jpg" alt="Truman standing fan" width="600" height="900" loading="lazy" decoding="async"></span><b data-i18n="cf_fan">Standing fan</b><small data-i18n="cf_fan_s">Oscillating · 3-speed</small></div>
         <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h10v6H7zM6 9h12v12H6zM10 13h4"/></svg></span><b data-i18n="cf_wd">Water dispenser</b><small data-i18n="cf_wd_s">Hot &amp; cold</small></div>
       </div>
       <div class="quote"><p data-i18n="q_comfort">Model details and dealer stock are available on request.</p><div class="row"><a class="btn btn-solid btn-sm" data-quote="Home Comfort" href="#" data-i18n="q_btn">Request a quote</a><a class="btn btn-ghost btn-sm" href="tel:19903" data-i18n="q_call">Call 19903</a></div></div>
