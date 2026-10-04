@@ -846,7 +846,15 @@ function serveFile(res, file, req) {
   });
 }
 
-// ---- Contact form (unchanged behaviour) ------------------------------------
+// ---- Contact form -----------------------------------------------------------
+// Delivery, in order of preference:
+//   1. email via the same mail setup as orders (CONTACT_NOTIFY_TO, falling back to ORDER_NOTIFY_TO)
+//   2. CONTACT_WEBHOOK_URL (Slack / Teams / Zapier style JSON post)
+//   3. the server log, so nothing is lost while neither is configured
+const CONTACT_TO = (process.env.CONTACT_NOTIFY_TO || process.env.ORDER_NOTIFY_TO || '')
+  .split(',').map(s => s.trim()).filter(Boolean);
+const contactHits = new Map();                       // ip -> [timestamps], light spam brake
+
 async function handleContact(req, res) {
   const raw = await readBody(req).catch(() => '');
   let d = {};
@@ -856,24 +864,48 @@ async function handleContact(req, res) {
       : Object.fromEntries(new URLSearchParams(raw));
   } catch (e) { return json(res, 400, { ok: false, error: 'bad body' }); }
 
-  const name = (d.name || '').trim(), email = (d.email || '').trim(),
-        message = (d.message || '').trim(), topic = (d.topic || 'General').trim();
+  // honeypot: real people never fill the hidden "website" field
+  if ((d.website || '').trim()) return json(res, 200, { ok: true });
+
+  const ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').split(',')[0].trim();
+  const now = Date.now(), recent = (contactHits.get(ip) || []).filter(t => now - t < 10 * 60e3);
+  if (recent.length >= 5) return json(res, 429, { ok: false, error: 'too many' });
+  contactHits.set(ip, recent.concat(now));
+
+  const clip = (v, n) => String(v || '').trim().slice(0, n);
+  const name = clip(d.name, 120), email = clip(d.email, 200),
+        message = clip(d.message, 5000), topic = clip(d.topic || 'General', 80);
   if (!name || !message || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))
     return json(res, 422, { ok: false, error: 'invalid fields' });
 
   const payload = { name, email, topic, message, at: new Date().toISOString() };
-  try {
-    if (process.env.CONTACT_WEBHOOK_URL) {
-      await fetch(process.env.CONTACT_WEBHOOK_URL, {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: `New Truman enquiry — ${topic}\nFrom: ${name} <${email}>\n\n${message}`, ...payload })
-      });
-    } else { console.log('[contact] (no delivery configured)', JSON.stringify(payload)); }
-    return json(res, 200, { ok: true });
-  } catch (err) {
-    console.error('[contact] delivery failed:', err && err.message);
-    return json(res, 502, { ok: false, error: 'delivery failed' });
+  const text = `New website enquiry — ${topic}\nFrom: ${name} <${email}>\n\n${message}\n\nReceived ${payload.at}`;
+
+  let delivered = false;
+  if (MAIL_READY && CONTACT_TO.length) {
+    const escH = v => String(v).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    delivered = await sendMailRetrying({
+      to: CONTACT_TO, replyTo: `${name} <${email}>`,
+      subject: `Website enquiry — ${topic} — ${name}`, text,
+      html: `<div style="font-family:Arial,sans-serif;font-size:15px;color:#12242f;max-width:560px">
+        <p style="margin:0 0 6px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#c9832a">${escH(topic)}</p>
+        <p style="margin:0 0 14px"><strong>${escH(name)}</strong> &lt;<a href="mailto:${escH(email)}">${escH(email)}</a>&gt;</p>
+        <p style="white-space:pre-wrap;margin:0 0 16px;line-height:1.55">${escH(message)}</p>
+        <p style="margin:0;font-size:12px;color:#68767f">Reply to this email to answer ${escH(name)} directly.</p></div>`
+    }, `contact from ${email}`);
   }
+  if (!delivered && process.env.CONTACT_WEBHOOK_URL) {
+    try {
+      const r = await fetch(process.env.CONTACT_WEBHOOK_URL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, ...payload })
+      });
+      delivered = r.ok;
+    } catch (err) { console.error('[contact] webhook failed:', err && err.message); }
+  }
+  // always keep a copy in the log
+  console.log(`[contact] ${delivered ? 'delivered' : 'NOT DELIVERED (configure email or CONTACT_WEBHOOK_URL)'}`, JSON.stringify(payload));
+  return json(res, 200, { ok: true, delivered });
 }
 
 loadCatalog();
@@ -886,4 +918,7 @@ server.listen(PORT, '0.0.0.0', () => {
   console.log(MAIL_READY
     ? `[mail]   via ${mailTransport()}${mailTransport() === 'smtp' ? ` ${MAIL.smtp.host}:${MAIL.smtp.port} (${MAIL.smtp.secure ? 'TLS' : 'STARTTLS'})` : ''} from ${MAIL.from} -> ${MAIL.notify.join(', ') || '(ORDER_NOTIFY_TO not set!)'}`
     : `[mail]   not configured — paid orders will be printed to this log instead`);
+  console.log(MAIL_READY && CONTACT_TO.length ? `[contact] website enquiries emailed to ${CONTACT_TO.join(', ')}`
+    : process.env.CONTACT_WEBHOOK_URL ? '[contact] website enquiries posted to CONTACT_WEBHOOK_URL'
+    : '[contact] website enquiries go to this log only — set CONTACT_NOTIFY_TO (+ mail settings) to receive them by email');
 });
