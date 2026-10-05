@@ -6,7 +6,7 @@
 <title>Shop — Truman Electronics</title>
 <meta name="description" content="Buy Truman Electronics products online — satellite receivers, LED & UHD televisions, gas stoves and multiswitches. Secure payment by card, wallet or kiosk.">
 <style>
-  :root{
+  :root{--tile:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);
     --sans:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
     --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
     --disp:"Arial Black","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
@@ -46,7 +46,7 @@
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:26px 0 70px}
   .card{background:var(--ink-2);border:1px solid var(--line);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
   .card:hover{transform:translateY(-3px);border-color:var(--amber-deep)}
-  .card .ph{height:190px;background-color:#fff;background-repeat:no-repeat;background-position:center;background-size:contain;background-origin:content-box;padding:18px;border-bottom:1px solid var(--line)}
+  .card .ph{height:190px;background-color:#0e2332;background-repeat:no-repeat;background-position:center;background-size:contain,cover;background-origin:content-box,border-box;padding:18px;border-bottom:1px solid var(--line)}
   .card .body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
   .card .sku{font-family:var(--mono);font-size:11.5px;color:var(--amber);letter-spacing:.04em;direction:ltr}
   .card h3{font-family:var(--disp);font-size:18px;margin-top:6px;line-height:1.25}
@@ -71,7 +71,7 @@
   .closex{background:none;border:1px solid var(--line);color:var(--paper);width:34px;height:32px;border-radius:2px;cursor:pointer;font-size:16px}
   .ditems{flex:1;overflow-y:auto;padding:8px 22px}
   .citem{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
-  .citem .thumb{width:56px;height:44px;background-color:#fff;background-repeat:no-repeat;background-position:center;background-size:contain;background-origin:content-box;padding:4px;border-radius:3px;border:1px solid var(--line)}
+  .citem .thumb{width:56px;height:44px;background-color:#0e2332;background-repeat:no-repeat;background-position:center;background-size:contain,cover;background-origin:content-box,border-box;padding:4px;border-radius:3px;border:1px solid var(--line)}
   .citem .nm{font-size:13.5px;line-height:1.3}
   .citem .sk{font-family:var(--mono);font-size:11px;color:var(--amber);direction:ltr}
   .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
@@ -221,7 +221,7 @@
     var list = PRODUCTS.filter(function(p){ return FILTER==='all' || p.category===FILTER; });
     document.getElementById('grid').innerHTML = list.map(function(p){
       return '<article class="card">'+
-        '<div class="ph" style="background-image:url(\''+p.image+'\')"></div>'+
+        '<div class="ph" style="background-image:url(\''+p.image+'\'),var(--tile)"></div>'+
         '<div class="body">'+
           '<span class="sku">'+p.sku+'</span>'+
           '<h3>'+(isAr()? p.name_ar : p.name_en)+'</h3>'+
@@ -264,7 +264,7 @@
 
     document.getElementById('ditems').innerHTML = L.length ? L.map(function(l){
       return '<div class="citem">'+
-        '<div class="thumb" style="background-image:url(\''+l.p.image+'\')"></div>'+
+        '<div class="thumb" style="background-image:url(\''+l.p.image+'\'),var(--tile)"></div>'+
         '<div><div class="nm">'+(isAr()? l.p.name_ar : l.p.name_en)+'</div>'+
         '<div class="sk">'+l.p.sku+'</div>'+
         '<div class="qty"><button data-dec="'+l.p.sku+'">−</button><span>'+l.qty+'</span><button data-inc="'+l.p.sku+'">+</button></div>'+

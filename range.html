@@ -110,8 +110,8 @@
   .nodes::before{content:"";position:absolute;left:8%;right:8%;top:38px;height:2px;background:repeating-linear-gradient(90deg,var(--amber) 0 8px,transparent 8px 16px);opacity:.55;animation:flow 1.2s linear infinite}
   @keyframes flow{to{background-position:16px 0}}
   .node{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;cursor:pointer;background:none;border:0;padding:0}
-  .node .ic{width:78px;height:78px;border-radius:50%;background:#fff;border:2px solid var(--line-2);display:grid;place-items:center;overflow:hidden;transition:border-color .2s,transform .25s var(--ease);box-shadow:0 10px 24px -12px rgba(0,0,0,.8)}
-  .node .ic img{width:62px;height:62px;object-fit:contain}
+  .node .ic{width:78px;height:78px;border-radius:50%;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);border:2px solid var(--line-2);display:grid;place-items:center;overflow:hidden;transition:border-color .2s,transform .25s var(--ease);box-shadow:0 10px 24px -12px rgba(0,0,0,.8)}
+  .node .ic img{width:62px;height:62px;object-fit:contain;filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))}
   .node:hover .ic{border-color:var(--amber);transform:translateY(-3px)}
   .node b{font-family:var(--disp);font-weight:700;font-stretch:90%;font-size:13px;line-height:1.15}
   .node small{font-family:var(--mono);font-size:10.5px;color:var(--steel)}
@@ -181,8 +181,8 @@
   .card:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 22px 40px -26px rgba(0,0,0,.9)}
   .card.dim{opacity:.38}
   .card.dim:hover{opacity:.8}
-  .media{position:relative;display:block;width:100%;aspect-ratio:4/3;background:#fff;border:0;cursor:zoom-in;padding:18px}
-  .media img{width:100%;height:100%;object-fit:contain;transition:transform .45s var(--ease)}
+  .media{position:relative;display:block;width:100%;aspect-ratio:4/3;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);border:0;cursor:zoom-in;padding:18px}
+  .media img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.45));transition:transform .45s var(--ease)}
   .card:hover .media img{transform:scale(1.05)}
   .badges{position:absolute;top:10px;inset-inline-start:10px;display:flex;gap:5px;flex-wrap:wrap}
   .badge{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.06em;color:var(--ink);background:var(--paper-2);border-radius:3px;padding:2px 6px}
@@ -241,7 +241,7 @@
   .stepper button:hover{background:var(--ink-4)}
   .stepper output{font-family:var(--disp);font-weight:800;font-size:22px;min-width:3ch;text-align:center}
   .rec{display:flex;align-items:center;gap:14px;flex:1 1 320px;min-width:0;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
-  .rec img{width:56px;height:44px;object-fit:contain;background:#fff;border-radius:4px;padding:3px;flex:none}
+  .rec img{width:56px;height:44px;object-fit:contain;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);border-radius:4px;padding:3px;flex:none}
   .rec .txt{flex:1;min-width:0;font-size:13px;color:#d6cfc1;line-height:1.45}
   .rec .txt b{display:block;color:var(--paper);font-size:14px}
 
@@ -254,7 +254,7 @@
   .item b{display:block;font-size:15px}
   .item small{display:block;font-family:var(--mono);font-size:11.5px;color:var(--steel);margin-top:4px}
   .item.has-img{padding:0;overflow:hidden}
-  .item.has-img .pic{display:block;background:#fff;height:220px;padding:14px;margin-bottom:14px}
+  .item.has-img .pic{display:block;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);height:220px;padding:14px;margin-bottom:14px}
   .item.has-img .pic img{width:100%;height:100%;object-fit:contain}
   .item.has-img b,.item.has-img small{padding:0 18px}
   .item.has-img small{padding-bottom:18px}
@@ -295,7 +295,7 @@
   .slots{display:flex;gap:8px;flex:1;min-width:0;overflow-x:auto}
   .slot{position:relative;display:flex;align-items:center;gap:8px;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:5px 30px 5px 5px;flex:none;max-width:220px}
   html[dir="rtl"] .slot{padding:5px 5px 5px 30px}
-  .slot img{width:40px;height:32px;object-fit:contain;background:#fff;border-radius:3px;padding:2px}
+  .slot img{width:40px;height:32px;object-fit:contain;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);border-radius:3px;padding:2px}
   .slot span{font-family:var(--mono);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .slot button{position:absolute;inset-inline-end:4px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;border:0;background:var(--ink-4);cursor:pointer;font-size:13px;line-height:1}
   .slot.ghost{border-style:dashed;color:var(--steel-dim);font-size:12px;padding:5px 14px;height:44px}
@@ -309,8 +309,8 @@
   .dlg-x{position:absolute;top:12px;inset-inline-end:12px;z-index:2;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:rgba(8,23,34,.85);cursor:pointer;font-size:18px;line-height:1}
   .dlg-x:hover{border-color:var(--paper)}
   .qv{display:grid;grid-template-columns:1fr 1fr;overflow:auto}
-  .qv-media{background:#fff;display:flex;align-items:center;justify-content:center;padding:40px;min-height:380px;position:sticky;top:0;overflow:hidden}
-  .qv-media img{max-width:100%;max-height:420px;width:auto;height:auto;object-fit:contain}
+  .qv-media{background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);display:flex;align-items:center;justify-content:center;padding:40px;min-height:380px;position:sticky;top:0;overflow:hidden}
+  .qv-media img{max-width:100%;max-height:420px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.5))}
   .qv-info{padding:30px 30px 26px;display:flex;flex-direction:column;gap:14px}
   .qv-info h3{font-family:var(--disp);font-weight:800;font-stretch:88%;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.02em;line-height:1.05}
   html[dir="rtl"] .qv-info h3{font-family:"IBM Plex Sans Arabic",var(--disp);font-weight:700;letter-spacing:0;line-height:1.3}
@@ -332,7 +332,7 @@
   .pairs .row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
   .pair{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:6px;padding:8px;background:var(--ink);cursor:pointer;text-align:start}
   .pair:hover{border-color:var(--line-2)}
-  .pair img{height:64px;width:100%;object-fit:contain;background:#fff;border-radius:4px;padding:4px}
+  .pair img{height:64px;width:100%;object-fit:contain;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);border-radius:4px;padding:4px}
   .pair b{font-size:12px;font-weight:500;line-height:1.3}
   .pair small{font-family:var(--mono);font-size:11px;color:var(--steel)}
   .qv-nav{display:flex;justify-content:space-between;gap:8px;margin-top:auto}
@@ -347,7 +347,7 @@
   .ctab thead th{position:sticky;top:0;background:var(--ink-2);z-index:1}
   .ctab tbody th{color:var(--steel);font-weight:500;width:160px;white-space:nowrap;position:sticky;inset-inline-start:0;background:var(--ink-2)}
   .ctab td{font-family:var(--mono);font-size:12.5px}
-  .ctab .pimg{width:100%;max-width:150px;height:96px;object-fit:contain;background:#fff;border-radius:6px;padding:6px;margin-bottom:8px}
+  .ctab .pimg{width:100%;max-width:150px;height:96px;object-fit:contain;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);border-radius:6px;padding:6px;margin-bottom:8px}
   .ctab .pn{font-family:var(--sans);font-weight:600;font-size:13.5px;line-height:1.3;display:block}
   .ctab tr.diff td{background:rgba(232,163,61,.06)}
   .ctab.only tr.same{display:none}
@@ -482,11 +482,11 @@
       <div class="chain" aria-label="Signal chain">
         <div class="chain-h"><span data-i18n="rp_chain">Signal chain · tap to jump</span><span class="live"><i></i><span data-i18n="rp_locked">Locked</span></span></div>
         <div class="nodes">
-          <a class="node" href="#distribution" data-jump="lnb"><span class="ic"><img src="TM-221.jpg" alt="" width="62" height="62"></span><b data-i18n="ch_lnb">LNB</b><small>0.1 dB</small></a>
-          <a class="node" href="#distribution" data-jump="ms"><span class="ic"><img src="TM-9916CC.jpg" alt="" width="62" height="62"></span><b data-i18n="ch_ms">Multiswitch</b><small>9 → 32</small></a>
-          <a class="node" href="#cables"><span class="ic"><img src="COAX-RG6-250.jpg" alt="" width="62" height="62"></span><b data-i18n="ch_cable">Cable</b><small>RG6</small></a>
-          <a class="node" href="#receivers"><span class="ic"><img src="TM-7K.jpg" alt="" width="62" height="62"></span><b data-i18n="ch_rx">Receiver</b><small>4K · 8000 ch</small></a>
-          <a class="node" href="#entertainment"><span class="ic"><img src="TM-5001SK.jpg" alt="" width="62" height="62"></span><b data-i18n="ch_tv">Screen</b><small>32–50"</small></a>
+          <a class="node" href="#distribution" data-jump="lnb"><span class="ic"><img src="TM-221.webp" alt="" width="62" height="62"></span><b data-i18n="ch_lnb">LNB</b><small>0.1 dB</small></a>
+          <a class="node" href="#distribution" data-jump="ms"><span class="ic"><img src="TM-9916CC.webp" alt="" width="62" height="62"></span><b data-i18n="ch_ms">Multiswitch</b><small>9 → 32</small></a>
+          <a class="node" href="#cables"><span class="ic"><img src="COAX-RG6-250.webp" alt="" width="62" height="62"></span><b data-i18n="ch_cable">Cable</b><small>RG6</small></a>
+          <a class="node" href="#receivers"><span class="ic"><img src="TM-7K.webp" alt="" width="62" height="62"></span><b data-i18n="ch_rx">Receiver</b><small>4K · 8000 ch</small></a>
+          <a class="node" href="#entertainment"><span class="ic"><img src="TM-5001SK.webp" alt="" width="62" height="62"></span><b data-i18n="ch_tv">Screen</b><small>32–50"</small></a>
         </div>
       </div>
     </div>
@@ -534,10 +534,32 @@
 
 <div id="range" class="loading">
 
-<!-- 01 ENTERTAINMENT -->
+<!-- 01 COMFORT -->
+<section id="comfort" class="fam" data-fam="comfort" data-sales>
+  <div class="wrap">
+    <div class="fhead rv"><span class="fnum">01</span><div><h2 data-i18n="s_comfort">Home Comfort</h2><p data-i18n="d_comfort">Standing fans and hot / cold water dispensers that keep everyday spaces cool and working.</p></div><span class="fcount" data-i18n="via_sales">Via sales</span></div>
+    <div class="sales rv">
+      <div class="items">
+        <div class="item has-img"><span class="pic"><img src="FAN-STANDING.webp" alt="Truman standing fan" width="600" height="900" loading="lazy" decoding="async"></span><b data-i18n="cf_fan">Standing fan</b><small data-i18n="cf_fan_s">Oscillating · 3-speed</small></div>
+        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h10v6H7zM6 9h12v12H6zM10 13h4"/></svg></span><b data-i18n="cf_wd">Water dispenser</b><small data-i18n="cf_wd_s">Hot &amp; cold</small></div>
+      </div>
+      <div class="quote"><p data-i18n="q_comfort">Model details and dealer stock are available on request.</p><div class="row"><a class="btn btn-solid btn-sm" data-quote="Home Comfort" href="#" data-i18n="q_btn">Request a quote</a><a class="btn btn-ghost btn-sm" href="tel:19903" data-i18n="q_call">Call 19903</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 KITCHEN -->
+<section id="kitchen" class="fam alt" data-fam="kitchen">
+  <div class="wrap">
+    <div class="fhead rv"><span class="fnum">02</span><div><h2 data-i18n="s_kitchen">Kitchen Appliances</h2><p data-i18n="d_kitchen">Three-burner cast-iron gas stoves with auto-ignition, and 1500 W glass kettles in three colours.</p></div><span class="fcount" data-count></span></div>
+    <div class="sbody" data-body="kitchen"></div>
+  </div>
+</section>
+
+<!-- 03 ENTERTAINMENT -->
 <section id="entertainment" class="fam" data-fam="entertainment">
   <div class="wrap">
-    <div class="fhead rv"><span class="fnum">01</span><div><h2 data-i18n="s_entertainment">Entertainment</h2><p data-i18n="d_entertainment">LED, Full-HD and 4K UHD smart screens, plus a wall mount for every size from 12" to 85".</p></div><span class="fcount" data-count></span></div>
+    <div class="fhead rv"><span class="fnum">03</span><div><h2 data-i18n="s_entertainment">Entertainment</h2><p data-i18n="d_entertainment">LED, Full-HD and 4K UHD smart screens, plus a wall mount for every size from 12" to 85".</p></div><span class="fcount" data-count></span></div>
     <div class="tool rv" id="mountTool">
       <div class="tool-h"><b data-i18n="mt_h">Mount finder</b><small data-i18n="mt_p">Set your screen size. Mounts that fit it light up.</small></div>
       <div class="tool-body">
@@ -554,18 +576,18 @@
   </div>
 </section>
 
-<!-- 02 RECEIVERS -->
+<!-- 04 RECEIVERS -->
 <section id="receivers" class="fam alt" data-fam="receivers">
   <div class="wrap">
-    <div class="fhead rv"><span class="fnum">02</span><div><h2 data-i18n="s_receivers">Satellite Receivers</h2><p data-i18n="d_receivers">The flagship line. DVB-S2 HD and 4K boxes with up to 8,000 channels, Wi-Fi and phone mirroring.</p></div><span class="fcount" data-count></span></div>
+    <div class="fhead rv"><span class="fnum">04</span><div><h2 data-i18n="s_receivers">Satellite Receivers</h2><p data-i18n="d_receivers">The flagship line. DVB-S2 HD and 4K boxes with up to 8,000 channels, Wi-Fi and phone mirroring.</p></div><span class="fcount" data-count></span></div>
     <div class="sbody" data-body="receivers"></div>
   </div>
 </section>
 
-<!-- 03 AC -->
+<!-- 05 AC -->
 <section id="ac" class="fam" data-fam="ac" data-sales>
   <div class="wrap">
-    <div class="fhead rv"><span class="fnum">03</span><div><h2 data-i18n="s_ac">Air Conditioners</h2><p data-i18n="d_ac">Split units built for the region's summers, for homes and offices.</p></div><span class="fcount" data-i18n="via_sales">Via sales</span></div>
+    <div class="fhead rv"><span class="fnum">05</span><div><h2 data-i18n="s_ac">Air Conditioners</h2><p data-i18n="d_ac">Split units built for the region's summers, for homes and offices.</p></div><span class="fcount" data-i18n="via_sales">Via sales</span></div>
     <div class="sales rv">
       <div class="items">
         <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg></span><b>1.5 HP</b><small data-i18n="ac_1">Split · Cool / Hot-cool</small></div>
@@ -576,47 +598,10 @@
   </div>
 </section>
 
-<!-- 04 COMFORT -->
-<section id="comfort" class="fam alt" data-fam="comfort" data-sales>
+<!-- 06 DISTRIBUTION -->
+<section id="distribution" class="fam alt" data-fam="distribution">
   <div class="wrap">
-    <div class="fhead rv"><span class="fnum">04</span><div><h2 data-i18n="s_comfort">Home Comfort</h2><p data-i18n="d_comfort">Standing fans and hot / cold water dispensers that keep everyday spaces cool and working.</p></div><span class="fcount" data-i18n="via_sales">Via sales</span></div>
-    <div class="sales rv">
-      <div class="items">
-        <div class="item has-img"><span class="pic"><img src="FAN-STANDING.jpg" alt="Truman standing fan" width="600" height="900" loading="lazy" decoding="async"></span><b data-i18n="cf_fan">Standing fan</b><small data-i18n="cf_fan_s">Oscillating · 3-speed</small></div>
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h10v6H7zM6 9h12v12H6zM10 13h4"/></svg></span><b data-i18n="cf_wd">Water dispenser</b><small data-i18n="cf_wd_s">Hot &amp; cold</small></div>
-      </div>
-      <div class="quote"><p data-i18n="q_comfort">Model details and dealer stock are available on request.</p><div class="row"><a class="btn btn-solid btn-sm" data-quote="Home Comfort" href="#" data-i18n="q_btn">Request a quote</a><a class="btn btn-ghost btn-sm" href="tel:19903" data-i18n="q_call">Call 19903</a></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 KITCHEN -->
-<section id="kitchen" class="fam" data-fam="kitchen">
-  <div class="wrap">
-    <div class="fhead rv"><span class="fnum">05</span><div><h2 data-i18n="s_kitchen">Kitchen Appliances</h2><p data-i18n="d_kitchen">Three-burner cast-iron gas stoves with auto-ignition, and 1500 W glass kettles in three colours.</p></div><span class="fcount" data-count></span></div>
-    <div class="sbody" data-body="kitchen"></div>
-  </div>
-</section>
-
-<!-- 06 SECURITY -->
-<section id="security" class="fam alt" data-fam="security" data-sales>
-  <div class="wrap">
-    <div class="fhead rv"><span class="fnum">06</span><div><h2 data-i18n="s_security">Security &amp; Access</h2><p data-i18n="d_security">Surveillance cameras, XVR recorders and smart locks for homes, shops and hotels.</p></div><span class="fcount" data-i18n="via_sales">Via sales</span></div>
-    <div class="sales rv">
-      <div class="items">
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l13-3 2 6-13 3zM6 12l1 4h4M16 10l4 2"/></svg></span><b data-i18n="sc_cam">CCTV cameras</b><small>AHD / IP</small></div>
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 12h.01M11 12h6"/></svg></span><b data-i18n="sc_xvr">XVR recorders</b><small data-i18n="sc_xvr_s">Multi-channel</small></div>
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><b data-i18n="sc_lock">Smart locks</b><small data-i18n="sc_lock_s">Access control</small></div>
-      </div>
-      <div class="quote"><p data-i18n="q_security">Security is quoted per project: tell us the site and the number of cameras and we'll design the system.</p><div class="row"><a class="btn btn-solid btn-sm" data-quote="Security & Access" href="#" data-i18n="q_btn">Request a quote</a><a class="btn btn-ghost btn-sm" href="tel:19903" data-i18n="q_call">Call 19903</a></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 DISTRIBUTION -->
-<section id="distribution" class="fam" data-fam="distribution">
-  <div class="wrap">
-    <div class="fhead rv"><span class="fnum">07</span><div><h2 data-i18n="s_distribution">Distribution Hardware</h2><p data-i18n="d_distribution">Everything between the dish and the receiver: LNBs, DiSEqC switches, cascade multiswitches and a professional sat finder.</p></div><span class="fcount" data-count></span></div>
+    <div class="fhead rv"><span class="fnum">06</span><div><h2 data-i18n="s_distribution">Distribution Hardware</h2><p data-i18n="d_distribution">Everything between the dish and the receiver: LNBs, DiSEqC switches, cascade multiswitches and a professional sat finder.</p></div><span class="fcount" data-count></span></div>
     <div class="tool rv" id="sizerTool">
       <div class="tool-h"><b data-i18n="sz_h">System sizer</b><small data-i18n="sz_p">How many receivers does the dish need to feed?</small></div>
       <div class="tool-body">
@@ -628,10 +613,10 @@
   </div>
 </section>
 
-<!-- 08 CABLES -->
-<section id="cables" class="fam alt" data-fam="cables">
+<!-- 07 CABLES -->
+<section id="cables" class="fam" data-fam="cables">
   <div class="wrap">
-    <div class="fhead rv"><span class="fnum">08</span><div><h2 data-i18n="s_cables">Cables &amp; Connectivity</h2><p data-i18n="d_cables">Weather-resistant RG6 coax, Cat-6 network and high-speed 4K HDMI from 1.5 to 20 metres.</p></div><span class="fcount" data-count></span></div>
+    <div class="fhead rv"><span class="fnum">07</span><div><h2 data-i18n="s_cables">Cables &amp; Connectivity</h2><p data-i18n="d_cables">Weather-resistant RG6 coax, Cat-6 network and high-speed 4K HDMI from 1.5 to 20 metres.</p></div><span class="fcount" data-count></span></div>
     <div class="sbody" data-body="cables"></div>
   </div>
 </section>
@@ -644,8 +629,23 @@
   </div>
 </section>
 
+<!-- 08 SECURITY -->
+<section id="security" class="fam alt" data-fam="security" data-sales>
+  <div class="wrap">
+    <div class="fhead rv"><span class="fnum">08</span><div><h2 data-i18n="s_security">Security &amp; Access</h2><p data-i18n="d_security">Surveillance cameras, XVR recorders and smart locks for homes, shops and hotels.</p></div><span class="fcount" data-i18n="via_sales">Via sales</span></div>
+    <div class="sales rv">
+      <div class="items">
+        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l13-3 2 6-13 3zM6 12l1 4h4M16 10l4 2"/></svg></span><b data-i18n="sc_cam">CCTV cameras</b><small>AHD / IP</small></div>
+        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 12h.01M11 12h6"/></svg></span><b data-i18n="sc_xvr">XVR recorders</b><small data-i18n="sc_xvr_s">Multi-channel</small></div>
+        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><b data-i18n="sc_lock">Smart locks</b><small data-i18n="sc_lock_s">Access control</small></div>
+      </div>
+      <div class="quote"><p data-i18n="q_security">Security is quoted per project: tell us the site and the number of cameras and we'll design the system.</p><div class="row"><a class="btn btn-solid btn-sm" data-quote="Security & Access" href="#" data-i18n="q_btn">Request a quote</a><a class="btn btn-ghost btn-sm" href="tel:19903" data-i18n="q_call">Call 19903</a></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- 09 SERVICE -->
-<section id="service" class="fam alt" data-fam="service" data-sales>
+<section id="service" class="fam" data-fam="service" data-sales>
   <div class="wrap">
     <div class="fhead rv"><span class="fnum">09</span><div><h2 data-i18n="s_service">Service &amp; Support</h2><p data-i18n="d_service">Skilled engineers, warranty and after-sales coverage for every unit, everywhere in Egypt.</p></div><span class="fcount" data-i18n="nationwide">Nationwide</span></div>
     <div class="svc rv">
@@ -901,29 +901,29 @@ var FULLMOTION = { 'MOUNT-P4':1, 'MOUNT-P6':1, 'MOUNT-P65':1, 'MOUNT-502-PLUS':1
    3. FAMILY / GROUP MAP
    ====================================================================== */
 var FAMS = [
-  { id:'entertainment', n:'01', en:'Entertainment', ar:'الترفيه', groups:[
-      { en:'LED & UHD TVs', ar:'شاشات LED و UHD', m:function(p){ return p.category === 'tv'; } },
-      { en:'TV wall mounts', ar:'حوامل الشاشات', m:function(p){ return /^MOUNT-/.test(p.sku); } } ] },
-  { id:'receivers', n:'02', en:'Receivers', ar:'الرسيفرات', groups:[
-      { en:'Satellite receivers', ar:'رسيفرات الساتلايت', m:function(p){ return p.category === 'receivers'; } } ] },
-  { id:'ac', n:'03', en:'Air conditioning', ar:'التكييفات', sales:true },
-  { id:'comfort', n:'04', en:'Comfort', ar:'راحة المنزل', sales:true },
-  { id:'kitchen', n:'05', en:'Kitchen', ar:'المطبخ', groups:[
+  { id:'comfort', n:'01', en:'Comfort', ar:'راحة المنزل', sales:true },
+  { id:'kitchen', n:'02', en:'Kitchen', ar:'المطبخ', groups:[
       { en:'Gas stoves', ar:'بوتاجازات', m:function(p){ return /^TM-G25/i.test(p.sku); } },
       { en:'Kettles', ar:'غلايات', m:function(p){ return /^TM-K25/i.test(p.sku); } },
       { en:'More kitchen', ar:'المزيد', m:function(p){ return p.category === 'kitchen'; } } ] },
-  { id:'security', n:'06', en:'Security', ar:'الأمان', sales:true },
-  { id:'distribution', n:'07', en:'Distribution', ar:'التوزيع', groups:[
+  { id:'entertainment', n:'03', en:'Entertainment', ar:'الترفيه', groups:[
+      { en:'LED & UHD TVs', ar:'شاشات LED و UHD', m:function(p){ return p.category === 'tv'; } },
+      { en:'TV wall mounts', ar:'حوامل الشاشات', m:function(p){ return /^MOUNT-/.test(p.sku); } } ] },
+  { id:'receivers', n:'04', en:'Receivers', ar:'الرسيفرات', groups:[
+      { en:'Satellite receivers', ar:'رسيفرات الساتلايت', m:function(p){ return p.category === 'receivers'; } } ] },
+  { id:'ac', n:'05', en:'Air conditioning', ar:'التكييفات', sales:true },
+  { id:'distribution', n:'06', en:'Distribution', ar:'التوزيع', groups:[
       { id:'ms', en:'Cascade multiswitches', ar:'مالتي سويتش متتابع', m:function(p){ return p.category === 'distribution'; } },
       { id:'lnb', en:'Universal Ku-band LNBs', ar:'وحدات LNB يونيفرسال', m:function(p){ return /^TM-\d21$/.test(p.sku); } },
       { en:'DiSEqC switches', ar:'مفاتيح DiSEqC', m:function(p){ return /^TR-801/.test(p.sku); } },
       { en:'Sat finder', ar:'جهاز ضبط الطبق', m:function(p){ return p.sku === '3700GC'; } },
       { en:'More accessories', ar:'إكسسوارات أخرى', m:function(p){ return p.category === 'accessories'; } } ] },
-  { id:'cables', n:'08', en:'Cables', ar:'الكابلات', groups:[
+  { id:'cables', n:'07', en:'Cables', ar:'الكابلات', groups:[
       { en:'Coaxial', ar:'كابلات محورية', m:function(p){ return /^COAX/.test(p.sku); } },
       { en:'Network', ar:'كابلات شبكة', m:function(p){ return /^CAT/.test(p.sku); } },
       { en:'HDMI 4K', ar:'كابلات HDMI 4K', m:function(p){ return /^HDMI/.test(p.sku); } },
       { en:'More cables', ar:'كابلات أخرى', m:function(p){ return p.category === 'cables'; } } ] },
+  { id:'security', n:'08', en:'Security', ar:'الأمان', sales:true },
   { id:'service', n:'09', en:'Service', ar:'الخدمة', sales:true },
   { id:'more', n:'+', en:'More', ar:'المزيد', groups:[ { en:'Other products', ar:'منتجات أخرى', m:function(){ return true; } } ] }
 ];

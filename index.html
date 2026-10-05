@@ -153,8 +153,8 @@
   .spot-h b{color:var(--amber);font-weight:500;display:inline-flex;align-items:center;gap:8px}
   .spot-h b::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulse 2.4s infinite}
   .spot-media{position:relative;display:grid;place-items:center;height:220px;margin:0 14px;border-radius:8px;
-    background:radial-gradient(90% 90% at 50% 45%,#ffffff 0%,#efebe2 70%,#e2dccf 100%);overflow:hidden}
-  .spot-media img{max-width:82%;max-height:84%;object-fit:contain;mix-blend-mode:multiply;transition:opacity .35s,transform .5s var(--ease)}
+    background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);overflow:hidden}
+  .spot-media img{max-width:82%;max-height:84%;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.45));transition:opacity .35s,transform .5s var(--ease)}
   .spot.swap .spot-media img,.spot.swap .spot-body{opacity:0;transform:translateY(8px)}
   .spot-body{padding:16px 18px 18px;transition:opacity .35s,transform .45s var(--ease)}
   .spot-body .model{font-family:var(--mono);font-size:11.5px;color:var(--amber);letter-spacing:.08em;direction:ltr;unicode-bidi:isolate}
@@ -265,7 +265,7 @@
   a.card{color:inherit}
   .specs span,.card .model{direction:ltr;unicode-bidi:isolate}
   .card .top.dark{background:radial-gradient(90% 90% at 50% 45%,#16324a 0%,#0d2130 75%);padding:0}
-  .card .top.dark img{width:100%;height:100%;max-height:none;object-fit:cover;mix-blend-mode:normal}
+  .card .top.dark img{width:100%;height:100%;max-height:none;object-fit:cover;filter:none}
   .cfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
   .cprice{font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:19px;letter-spacing:-.01em;white-space:nowrap}
   .cprice small{font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--steel);margin-inline-end:5px;letter-spacing:.06em}
@@ -277,9 +277,9 @@
   .card{background:var(--ink-2);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;
     transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
   .card:hover{transform:translateY(-4px);border-color:var(--amber-deep);box-shadow:0 24px 50px -24px rgba(0,0,0,.7)}
-  .card .top{position:relative;height:190px;background:radial-gradient(90% 90% at 50% 45%,#ffffff 0%,#efebe2 70%,#e2dccf 100%);
+  .card .top{position:relative;height:190px;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);
     display:flex;align-items:center;justify-content:center;padding:22px;overflow:hidden}
-  .card .top img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply;transition:transform .6s var(--ease)}
+  .card .top img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.45));transition:transform .6s var(--ease)}
   .card:hover .top img{transform:scale(1.06)}
   .badge{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--paper);
     background:var(--ink);padding:4px 9px;border-radius:30px;text-transform:uppercase}
@@ -320,8 +320,8 @@
     animation:miniIn .45s var(--ease) both}
   .mini:hover{border-color:var(--amber-deep);transform:translateY(-2px)}
   @keyframes miniIn{from{opacity:0;transform:translateY(10px)}}
-  .mini .im{display:block;height:120px;background:radial-gradient(90% 90% at 50% 45%,#fff 0%,#efebe2 75%);padding:10px;overflow:hidden}
-  .mini .im img{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+  .mini .im{display:block;height:120px;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);padding:10px;overflow:hidden}
+  .mini .im img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))}
   .mini .tx{padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px;flex:1}
   .mini .sku{font-family:var(--mono);font-size:10.5px;color:var(--amber);letter-spacing:.06em;direction:ltr;unicode-bidi:isolate;text-align:start}
   .mini b{font-size:13.5px;font-weight:600;line-height:1.3}
@@ -492,7 +492,7 @@
       background:var(--ink);border-bottom:1px solid var(--line);padding:22px 28px 26px;gap:18px}
     header.open nav.menu a:not(.cta){font-size:17px}
     .bento{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:minmax(280px,auto);
-      grid-template-areas:"com kit" "ent rx" "ac cab" "dis dis" "sec svc"}
+      grid-template-areas:"com kit" "ent rx" "ac dis" "cab cab" "sec svc"}
     .f-com,.f-kit,.f-sec,.f-svc{min-height:380px}
     .f-ent p,.f-rx p{display:none}
   }
@@ -651,7 +651,7 @@
     <div class="bento stagger">
       <a class="fam f-com" href="range.html#comfort">
         <img class="fam-img" src="fam-comfort.jpg?v=2" alt="" width="1400" height="1000" loading="lazy" decoding="async" style="object-position:85% 50%">
-        <div class="fam-top"><span class="ch">CH 04</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M5 12a7 7 0 0 1 14 0M5 12a7 7 0 0 0 14 0"/><path d="M12 5V3"/></svg></div>
+        <div class="fam-top"><span class="ch">CH 01</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M5 12a7 7 0 0 1 14 0M5 12a7 7 0 0 0 14 0"/><path d="M12 5V3"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam4h">Home Comfort</h3>
           <p data-i18n="fam4p">Standing fans and water dispensers that keep everyday spaces cool and running.</p>
@@ -661,7 +661,7 @@
       </a>
       <a class="fam f-kit" href="range.html#kitchen">
         <img class="fam-img" src="fam-kitchen.jpg" alt="" width="1170" height="827" loading="lazy" decoding="async">
-        <div class="fam-top"><span class="ch">CH 05</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="12" cy="10" r="3"/><path d="M7 20h10"/></svg></div>
+        <div class="fam-top"><span class="ch">CH 02</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="12" cy="10" r="3"/><path d="M7 20h10"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam5h">Kitchen Appliances</h3>
           <p data-i18n="fam5p">Gas cookers, kettles and blenders finished to the same durability standard.</p>
@@ -671,7 +671,7 @@
       </a>
       <a class="fam f-ent" href="range.html#entertainment">
         <img class="fam-img" src="fam-entertainment.jpg" alt="" width="1237" height="734" loading="lazy" decoding="async">
-        <div class="fam-top"><span class="ch">CH 01</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="fam-top"><span class="ch">CH 03</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam1h">Entertainment</h3>
           <p data-i18n="fam1p">LED &amp; smart televisions from 32" to 43", built for home and commercial rooms.</p>
@@ -681,7 +681,7 @@
       </a>
       <a class="fam f-rx" href="range.html#receivers">
         <img class="fam-img" src="fam-receivers.jpg" alt="" width="1400" height="785" loading="lazy" decoding="async">
-        <div class="fam-top"><span class="ch">CH 02</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20a12 12 0 0 1 12-12M4 20a7 7 0 0 1 7-7M4 20h.01"/><circle cx="18" cy="6" r="2"/></svg></div>
+        <div class="fam-top"><span class="ch">CH 04</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20a12 12 0 0 1 12-12M4 20a7 7 0 0 1 7-7M4 20h.01"/><circle cx="18" cy="6" r="2"/></svg></div>
         <div class="fam-body"><span class="flag" data-i18n="fam_flag">Flagship line</span>
           <h3 data-i18n="fam2h">Satellite Receivers</h3>
           <p data-i18n="fam2p">The flagship line — 4K UHD reception, 8,000-channel capacity, EPG and timer support.</p>
@@ -691,7 +691,7 @@
       </a>
       <a class="fam f-ac" href="range.html#ac">
         <img class="fam-img" src="fam-ac.jpg" alt="" width="1400" height="1000" loading="lazy" decoding="async" style="object-position:50% 0%">
-        <div class="fam-top"><span class="ch">CH 03</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="8" rx="2"/><path d="M6 18h2M11 18h2M16 18h2"/></svg></div>
+        <div class="fam-top"><span class="ch">CH 05</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="8" rx="2"/><path d="M6 18h2M11 18h2M16 18h2"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam3h">Air Conditioners</h3>
           <p data-i18n="fam3p">Split systems tuned for the region's climate, sized from 1.5 HP for homes and offices.</p>
@@ -701,7 +701,7 @@
       </a>
       <a class="fam f-dis" href="range.html#distribution">
         <img class="fam-img" src="fam-distribution.jpg" alt="" width="690" height="460" loading="lazy" decoding="async">
-        <div class="fam-top"><span class="ch">CH 07</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="16" height="6" rx="1.5"/><path d="M8 9V6M16 9V6M8 18v-3M16 18v-3"/></svg></div>
+        <div class="fam-top"><span class="ch">CH 06</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="16" height="6" rx="1.5"/><path d="M8 9V6M16 9V6M8 18v-3M16 18v-3"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam7h">Distribution Hardware</h3>
           <p data-i18n="fam7p">Multiswitches, DiSEqC switches, LNBs, amplifiers and satellite finders.</p>
@@ -711,7 +711,7 @@
       </a>
       <a class="fam f-cab" href="range.html#cables">
         <img class="fam-img" src="fam-cables.jpg" alt="" width="790" height="568" loading="lazy" decoding="async">
-        <div class="fam-top"><span class="ch">CH 08</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4v6a3 3 0 0 0 3 3h6a3 3 0 0 1 3 3v4"/><circle cx="6" cy="4" r="2"/><circle cx="18" cy="20" r="2"/></svg></div>
+        <div class="fam-top"><span class="ch">CH 07</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4v6a3 3 0 0 0 3 3h6a3 3 0 0 1 3 3v4"/><circle cx="6" cy="4" r="2"/><circle cx="18" cy="20" r="2"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam8h">Cables &amp; Connectivity</h3>
           <p data-i18n="fam8p">4K HDMI, Cat-6 and coaxial cabling rated for stable, interference-free signal.</p>
@@ -721,7 +721,7 @@
       </a>
       <a class="fam f-sec" href="range.html#security">
         <img class="fam-img" src="fam-security.jpg" alt="" width="1600" height="1018" loading="lazy" decoding="async" style="object-position:78% 30%">
-        <div class="fam-top"><span class="ch">CH 06</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="fam-top"><span class="ch">CH 08</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
         <div class="fam-body">
           <h3 data-i18n="fam6h">Security &amp; Access</h3>
           <p data-i18n="fam6p">CCTV, NVR bundles and smart locks for homes, retail and hospitality sites.</p>
@@ -759,7 +759,7 @@
     </div>
     <div class="prods stagger">
       <a class="card" href="range.html?p=TM-5001SK" data-sku="TM-5001SK">
-        <div class="top"><img src="TM-5001SK.jpg" alt="50-inch UHD Smart TV — Truman TM-5001SK" loading="lazy"><span class="badge" data-i18n="f_b1">Entertainment</span></div>
+        <div class="top"><img src="TM-5001SK.webp" alt="50-inch UHD Smart TV — Truman TM-5001SK" loading="lazy"><span class="badge" data-i18n="f_b1">Entertainment</span></div>
         <div class="body">
           <span class="model">TM-5001SK</span>
           <h4 data-i18n="f1h">50&quot; UHD Smart TV</h4>
@@ -769,7 +769,7 @@
         </div>
       </a>
       <a class="card" href="range.html?p=TM-IWORLD-PRO" data-sku="TM-IWORLD-PRO">
-        <div class="top"><img src="TM-IWORLD-PRO.jpg" alt="Truman TM I World Pro receiver" loading="lazy"><span class="badge" data-i18n="f_b2">Receivers</span></div>
+        <div class="top"><img src="TM-IWORLD-PRO.webp" alt="Truman TM I World Pro receiver" loading="lazy"><span class="badge" data-i18n="f_b2">Receivers</span></div>
         <div class="body">
           <span class="model">TM I World Pro</span>
           <h4 data-i18n="f2h">I World Pro Receiver</h4>
@@ -779,7 +779,7 @@
         </div>
       </a>
       <a class="card" href="range.html#ac">
-        <div class="top"><img src="AC-SPLIT.jpg" alt="Truman split air conditioner" loading="lazy"><span class="badge" data-i18n="f_b3">Air Conditioning</span></div>
+        <div class="top"><img src="AC-SPLIT.webp" alt="Truman split air conditioner" loading="lazy"><span class="badge" data-i18n="f_b3">Air Conditioning</span></div>
         <div class="body">
           <span class="model">Split · 3 HP</span>
           <h4 data-i18n="f3h">3 HP Split Air Conditioner</h4>
@@ -789,7 +789,7 @@
         </div>
       </a>
       <a class="card" href="range.html#comfort">
-        <div class="top"><img src="FAN-STANDING.jpg" alt="Truman standing fan" loading="lazy"><span class="badge" data-i18n="f_b4">Home Comfort</span></div>
+        <div class="top"><img src="FAN-STANDING.webp" alt="Truman standing fan" loading="lazy"><span class="badge" data-i18n="f_b4">Home Comfort</span></div>
         <div class="body">
           <span class="model">Standing fan</span>
           <h4 data-i18n="f4h">Standing Fan</h4>
@@ -799,7 +799,7 @@
         </div>
       </a>
       <a class="card" href="range.html?p=TM-G2503" data-sku="TM-G2503">
-        <div class="top"><img src="TM-G2503.jpg" alt="Gas stove with marble surface — Truman TM-G2503" loading="lazy"><span class="badge" data-i18n="f_b5">Kitchen</span></div>
+        <div class="top"><img src="TM-G2503.webp" alt="Gas stove with marble surface — Truman TM-G2503" loading="lazy"><span class="badge" data-i18n="f_b5">Kitchen</span></div>
         <div class="body">
           <span class="model">TM-G2503</span>
           <h4 data-i18n="f5h">Gas Stove — Marble Surface</h4>
@@ -819,7 +819,7 @@
         </div>
       </a>
       <a class="card" href="range.html?p=TM-9932CC" data-sku="TM-9932CC">
-        <div class="top"><img src="TM-9932CC.jpg" alt="9/32 cascade multiswitch — Truman TM-9932CC" loading="lazy"><span class="badge" data-i18n="f_b7">Distribution</span></div>
+        <div class="top"><img src="TM-9932CC.webp" alt="9/32 cascade multiswitch — Truman TM-9932CC" loading="lazy"><span class="badge" data-i18n="f_b7">Distribution</span></div>
         <div class="body">
           <span class="model">TM-9932CC</span>
           <h4 data-i18n="f7h">9/32 Cascade Multiswitch</h4>
@@ -829,7 +829,7 @@
         </div>
       </a>
       <a class="card" href="range.html?p=COAX-RG6-250" data-sku="COAX-RG6-250">
-        <div class="top"><img src="COAX-RG6-250.jpg" alt="RG6 coaxial cable drum, 250 yard" loading="lazy"><span class="badge" data-i18n="f_b8">Cables</span></div>
+        <div class="top"><img src="COAX-RG6-250.webp" alt="RG6 coaxial cable drum, 250 yard" loading="lazy"><span class="badge" data-i18n="f_b8">Cables</span></div>
         <div class="body">
           <span class="model">COAX-RG6-250</span>
           <h4 data-i18n="f8h">RG6 Coaxial — 250 Yard</h4>
