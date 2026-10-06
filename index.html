@@ -1,24 +1,1459 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Truman Admin</title>
-<link rel="icon" href="/assets/logo.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Truman Electronics — Your Life Partner · Satellite & Home Electronics since 1987</title>
+<meta name="description" content="Truman Electronics — Egypt's satellite receiver, television and home-electronics brand since 1987. Made in Egypt, exported across MENA, the Gulf and Russia." />
+<meta name="theme-color" content="#081722" />
+<link rel="icon" href="logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Truman Electronics">
+<meta property="og:title" content="Truman Electronics — Your Life Partner since 1987">
+<meta property="og:description" content="Egypt's satellite receiver, television and home-electronics brand. Shop the range online with delivery across Egypt.">
+<meta property="og:locale" content="en_GB"><meta property="og:locale:alternate" content="ar_EG">
+<link rel="preload" as="image" href="hero-bg.jpg" imagesrcset="hero-bg-1000.jpg 1000w, hero-bg.jpg 2000w" imagesizes="100vw">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Truman Electronics","alternateName":"ترومان إلكترونيكس",
+ "slogan":"Your life partner","foundingDate":"1987","email":"info@trumanelectronics.com","telephone":"+20223956003",
+ "sameAs":["https://www.facebook.com/trumanelectronics"],
+ "address":{"@type":"PostalAddress","streetAddress":"174 Tahrir St., Babellouk","addressLocality":"Cairo","addressCountry":"EG"},
+ "contactPoint":[{"@type":"ContactPoint","telephone":"19903","contactType":"customer service","areaServed":"EG","availableLanguage":["English","Arabic"]}]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/admin/app.css">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#081722; --ink-2:#0d2130; --ink-3:#132d3d; --ink-4:#1a3a4c;
+    --line:#1d3b4b; --line-2:#2a4e61;
+    --paper:#F4EFE4; --paper-2:#EAE3D3;
+    --amber:#E8A33D; --amber-hi:#f4b95c; --amber-deep:#c9832a;
+    --steel:#8CA3B1; --steel-dim:#5f7887;
+    --text-dark:#12242f; --ok:#57c9a8;
+    --maxw:1240px;
+    --sans:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    --disp:"Archivo","Arial Black","Segoe UI",system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  ::selection{background:var(--amber);color:var(--ink)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+  /* ---------- type roles ---------- */
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;font-weight:500;
+    letter-spacing:.24em;text-transform:uppercase;color:var(--amber)}
+  .eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+  .h2{font-family:var(--disp);font-weight:800;font-stretch:88%;font-size:clamp(32px,4.6vw,58px);
+    letter-spacing:-.025em;line-height:.98}
+  .h2 em{font-style:normal;color:var(--amber)}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);vertical-align:middle}
+  .live .dot{animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,163,61,.55)}70%{box-shadow:0 0 0 9px rgba(232,163,61,0)}100%{box-shadow:0 0 0 0 rgba(232,163,61,0)}}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:15px 24px;border-radius:3px;
+    transition:transform .2s var(--ease),background .2s,border-color .2s,color .2s}
+  .btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+  .btn:hover svg{transform:translateX(3px)}
+  html[dir="rtl"] .btn svg{transform:scaleX(-1)}
+  html[dir="rtl"] .btn:hover svg{transform:scaleX(-1) translateX(3px)}
+  .btn-solid{background:var(--amber);color:var(--ink)}
+  .btn-solid:hover{background:var(--amber-hi);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line-2);color:var(--paper);background:rgba(8,23,34,.35);backdrop-filter:blur(6px)}
+  .btn-ghost:hover{border-color:var(--paper)}
+
+  /* ================= HEADER ================= */
+  header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s,border-color .3s,backdrop-filter .3s;
+    border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(8,23,34,.82);backdrop-filter:blur(14px) saturate(1.2);border-bottom-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;transition:height .3s}
+  header.scrolled .nav{height:62px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo-img{height:30px;width:auto}
+  .est{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--steel);text-transform:uppercase;
+    padding-left:14px;border-left:1px solid var(--line-2)}
+  html[dir="rtl"] .est{padding-left:0;border-left:none;padding-right:14px;border-right:1px solid var(--line-2)}
+  nav.menu{display:flex;gap:26px;align-items:center}
+  nav.menu a:not(.cta){font-size:14px;color:var(--steel);position:relative;transition:color .2s}
+  nav.menu a:not(.cta)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--amber);
+    transform:scaleX(0);transition:transform .3s var(--ease)}
+  nav.menu a:not(.cta):hover,nav.menu a.active{color:var(--paper)}
+  nav.menu a.active::after{transform:scaleX(1)}
+  .cta{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--amber);color:var(--ink);
+    padding:10px 16px;border-radius:3px;font-weight:500;transition:background .2s}
+  .cta:hover{background:var(--amber-hi)}
+  .langbtn{font-family:"IBM Plex Sans Arabic",var(--mono);font-size:13px;border:1px solid var(--line-2);color:var(--paper);
+    background:none;padding:7px 12px;border-radius:3px;cursor:pointer;transition:border-color .2s}
+  .langbtn:hover{border-color:var(--amber)}
+  .burger{display:none;background:none;border:1px solid var(--line-2);color:var(--paper);width:44px;height:40px;border-radius:3px;cursor:pointer}
+  .burger span{display:block;width:18px;height:1.5px;background:currentColor;margin:4px auto;transition:transform .25s,opacity .25s}
+  header.open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+  header.open .burger span:nth-child(2){opacity:0}
+  header.open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+  /* ================= HERO ================= */
+  .hero{position:relative;overflow:hidden;padding:116px 0 64px;
+    background:radial-gradient(55% 65% at 78% 50%,rgba(232,163,61,.09),transparent 65%),linear-gradient(180deg,#0b1f2d 0%,var(--ink) 100%)}
+  html[dir="rtl"] .hero{background:radial-gradient(55% 65% at 22% 50%,rgba(232,163,61,.09),transparent 65%),linear-gradient(180deg,#0b1f2d 0%,var(--ink) 100%)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center}
+  .hero-inner{min-width:0;max-width:600px}
+  .hero-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;border:1px solid var(--line-2);border-radius:40px;
+    padding:7px 16px 7px 12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--steel);background:rgba(8,23,34,.5);max-width:100%}
+  .hero-logo{width:min(300px,64%);height:auto;margin-bottom:20px}
+  .hero-subtitle{font-family:var(--disp);font-weight:800;font-stretch:85%;letter-spacing:-.025em;line-height:1;font-size:clamp(34px,4.1vw,62px);overflow-wrap:break-word}
+  .hero-subtitle .glow{color:var(--amber);display:block}
+  .hero .lede{max-width:44ch;color:#d6cfc1;margin-top:20px;font-size:clamp(16px,1.25vw,18px);line-height:1.6}
+  .hero-actions{display:flex;align-items:center;gap:12px 14px;margin-top:28px;flex-wrap:wrap}
+  .hero-hot{display:flex;flex-basis:100%;align-items:center;gap:10px;margin-top:8px;font-family:var(--mono);font-size:11.5px;color:var(--steel);letter-spacing:.08em;text-transform:uppercase}
+  .hero-hot a{font-family:var(--disp);font-weight:800;font-size:22px;color:var(--paper);letter-spacing:.02em}
+  .hero-hot a:hover{color:var(--amber)}
+  /* photo backdrop (catalogue shot) */
+  .hero{min-height:min(92vh,880px);display:flex;align-items:center;background:var(--ink)}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 40%;transform:scale(1.04);animation:heroIn 1.6s var(--ease) both}
+  @keyframes heroIn{from{opacity:0;transform:scale(1.1)}}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(90deg,rgba(8,23,34,.97) 0%,rgba(8,23,34,.88) 34%,rgba(8,23,34,.45) 62%,rgba(8,23,34,.55) 100%),
+               linear-gradient(0deg,var(--ink) 0%,rgba(8,23,34,0) 30%)}
+  html[dir="rtl"] .hero::before{background:linear-gradient(270deg,rgba(8,23,34,.97) 0%,rgba(8,23,34,.88) 34%,rgba(8,23,34,.45) 62%,rgba(8,23,34,.55) 100%),
+               linear-gradient(0deg,var(--ink) 0%,rgba(8,23,34,0) 30%)}
+  .hero .wrap{position:relative;z-index:2;width:100%}
+  .hero-grid{align-items:end}
+
+  /* hero search */
+  .hsearch{position:relative;display:flex;align-items:center;margin-top:28px;max-width:520px;background:rgba(8,23,34,.72);
+    border:1px solid var(--line-2);border-radius:4px;backdrop-filter:blur(8px);transition:border-color .2s,box-shadow .2s}
+  .hsearch:focus-within{border-color:var(--amber);box-shadow:0 0 0 4px rgba(232,163,61,.14)}
+  .hsearch svg{width:18px;height:18px;color:var(--steel);margin-inline-start:16px;flex:none}
+  .hsearch input{flex:1;min-width:0;font:inherit;font-size:16px;color:var(--paper);background:none;border:0;padding:15px 12px;outline:none}
+  .hsearch input::placeholder{color:var(--steel-dim)}
+  .hsearch button{font:inherit;font-weight:600;font-size:14px;background:var(--amber);color:var(--ink);border:0;border-radius:3px;margin:5px;padding:10px 16px;cursor:pointer}
+  .hsearch button:hover{background:var(--amber-hi)}
+  .hsugg{display:flex;flex-wrap:wrap;gap:6px 8px;margin-top:12px;font-size:12.5px;color:var(--steel);align-items:center}
+  .hsugg a{border:1px dashed var(--line-2);border-radius:20px;padding:3px 11px;color:var(--steel);background:rgba(8,23,34,.4)}
+  .hsugg a:hover{border-color:var(--amber);color:var(--paper)}
+
+  /* product spotlight */
+  .spot{position:relative;justify-self:end;width:100%;max-width:400px;background:rgba(13,33,48,.78);backdrop-filter:blur(14px) saturate(1.2);
+    border:1px solid var(--line-2);border-radius:12px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(0,0,0,.9);
+    animation:spotIn .9s .3s var(--ease) both}
+  @keyframes spotIn{from{opacity:0;transform:translateY(24px)}}
+  .spot[hidden]{display:none}
+  .spot-h{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+  .spot-h b{color:var(--amber);font-weight:500;display:inline-flex;align-items:center;gap:8px}
+  .spot-h b::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulse 2.4s infinite}
+  .spot-media{position:relative;display:grid;place-items:center;height:220px;margin:0 14px;border-radius:8px;
+    background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);overflow:hidden}
+  .spot-media img{max-width:82%;max-height:84%;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.45));transition:opacity .35s,transform .5s var(--ease)}
+  .spot.swap .spot-media img,.spot.swap .spot-body{opacity:0;transform:translateY(8px)}
+  .spot-body{padding:16px 18px 18px;transition:opacity .35s,transform .45s var(--ease)}
+  .spot-body .model{font-family:var(--mono);font-size:11.5px;color:var(--amber);letter-spacing:.08em;direction:ltr;unicode-bidi:isolate}
+  .spot-body h3{font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:21px;line-height:1.15;margin-top:4px;min-height:2.3em}
+  .spot-body .specs{margin-top:12px;padding-top:0;border-top:0}
+  .spot-buy{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .spot-buy .cprice{flex:1;font-size:22px}
+  .spot-buy .btn{padding:10px 14px;font-size:13.5px;border:0;cursor:pointer}
+  .spot-buy .more{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--steel);text-transform:uppercase}
+  .spot-buy .more:hover{color:var(--paper)}
+  .spot-dots{display:flex;gap:6px;padding:0 18px 16px}
+  .spot-dots button{flex:1;height:3px;border:0;border-radius:2px;background:var(--line-2);cursor:pointer;padding:0;position:relative;overflow:hidden}
+  .spot-dots button::after{content:"";position:absolute;inset:0;background:var(--amber);transform:scaleX(0);transform-origin:left}
+  html[dir="rtl"] .spot-dots button::after{transform-origin:right}
+  .spot-dots button.done::after{transform:scaleX(1)}
+  .spot-dots button.on::after{animation:fill var(--spot-ms,6000ms) linear forwards}
+  .spot:hover .spot-dots button.on::after,.spot.paused .spot-dots button.on::after{animation-play-state:paused}
+  @keyframes fill{to{transform:scaleX(1)}}
+
+  /* header cart */
+  .cartlink{position:relative;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-2);padding:6px 10px;border-radius:3px;font-size:13px;color:var(--paper)!important}
+  .cartlink:hover{border-color:var(--amber)}
+  .cartlink svg{width:16px;height:16px}
+  .cartlink .count{font-family:var(--mono);font-size:11px;background:var(--amber);color:var(--ink);border-radius:20px;min-width:19px;height:19px;display:inline-grid;place-items:center;padding:0 5px;font-weight:600}
+  .cartlink .count[data-n="0"]{background:var(--ink-4);color:var(--steel)}
+  .cartlink.bump .count{animation:bump .5s var(--ease)}
+  @keyframes bump{40%{transform:scale(1.45)}}
+  nav.menu a.cartlink::after{display:none}
+  @media (max-width:1440px){ .est{display:none} nav.menu{gap:22px} }
+  @media (max-width:1240px){ #menu a[href="#reach"]{display:none} }
+  .cartlink.m{display:none}
+  .toast{position:fixed;z-index:90;top:84px;inset-inline-end:16px;display:flex;align-items:center;gap:12px;background:var(--paper);color:var(--ink);border-radius:6px;
+    padding:10px 12px 10px 14px;box-shadow:0 18px 40px -16px rgba(0,0,0,.7);transform:translateY(-12px);opacity:0;pointer-events:none;transition:all .3s var(--ease);font-size:14px;max-width:calc(100vw - 32px)}
+  .toast.on{transform:none;opacity:1;pointer-events:auto}
+  .toast img{width:40px;height:32px;object-fit:contain}
+  .toast a{font-weight:700;color:var(--amber-deep);white-space:nowrap}
+
+  /* stat band */
+  .statband{position:relative;z-index:3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink)}
+  .stats-in{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:30px 26px;border-left:1px solid var(--line)}
+  .stat:first-child{border-left:none}
+  html[dir="rtl"] .stat{border-left:none;border-right:1px solid var(--line)}
+  html[dir="rtl"] .stat:first-child{border-right:none}
+  .stat .n{font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:clamp(34px,3.6vw,46px);letter-spacing:-.02em;line-height:1}
+  .stat .n small{color:var(--amber);font-size:.55em;margin-inline-start:4px}
+  .stat .l{font-family:var(--mono);font-size:11.5px;color:var(--steel);letter-spacing:.08em;margin-top:10px;text-transform:uppercase}
+
+  /* marquee */
+  .ticker{overflow:hidden;border-bottom:1px solid var(--line);background:var(--ink-2);direction:ltr}
+  .ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  .ticker-track span{font-family:var(--disp);font-weight:700;font-stretch:80%;font-size:15px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--steel-dim);padding:16px 26px;white-space:nowrap;display:flex;align-items:center;gap:26px}
+  .ticker-track span::after{content:"";width:6px;height:6px;background:var(--amber);transform:rotate(45deg)}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* ================= SECTIONS ================= */
+  section{padding:120px 0}
+  .sec-head{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end;margin-bottom:56px}
+  .sec-head .h2{margin-top:18px;max-width:17ch}
+  .sec-head p{color:var(--steel);font-size:16px;max-width:40ch;justify-self:end}
+  html[dir="rtl"] .sec-head p{justify-self:start}
+
+  /* ---------- family bento ---------- */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:420px 268px 268px 420px;gap:14px;
+    grid-template-areas:"com com kit kit" "ent ent rx rx" "ac dis dis cab" "sec sec svc svc"}
+  .fam{position:relative;overflow:hidden;border-radius:6px;background:var(--ink-3);isolation:isolate;
+    display:flex;flex-direction:column;justify-content:space-between;gap:36px;padding:22px 24px 24px;
+    box-shadow:inset 0 0 0 1px rgba(140,163,177,.12);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
+  .fam-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+    filter:saturate(.7) contrast(1.05) brightness(.9);transform:scale(1.02);transition:transform 1.1s var(--ease),filter .6s}
+  .fam::before{content:"";position:absolute;inset:0;z-index:-1;transition:opacity .5s;
+    background:linear-gradient(180deg,rgba(8,23,34,.55) 0%,rgba(8,23,34,.15) 30%,rgba(8,23,34,.7) 62%,rgba(8,23,34,.96) 100%)}
+  .fam::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,rgba(232,163,61,.0) 40%,rgba(232,163,61,.22) 100%);
+    opacity:0;transition:opacity .5s}
+  .fam:hover{box-shadow:inset 0 0 0 1px rgba(232,163,61,.7);transform:translateY(-3px)}
+  .fam:hover .fam-img{transform:scale(1.08);filter:saturate(1) contrast(1.05) brightness(.95)}
+  .fam:hover::after{opacity:1}
+  .fam-top{display:flex;justify-content:space-between;align-items:center}
+  .ch{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--paper);background:rgba(8,23,34,.55);
+    backdrop-filter:blur(6px);border:1px solid rgba(244,239,228,.14);padding:4px 9px;border-radius:30px}
+  .fam .ico{width:36px;height:36px;color:var(--amber);padding:7px;border-radius:50%;background:rgba(8,23,34,.55);
+    backdrop-filter:blur(6px);border:1px solid rgba(232,163,61,.3)}
+  .fam h3{font-family:var(--disp);font-weight:800;font-stretch:88%;font-size:24px;letter-spacing:-.01em;line-height:1.05}
+  .fam p{font-size:14px;color:#c9d3d9;margin-top:8px;line-height:1.5;max-width:44ch}
+  .items{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:var(--mono);font-size:10.5px;color:#dbe3e8;background:rgba(8,23,34,.5);border:1px solid rgba(244,239,228,.16);
+    padding:3px 8px;border-radius:30px;backdrop-filter:blur(4px)}
+  .cat-go{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;
+    color:var(--amber);text-transform:uppercase;transition:gap .3s var(--ease)}
+  .fam:hover .cat-go{gap:14px;color:var(--amber-hi)}
+  .f-ent{grid-area:ent}.f-rx{grid-area:rx}.f-ac{grid-area:ac}.f-com{grid-area:com}.f-kit{grid-area:kit}
+  .f-sec{grid-area:sec}.f-dis{grid-area:dis}.f-cab{grid-area:cab}.f-svc{grid-area:svc}
+  /* compact cards: hide description, keep it on wide ones */
+  .f-ac p,.f-cab p{display:none}
+  .f-com,.f-kit,.f-sec,.f-svc{padding:30px 32px 32px}
+  .f-com h3,.f-kit h3,.f-sec h3,.f-svc h3{font-size:clamp(30px,3.2vw,44px)}
+  .f-com p,.f-kit p,.f-sec p,.f-svc p{font-size:16px;max-width:40ch}
+  .flag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--amber);color:var(--ink);
+    padding:4px 9px;border-radius:30px;margin-bottom:14px;display:inline-block;font-weight:500}
+  .bento-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:26px;flex-wrap:wrap}
+  .bento-foot small{font-family:var(--mono);font-size:12px;color:var(--steel-dim);letter-spacing:.04em}
+
+  /* ---------- featured ---------- */
+  .feat{padding-top:0}
+  .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  a.card{color:inherit}
+  .specs span,.card .model{direction:ltr;unicode-bidi:isolate}
+  .card .top.dark{background:radial-gradient(90% 90% at 50% 45%,#16324a 0%,#0d2130 75%);padding:0}
+  .card .top.dark img{width:100%;height:100%;max-height:none;object-fit:cover;filter:none}
+  .cfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+  .cprice{font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:19px;letter-spacing:-.01em;white-space:nowrap}
+  .cprice small{font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--steel);margin-inline-end:5px;letter-spacing:.06em}
+  .cprice [data-i18n="f_quote"]{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--steel);letter-spacing:.02em}
+  .cgo{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);white-space:nowrap;transition:transform .25s var(--ease)}
+  .card:hover .cgo{transform:translateX(4px)}
+  html[dir="rtl"] .card:hover .cgo{transform:translateX(-4px)}
+  @media (max-width:1180px){ .prods{grid-template-columns:repeat(3,1fr)} }
+  .card{background:var(--ink-2);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+  .card:hover{transform:translateY(-4px);border-color:var(--amber-deep);box-shadow:0 24px 50px -24px rgba(0,0,0,.7)}
+  .card .top{position:relative;height:190px;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);
+    display:flex;align-items:center;justify-content:center;padding:22px;overflow:hidden}
+  .card .top img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.45));transition:transform .6s var(--ease)}
+  .card:hover .top img{transform:scale(1.06)}
+  .badge{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--paper);
+    background:var(--ink);padding:4px 9px;border-radius:30px;text-transform:uppercase}
+  html[dir="rtl"] .badge{left:auto;right:14px}
+  .card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .card .model{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.08em}
+  .card h4{font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:19px;margin-top:6px;letter-spacing:-.01em}
+  .card .desc{font-size:14px;color:var(--steel);margin-top:8px;flex:1;line-height:1.55}
+  .specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;padding-top:16px;border-top:1px dashed var(--line-2)}
+  .specs span{font-family:var(--mono);font-size:11px;color:#c4d1d9;background:var(--ink-3);border:1px solid var(--line);padding:4px 8px;border-radius:3px}
+
+  /* ---------- satellite ---------- */
+  .tier-band{background:radial-gradient(80% 60% at 80% 0%,rgba(232,163,61,.07),transparent 60%),linear-gradient(180deg,#0b1f2d 0%,var(--ink) 100%);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .chain{display:grid;grid-template-columns:repeat(5,1fr);position:relative;margin:0 0 56px;padding:28px 0;
+    border:1px solid var(--line);border-radius:6px;background:rgba(13,33,48,.6)}
+  .chain::before{content:"";position:absolute;left:10%;right:10%;top:56px;height:1px;background:repeating-linear-gradient(90deg,var(--line-2) 0 6px,transparent 6px 12px)}
+  .chain .beam{position:absolute;top:53px;left:10%;width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 14px 3px rgba(232,163,61,.6);
+    animation:beam 4.2s linear infinite}
+  @keyframes beam{0%{left:10%;opacity:0}6%{opacity:1}94%{opacity:1}100%{left:90%;opacity:0}}
+  html[dir="rtl"] .chain .beam{animation-name:beamr}
+  @keyframes beamr{0%{left:90%;opacity:0}6%{opacity:1}94%{opacity:1}100%{left:10%;opacity:0}}
+  .node{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;z-index:1;
+    background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0}
+  .node .nb{transition:background .25s,border-color .25s,color .25s,transform .3s var(--ease),box-shadow .3s}
+  .node:hover .nb{border-color:var(--amber);transform:translateY(-3px)}
+  .node[aria-selected="true"] .nb{background:var(--amber);border-color:var(--amber);color:var(--ink);box-shadow:0 0 0 6px rgba(232,163,61,.15),0 0 30px rgba(232,163,61,.35)}
+  .node[aria-selected="true"] b{color:var(--amber)}
+  .chain-hint{display:block;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-dim);margin:-40px 0 22px}
+  .stage{border:1px solid var(--line-2);border-radius:10px;background:rgba(13,33,48,.6);padding:22px 22px 18px;margin-bottom:56px}
+  .stage[hidden]{display:none}
+  .stage-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+  .stage-h h3{font-family:var(--disp);font-weight:800;font-stretch:88%;font-size:24px;letter-spacing:-.01em}
+  .stage-h p{color:var(--steel);font-size:14.5px;max-width:62ch;margin-top:4px}
+  .stage-h a{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+  .shelf{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(180px,1fr);gap:12px;overflow-x:auto;scrollbar-width:thin;padding-bottom:6px}
+  .mini{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--ink);transition:border-color .2s,transform .25s var(--ease);
+    animation:miniIn .45s var(--ease) both}
+  .mini:hover{border-color:var(--amber-deep);transform:translateY(-2px)}
+  @keyframes miniIn{from{opacity:0;transform:translateY(10px)}}
+  .mini .im{display:block;height:120px;background:radial-gradient(75% 80% at 50% 40%,#2b5064 0%,#173547 48%,#0e2332 100%);padding:10px;overflow:hidden}
+  .mini .im img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))}
+  .mini .tx{padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px;flex:1}
+  .mini .sku{font-family:var(--mono);font-size:10.5px;color:var(--amber);letter-spacing:.06em;direction:ltr;unicode-bidi:isolate;text-align:start}
+  .mini b{font-size:13.5px;font-weight:600;line-height:1.3}
+  .mini .pr{margin-top:auto;padding-top:6px;font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:16px}
+  .mini .pr small{font-family:var(--mono);font-size:10px;font-weight:400;color:var(--steel);margin-inline-end:4px}
+  .tier .tcta{margin-top:auto;padding-top:24px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+  .tier .tcta:hover{color:var(--amber-hi)}
+  .tier ul{margin-bottom:0}
+  .node .nb{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--ink);border:1px solid var(--line-2);color:var(--amber)}
+  .node .nb svg{width:24px;height:24px}
+  .node b{font-family:var(--disp);font-weight:700;font-size:15px}
+  .node i{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--steel-dim);letter-spacing:.1em;margin-top:-8px}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .tier{border:1px solid var(--line);border-radius:6px;padding:32px 28px;background:rgba(19,45,61,.35);display:flex;flex-direction:column;
+    transition:border-color .3s,transform .3s var(--ease)}
+  .tier:hover{border-color:var(--line-2);transform:translateY(-3px)}
+  .tier.mid{border-color:var(--amber-deep);background:linear-gradient(180deg,rgba(232,163,61,.09),rgba(232,163,61,.02))}
+  .tier .lvl{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
+  .tier h3{font-family:var(--disp);font-weight:800;font-stretch:88%;font-size:32px;margin-top:10px;letter-spacing:-.02em}
+  .tier .for{color:var(--amber);font-size:13px;margin-top:2px;font-family:var(--mono)}
+  .tier ul{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px;padding-top:22px;border-top:1px solid var(--line)}
+  .tier li{font-size:14.5px;color:#d5ccbe;padding-left:24px;position:relative}
+  html[dir="rtl"] .tier li{padding-left:0;padding-right:24px}
+  .tier li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;background:var(--amber);transform:rotate(45deg)}
+  html[dir="rtl"] .tier li::before{left:auto;right:2px}
+
+  /* ---------- reach ---------- */
+  .reach{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:center}
+  .reach p.body{color:#d3ccbe;margin-top:22px;max-width:46ch}
+  .routes{margin-top:34px;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+  .route{padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--line)}
+  .route .place{font-family:var(--disp);font-weight:700;font-size:17px;display:flex;align-items:center;gap:12px}
+  .route .place::before{content:"";width:8px;height:8px;border-radius:50%;border:2px solid var(--amber)}
+  .route .role{font-family:var(--mono);font-size:11px;color:var(--steel);letter-spacing:.08em;text-transform:uppercase;text-align:right}
+  html[dir="rtl"] .route .role{text-align:left}
+  .map{position:relative;border:1px solid var(--line);border-radius:8px;background:radial-gradient(70% 70% at 55% 60%,#10293a,#0a1c28);overflow:hidden;direction:ltr}
+  .map svg{width:100%;height:auto;display:block}
+  .arc-path{fill:none;stroke:var(--amber);stroke-width:1.6;stroke-dasharray:5 6;opacity:.85}
+  .live .arc-path{animation:dash 1.6s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-22}}
+  .city{fill:var(--amber)}
+  .city-ring{fill:none;stroke:var(--amber);stroke-width:1.5}
+  .live .city-ring{animation:ring 2.8s ease-out infinite}
+  @keyframes ring{0%{r:4;opacity:.9}100%{r:22;opacity:0}}
+  .map text{font-family:var(--mono);font-size:11px;fill:var(--paper);letter-spacing:.06em}
+  .map text.sub{fill:var(--steel);font-size:9px;letter-spacing:.12em}
+
+  /* ---------- heritage ---------- */
+  .heritage{background:var(--paper);color:var(--text-dark);position:relative;overflow:hidden}
+  .heritage .eyebrow{color:var(--amber-deep)}
+  .her-year{position:absolute;right:-2vw;bottom:-6vw;font-family:var(--disp);font-weight:900;font-stretch:75%;font-size:32vw;line-height:.8;
+    color:transparent;-webkit-text-stroke:1.5px rgba(18,36,47,.08);pointer-events:none;user-select:none;direction:ltr}
+  html[dir="rtl"] .her-year{right:auto;left:-2vw}
+  .her-grid{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+  .her-grid .h2{color:#0f2330;margin-top:18px}
+  .her-count{display:flex;align-items:baseline;gap:14px;margin-top:40px;padding-top:26px;border-top:1px solid rgba(18,36,47,.14)}
+  .her-count b{font-family:var(--disp);font-weight:900;font-stretch:85%;font-size:88px;line-height:.9;color:var(--amber-deep);letter-spacing:-.03em}
+  .her-count span{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#54636c;max-width:16ch}
+  .her-body p{color:#3a4c56;margin-bottom:18px;font-size:17px}
+  .her-body p:first-child{font-size:20px;color:#1b2f3a;line-height:1.55}
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 30px;margin-top:20px}
+  .pill{border-top:2px solid var(--amber);padding-top:16px}
+  .pill h5{font-family:var(--disp);font-weight:800;font-size:18px;color:#0f2330}
+  .pill p{font-size:14px;color:#54636c;margin-top:6px;margin-bottom:0}
+
+  /* ---------- contact ---------- */
+  /* ---------- buy online ---------- */
+  .promise{padding:0 0 120px}
+  .prom{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--ink-2)}
+  .pr-i{padding:26px 24px 28px;border-inline-start:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  .pr-i:first-child{border-inline-start:none}
+  .pr-i .ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(232,163,61,.1);border:1px solid rgba(232,163,61,.3);color:var(--amber);margin-bottom:8px}
+  .pr-i .ic svg{width:20px;height:20px}
+  .pr-i h4{font-family:var(--disp);font-weight:800;font-stretch:90%;font-size:19px;letter-spacing:-.01em}
+  .pr-i p{font-size:14px;color:var(--steel);line-height:1.55}
+  .pr-i p b{color:var(--paper);font-weight:600}
+  .prom-cta{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px;padding:18px 22px;border-radius:10px;
+    background:linear-gradient(90deg,rgba(232,163,61,.14),rgba(232,163,61,.03));border:1px solid rgba(232,163,61,.35)}
+  html[dir="rtl"] .prom-cta{background:linear-gradient(270deg,rgba(232,163,61,.14),rgba(232,163,61,.03))}
+  .prom-cta p{font-size:15.5px}
+  .prom-cta p b{color:var(--amber)}
+  .prom-cta .row{display:flex;gap:10px;flex-wrap:wrap}
+
+  /* ---------- contact form ---------- */
+  .cform{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .cform .full{grid-column:1/-1}
+  .fld{display:flex;flex-direction:column;gap:6px}
+  .fld span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
+  .fld input,.fld select,.fld textarea{font:inherit;font-size:15px;color:var(--paper);background:var(--ink);border:1px solid var(--line-2);border-radius:4px;padding:12px 13px;width:100%;transition:border-color .2s,box-shadow .2s}
+  .fld textarea{min-height:120px;resize:vertical}
+  .fld select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--steel) 50%),linear-gradient(135deg,var(--steel) 50%,transparent 50%);
+    background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-inline-end:34px}
+  html[dir="rtl"] .fld select{background-position:18px 50%,13px 50%}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(232,163,61,.14)}
+  .fld input[aria-invalid="true"],.fld textarea[aria-invalid="true"]{border-color:#e07a5f}
+  .cform-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .contact .cform .btn{margin-top:0}
+  .cform-msg{font-size:14px;color:var(--steel)}
+  .cform-msg.ok{color:var(--ok)} .cform-msg.err{color:#e07a5f}
+  .cform.sent .fld,.cform.sent .cform-foot .btn{opacity:.5;pointer-events:none}
+  .cside .btn{margin-top:22px}
+  .cside .social{display:inline-flex;align-items:center;gap:8px;margin-top:18px;margin-inline-start:14px;font-size:14px;color:var(--steel)}
+  .cside .social:hover{color:var(--paper)}
+  .cside .social svg{width:18px;height:18px}
+
+  .contact{background:var(--ink-2);border-top:1px solid var(--line);position:relative;overflow:hidden}
+  .contact::before{content:"";position:absolute;right:-200px;top:-200px;width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle,rgba(232,163,61,.12),transparent 65%);pointer-events:none}
+  .contact-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .contact .h2{margin-top:18px}
+  .contact p.body{color:var(--steel);margin-top:18px;max-width:42ch}
+  .contact .btn{margin-top:30px}
+  .quick{display:grid;grid-template-columns:1fr 1.7fr;gap:12px;margin-bottom:22px}
+  .qk{border:1px solid var(--line-2);border-radius:6px;padding:18px 20px;background:var(--ink);transition:border-color .25s,transform .25s var(--ease)}
+  .qk:hover{border-color:var(--amber);transform:translateY(-2px)}
+  .qk .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--steel);text-transform:uppercase}
+  .qk .v{display:block;font-family:var(--disp);font-weight:800;font-size:28px;margin-top:4px;color:var(--paper)}
+  .qk.alt .v{font-size:15px;font-family:var(--sans);font-weight:600;margin-top:10px;overflow-wrap:anywhere}
+  .cline{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .cline:first-child{border-top:1px solid var(--line)}
+  .cline .k{font-family:var(--mono);font-size:11.5px;color:var(--steel);letter-spacing:.1em;text-transform:uppercase;min-width:92px;padding-top:2px}
+  .cline .v{font-size:15px}
+  .cline .v a:hover{color:var(--amber)}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);border-top:1px solid var(--line);padding:64px 0 34px}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+  .foot .logo-img{height:34px}
+  .foot small{font-family:var(--mono);font-size:12px;color:var(--steel-dim);letter-spacing:.04em}
+  .foot h6{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-dim);font-weight:500;margin-bottom:14px}
+  .flinks{display:flex;flex-direction:column;gap:9px}
+  .flinks a{font-size:14px;color:var(--steel);transition:color .2s}
+  .flinks a:hover{color:var(--paper)}
+  .foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:48px;padding-top:22px;border-top:1px solid var(--line)}
+
+  /* mobile call pill */
+  .callfab{position:fixed;right:16px;bottom:16px;z-index:70;display:none;align-items:center;gap:8px;background:var(--amber);color:var(--ink);
+    font-weight:700;font-size:15px;padding:13px 18px;border-radius:40px;box-shadow:0 10px 30px -8px rgba(0,0,0,.6)}
+  .callfab svg{width:18px;height:18px}
+  html[dir="rtl"] .callfab{right:auto;left:16px}
+
+  /* reveal */
+  .rise{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .rise.in{opacity:1;transform:none}
+  .stagger > *{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .stagger.in > *{opacity:1;transform:none}
+  .stagger.in > *:nth-child(2){transition-delay:.06s}.stagger.in > *:nth-child(3){transition-delay:.12s}
+  .stagger.in > *:nth-child(4){transition-delay:.18s}.stagger.in > *:nth-child(5){transition-delay:.24s}
+  .stagger.in > *:nth-child(6){transition-delay:.3s}.stagger.in > *:nth-child(7){transition-delay:.36s}
+  .stagger.in > *:nth-child(8){transition-delay:.42s}.stagger.in > *:nth-child(9){transition-delay:.48s}
+
+  /* ---------- Arabic ---------- */
+  html[lang="ar"] body{font-family:"IBM Plex Sans Arabic",var(--sans)}
+  html[lang="ar"] .h2,html[lang="ar"] .hero-subtitle,html[lang="ar"] .fam h3,html[lang="ar"] .tier h3,html[lang="ar"] .card h4,
+  html[lang="ar"] .route .place,html[lang="ar"] .pill h5,html[lang="ar"] .node b{font-family:"IBM Plex Sans Arabic",var(--disp);font-weight:700;letter-spacing:0;line-height:1.25}
+  html[lang="ar"] .eyebrow,html[lang="ar"] .stat .l,html[lang="ar"] .cat-go,html[lang="ar"] .tier .for,html[lang="ar"] .route .role,
+  html[lang="ar"] .cline .k,html[lang="ar"] .qk .k,html[lang="ar"] .her-count span,html[lang="ar"] .hero-tag,html[lang="ar"] .hero-hot,
+  html[lang="ar"] .foot h6,html[lang="ar"] .est,html[lang="ar"] .cta{font-family:"IBM Plex Sans Arabic",var(--sans);letter-spacing:0;font-size:13px}
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width:1080px){
+    nav.menu{display:none}
+    .burger{display:block}
+    .cartlink.m{display:inline-flex;margin-inline-start:auto;margin-inline-end:10px}
+    nav.menu .cartlink{display:none}
+    header.open{background:rgba(8,23,34,.97)}
+    header.open nav.menu{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;
+      background:var(--ink);border-bottom:1px solid var(--line);padding:22px 28px 26px;gap:18px}
+    header.open nav.menu a:not(.cta){font-size:17px}
+    .bento{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:minmax(280px,auto);
+      grid-template-areas:"com kit" "ent rx" "ac dis" "cab cab" "sec svc"}
+    .f-com,.f-kit,.f-sec,.f-svc{min-height:380px}
+    .f-ent p,.f-rx p{display:none}
+  }
+  @media (max-width:940px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero-inner{max-width:640px}
+    .spot{justify-self:start;max-width:520px}
+    .hero::before{background:linear-gradient(180deg,rgba(8,23,34,.9) 0%,rgba(8,23,34,.82) 45%,rgba(8,23,34,.95) 100%)}
+    html[dir="rtl"] .hero::before{background:linear-gradient(180deg,rgba(8,23,34,.9) 0%,rgba(8,23,34,.82) 45%,rgba(8,23,34,.95) 100%)}
+    .prom{grid-template-columns:1fr 1fr}
+    .pr-i:nth-child(3){border-inline-start:none}
+    .pr-i:nth-child(n+3){border-top:1px solid var(--line)}
+    .sec-head{grid-template-columns:1fr;gap:18px}
+    .sec-head p{justify-self:start}
+    .stats-in{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(3){border-left:none}
+    .stat:nth-child(n+3){border-top:1px solid var(--line)}
+    html[dir="rtl"] .stat:nth-child(3){border-right:none}
+    .prods,.tiers{grid-template-columns:1fr 1fr}
+    .reach,.her-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+    .foot{grid-template-columns:1fr 1fr}
+    .foot > div:first-child{grid-column:1/-1}
+    .chain{grid-template-columns:repeat(5,1fr);padding:22px 6px}
+    .node i{display:none}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 16px}
+    section{padding:80px 0}
+    .est{display:none}
+    .hero{padding:92px 0 40px;min-height:0}
+    .hero-logo{width:min(220px,60%)}
+    .spot-media{height:190px}
+    .hsearch button{padding:10px 12px}
+    .prom{grid-template-columns:1fr}
+    .pr-i{border-inline-start:none!important;border-top:1px solid var(--line)}
+    .pr-i:first-child{border-top:none}
+    .promise{padding-bottom:80px}
+    .cform{grid-template-columns:1fr}
+    .stage{padding:16px 14px 12px}
+    .chain-hint{margin-top:-30px}
+    .chain .node b{font-size:10.5px}
+    .hero-actions .btn{flex:1 1 auto;justify-content:center}
+    .bento{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:auto;
+      grid-template-areas:"com" "kit" "ent" "rx" "ac" "dis" "cab" "sec" "svc"}
+    .fam{min-height:280px;padding:20px 20px 22px}
+    .f-com,.f-kit,.f-sec,.f-svc{min-height:360px;padding:22px 22px 26px}
+    .f-ac{min-height:360px}
+    .fam p{display:block!important}
+    .prods,.tiers,.quick{grid-template-columns:1fr}
+    .prods{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;overflow-x:auto;scroll-snap-type:x mandatory;
+      margin:0 -16px;padding:4px 16px 14px;scroll-padding:0 16px;scrollbar-width:none}
+    .prods::-webkit-scrollbar{display:none}
+    .prods > .card{scroll-snap-align:start}
+    .prods .card:hover{transform:none}
+    .chain .nb{width:44px;height:44px}
+    .chain .nb svg{width:19px;height:19px}
+    .chain::before{top:44px}.chain .beam{top:41px}
+    .node b{font-size:12px}
+    .foot{grid-template-columns:1fr}
+    .callfab{display:inline-flex}
+    footer{padding-bottom:90px}
+    .her-count b{font-size:68px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .rise,.stagger > *{opacity:1;transform:none}
+  }
+</style>
 </head>
-<body>
-<div id="app" aria-live="polite">
-  <div class="boot"><span class="brand-word">TRUMAN<i>.</i></span></div>
-</div>
-<div id="toast" role="status" aria-live="polite"></div>
-<div id="modal-root"></div>
-<div id="print-root" aria-hidden="true"></div>
-<script src="/admin/qrcode.js"></script>
-<script src="/admin/app.js"></script>
+<body class="live">
+
+<span id="top"></span>
+<header id="hdr">
+  <div class="wrap nav">
+    <div class="brand">
+      <a href="#top" aria-label="Truman Electronics — your life partner"><img src="logo.png" width="114" height="30" alt="Truman Electronics" class="logo-img"></a>
+      <span class="est">Est. 1987 · Egypt</span>
+    </div>
+    <nav class="menu" id="menu">
+      <a href="#products" data-i18n="nav_products">Products</a>
+      <a href="shop.html" data-i18n="nav_shop">Shop</a>
+      <a href="range.html" data-i18n="nav_range">Range</a>
+      <a href="#satellite" data-i18n="nav_sat">Satellite Systems</a>
+      <a href="#reach" data-i18n="nav_reach">Global Reach</a>
+      <a href="#heritage" data-i18n="nav_company">Company</a>
+      <a href="shop.html" class="cartlink" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="count" data-n="0">0</span></a>
+      <button class="langbtn" id="langbtn" aria-label="Switch language">العربية</button>
+      <a href="#contact" class="cta" data-i18n="nav_cta">Contact Sales</a>
+    </nav>
+    <a href="shop.html" class="cartlink m" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="count" data-n="0">0</span></a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <picture class="hero-bg" aria-hidden="true"><img src="hero-bg.jpg" srcset="hero-bg-1000.jpg 1000w, hero-bg.jpg 2000w" sizes="100vw" alt="" fetchpriority="high"></picture>
+  <div class="wrap hero-grid">
+    <div class="hero-inner">
+      <span class="hero-tag"><span class="dot"></span> <span data-i18n="hero_tag">Signal locked · Satellite &amp; home electronics</span></span>
+      <img class="hero-logo" src="logo.png" width="300" height="79" alt="Truman Electronics — your life partner">
+      <h1 class="hero-subtitle" data-i18n="hero_sub">Reception you can <span class="glow">build a home around.</span></h1>
+      <p class="lede" data-i18n="hero_lede">Since 1987, Truman has engineered Egypt's satellite receivers, televisions and household electronics — German-grade technology, made and serviced across the region.</p>
+      <form class="hsearch" action="range.html" method="get" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <label class="sr" for="hq" data-i18n="hs_lbl">Search the range</label>
+        <input id="hq" name="q" type="search" autocomplete="off" placeholder="Search 49 models — try “4K receiver”">
+        <button type="submit" data-i18n="hs_go">Search</button>
+      </form>
+      <div class="hsugg"><span data-i18n="hs_pop">Popular:</span><a href="range.html?q=4K">4K</a><a href="range.html?q=smart" data-i18n="hs_smart">Smart TV</a><a href="range.html?q=multiswitch" data-i18n="hs_ms">Multiswitch</a><a href="range.html?q=kettle" data-i18n="hs_kettle">Kettle</a><a href="range.html?q=LNB">LNB</a></div>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-solid"><span data-i18n="hero_cta1">Explore products</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a href="shop.html" class="btn btn-ghost" data-i18n="hero_cta2b">Shop online</a>
+        <span class="hero-hot"><span data-i18n="hero_hot">Hotline</span> <a href="tel:19903">19903</a></span>
+      </div>
+    </div>
+    <aside class="spot" id="spot" aria-label="Product spotlight" hidden>
+      <div class="spot-h"><b data-i18n="sp_h">Spotlight</b><span id="spotN">01 / 06</span></div>
+      <a class="spot-media" id="spotLink" href="range.html"><img id="spotImg" src="" alt="" width="400" height="300"></a>
+      <div class="spot-body">
+        <span class="model" id="spotSku"></span>
+        <h3 id="spotName"></h3>
+        <div class="specs" id="spotSpecs"></div>
+        <div class="spot-buy"><span class="cprice" id="spotPrice"></span>
+          <a class="more" id="spotMore" href="range.html" data-i18n="sp_more">Specs</a>
+          <button type="button" class="btn btn-solid" id="spotAdd"><span data-i18n="sp_add">Add to cart</span></button></div>
+      </div>
+      <div class="spot-dots" id="spotDots" role="tablist" aria-label="Spotlight products"></div>
+    </aside>
+  </div>
+</section>
+
+<div class="statband"><div class="wrap"><div class="stats-in">
+  <div class="stat"><div class="n">1987</div><div class="l" data-i18n="stat1">Founded in Egypt</div></div>
+  <div class="stat"><div class="n"><span data-count="9">9</span><small>+</small></div><div class="l" data-i18n="stat2">Product families</div></div>
+  <div class="stat"><div class="n"><span data-count="3">3</span><small data-i18n="stat3u">regions</small></div><div class="l" data-i18n="stat3">MENA · Russia · Gulf</div></div>
+  <div class="stat"><div class="n">4K<small>UHD</small></div><div class="l" data-i18n="stat4">Flagship receivers</div></div>
+</div></div></div>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track">
+  <span>Satellite receivers</span><span>4K UHD</span><span>LED &amp; Smart TVs</span><span>Split AC</span><span>Multiswitch</span><span>LNB</span><span>DiSEqC</span><span>CCTV &amp; NVR</span><span>Gas cookers</span><span>HDMI 4K</span><span>Made in Egypt</span>
+  <span>Satellite receivers</span><span>4K UHD</span><span>LED &amp; Smart TVs</span><span>Split AC</span><span>Multiswitch</span><span>LNB</span><span>DiSEqC</span><span>CCTV &amp; NVR</span><span>Gas cookers</span><span>HDMI 4K</span><span>Made in Egypt</span>
+</div></div>
+
+<!-- PRODUCT FAMILIES -->
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <div>
+        <span class="eyebrow" data-i18n="prod_eye">Product families</span>
+        <h2 class="h2" data-i18n="prod_h">A full catalogue,<br>from dish to living room.</h2>
+      </div>
+      <p data-i18n="prod_p">Nine product families engineered to work together — reception, display, comfort and connection under one brand.</p>
+    </div>
+
+    <div class="bento stagger">
+      <a class="fam f-com" href="range.html#comfort">
+        <img class="fam-img" src="fam-comfort.jpg?v=2" alt="" width="1400" height="1000" loading="lazy" decoding="async" style="object-position:85% 50%">
+        <div class="fam-top"><span class="ch">CH 01</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M5 12a7 7 0 0 1 14 0M5 12a7 7 0 0 0 14 0"/><path d="M12 5V3"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam4h">Home Comfort</h3>
+          <p data-i18n="fam4p">Standing fans and water dispensers that keep everyday spaces cool and running.</p>
+          <div class="items"><span class="chip">Standing fans</span><span class="chip">Water dispensers</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-kit" href="range.html#kitchen">
+        <img class="fam-img" src="fam-kitchen.jpg" alt="" width="1170" height="827" loading="lazy" decoding="async">
+        <div class="fam-top"><span class="ch">CH 02</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="12" cy="10" r="3"/><path d="M7 20h10"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam5h">Kitchen Appliances</h3>
+          <p data-i18n="fam5p">Gas cookers, kettles and blenders finished to the same durability standard.</p>
+          <div class="items"><span class="chip">Gas cookers</span><span class="chip">Kettles</span><span class="chip">Blenders</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-ent" href="range.html#entertainment">
+        <img class="fam-img" src="fam-entertainment.jpg" alt="" width="1237" height="734" loading="lazy" decoding="async">
+        <div class="fam-top"><span class="ch">CH 03</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam1h">Entertainment</h3>
+          <p data-i18n="fam1p">LED &amp; smart televisions from 32" to 43", built for home and commercial rooms.</p>
+          <div class="items"><span class="chip">LED TVs</span><span class="chip">Smart TVs</span><span class="chip">Wall mounts</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-rx" href="range.html#receivers">
+        <img class="fam-img" src="fam-receivers.jpg" alt="" width="1400" height="785" loading="lazy" decoding="async">
+        <div class="fam-top"><span class="ch">CH 04</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20a12 12 0 0 1 12-12M4 20a7 7 0 0 1 7-7M4 20h.01"/><circle cx="18" cy="6" r="2"/></svg></div>
+        <div class="fam-body"><span class="flag" data-i18n="fam_flag">Flagship line</span>
+          <h3 data-i18n="fam2h">Satellite Receivers</h3>
+          <p data-i18n="fam2p">The flagship line — 4K UHD reception, 8,000-channel capacity, EPG and timer support.</p>
+          <div class="items"><span class="chip">HD / 4K</span><span class="chip">CAS</span><span class="chip">Hybrid</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-ac" href="range.html#ac">
+        <img class="fam-img" src="fam-ac.jpg" alt="" width="1400" height="1000" loading="lazy" decoding="async" style="object-position:50% 0%">
+        <div class="fam-top"><span class="ch">CH 05</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="8" rx="2"/><path d="M6 18h2M11 18h2M16 18h2"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam3h">Air Conditioners</h3>
+          <p data-i18n="fam3p">Split systems tuned for the region's climate, sized from 1.5 HP for homes and offices.</p>
+          <div class="items"><span class="chip">1.5 HP</span><span class="chip">Split</span><span class="chip">Inverter</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-dis" href="range.html#distribution">
+        <img class="fam-img" src="fam-distribution.jpg" alt="" width="690" height="460" loading="lazy" decoding="async">
+        <div class="fam-top"><span class="ch">CH 06</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="16" height="6" rx="1.5"/><path d="M8 9V6M16 9V6M8 18v-3M16 18v-3"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam7h">Distribution Hardware</h3>
+          <p data-i18n="fam7p">Multiswitches, DiSEqC switches, LNBs, amplifiers and satellite finders.</p>
+          <div class="items"><span class="chip">Multiswitch</span><span class="chip">DiSEqC</span><span class="chip">LNB</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-cab" href="range.html#cables">
+        <img class="fam-img" src="fam-cables.jpg" alt="" width="790" height="568" loading="lazy" decoding="async">
+        <div class="fam-top"><span class="ch">CH 07</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4v6a3 3 0 0 0 3 3h6a3 3 0 0 1 3 3v4"/><circle cx="6" cy="4" r="2"/><circle cx="18" cy="20" r="2"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam8h">Cables &amp; Connectivity</h3>
+          <p data-i18n="fam8p">4K HDMI, Cat-6 and coaxial cabling rated for stable, interference-free signal.</p>
+          <div class="items"><span class="chip">HDMI 4K</span><span class="chip">Cat-6</span><span class="chip">Coaxial</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-sec" href="range.html#security">
+        <img class="fam-img" src="fam-security.jpg" alt="" width="1600" height="1018" loading="lazy" decoding="async" style="object-position:78% 30%">
+        <div class="fam-top"><span class="ch">CH 08</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam6h">Security &amp; Access</h3>
+          <p data-i18n="fam6p">CCTV, NVR bundles and smart locks for homes, retail and hospitality sites.</p>
+          <div class="items"><span class="chip">CCTV</span><span class="chip">NVR</span><span class="chip">Smart locks</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+      <a class="fam f-svc" href="range.html#service">
+        <img class="fam-img" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=70&w=900" srcset="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=70&w=600 600w, https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=70&w=900 900w, https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=70&w=1400 1400w" sizes="(max-width:640px) 100vw, (max-width:1080px) 50vw, 50vw" alt="" loading="lazy" decoding="async" style="object-position:center">
+        <div class="fam-top"><span class="ch">CH 09</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3a9 9 0 1 0 9 9M12 3v9l6.5 3.8"/></svg></div>
+        <div class="fam-body">
+          <h3 data-i18n="fam9h">Service &amp; Support</h3>
+          <p data-i18n="fam9p">Skilled engineers and after-sales coverage backing every unit across Egypt.</p>
+          <div class="items"><span class="chip">Warranty</span><span class="chip">Field engineers</span></div>
+          <span class="cat-go"><span data-i18n="cat_view">View range →</span></span>
+        </div>
+      </a>
+    </div>
+    <div class="bento-foot rise">
+      <small data-i18n="fam_note">Every family ships with Truman warranty and nationwide after-sales.</small>
+      <a href="range.html" class="btn btn-ghost"><span data-i18n="fam_all">Browse the full range</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="feat">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <div>
+        <span class="eyebrow" data-i18n="feat_eye">Best of each family</span>
+        <h2 class="h2" data-i18n="feat_h">Featured lineup</h2>
+      </div>
+      <p data-i18n="feat_p">The top model from every Truman product family, from the flagship 4K screen to the largest multiswitch.</p>
+    </div>
+    <div class="prods stagger">
+      <a class="card" href="range.html?p=TM-5001SK" data-sku="TM-5001SK">
+        <div class="top"><img src="TM-5001SK.webp" alt="50-inch UHD Smart TV — Truman TM-5001SK" loading="lazy"><span class="badge" data-i18n="f_b1">Entertainment</span></div>
+        <div class="body">
+          <span class="model">TM-5001SK</span>
+          <h4 data-i18n="f1h">50&quot; UHD Smart TV</h4>
+          <p class="desc" data-i18n="f1p">The top of the TV range: 4K (3840×2160) at 250 cd/m², with three HDMI inputs and RJ45.</p>
+          <div class="specs"><span>50&quot;</span><span>3840×2160</span><span>3× HDMI</span><span>RJ45</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+      <a class="card" href="range.html?p=TM-IWORLD-PRO" data-sku="TM-IWORLD-PRO">
+        <div class="top"><img src="TM-IWORLD-PRO.webp" alt="Truman TM I World Pro receiver" loading="lazy"><span class="badge" data-i18n="f_b2">Receivers</span></div>
+        <div class="body">
+          <span class="model">TM I World Pro</span>
+          <h4 data-i18n="f2h">I World Pro Receiver</h4>
+          <p class="desc" data-i18n="f2p">Top of the receiver line: Sunplus 2517 with 2 GB RAM, Bluetooth remote, internal Wi-Fi and USB recording.</p>
+          <div class="specs"><span>2 GB RAM</span><span>2500 tp</span><span>Bluetooth</span><span>Wi-Fi</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+      <a class="card" href="range.html#ac">
+        <div class="top"><img src="AC-SPLIT.webp" alt="Truman split air conditioner" loading="lazy"><span class="badge" data-i18n="f_b3">Air Conditioning</span></div>
+        <div class="body">
+          <span class="model">Split · 3 HP</span>
+          <h4 data-i18n="f3h">3 HP Split Air Conditioner</h4>
+          <p class="desc" data-i18n="f3p">The largest unit in the split range, for big living rooms and offices. Cool and hot-cool versions.</p>
+          <div class="specs"><span>3 HP</span><span>Split</span><span>Hot / cool</span><span>Temp display</span></div>
+          <div class="cfoot"><span class="cprice" data-price><span data-i18n="f_quote">Price on request</span></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+      <a class="card" href="range.html#comfort">
+        <div class="top"><img src="FAN-STANDING.webp" alt="Truman standing fan" loading="lazy"><span class="badge" data-i18n="f_b4">Home Comfort</span></div>
+        <div class="body">
+          <span class="model">Standing fan</span>
+          <h4 data-i18n="f4h">Standing Fan</h4>
+          <p class="desc" data-i18n="f4p">Five-blade pedestal fan with a digital control panel and an adjustable chrome pole.</p>
+          <div class="specs"><span>5 blades</span><span>Oscillating</span><span>3-speed</span><span>Digital panel</span></div>
+          <div class="cfoot"><span class="cprice" data-price><span data-i18n="f_quote">Price on request</span></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+      <a class="card" href="range.html?p=TM-G2503" data-sku="TM-G2503">
+        <div class="top"><img src="TM-G2503.webp" alt="Gas stove with marble surface — Truman TM-G2503" loading="lazy"><span class="badge" data-i18n="f_b5">Kitchen</span></div>
+        <div class="body">
+          <span class="model">TM-G2503</span>
+          <h4 data-i18n="f5h">Gas Stove — Marble Surface</h4>
+          <p class="desc" data-i18n="f5p">Marble-finish top with three cast-iron burners, auto-ignition and precise flame control. 3.1 kW, LPG.</p>
+          <div class="specs"><span>3 burners</span><span>Auto-ignition</span><span>3.1 kW</span><span>LPG</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+      <a class="card" href="range.html#security">
+        <div class="top"><img src="CAM-BULLET-1080.webp" alt="Truman 1080p bullet CCTV camera" loading="lazy"><span class="badge" data-i18n="f_b6">Security</span></div>
+        <div class="body">
+          <span class="model">Lite Series</span>
+          <h4 data-i18n="f6h">1080p Bullet Camera</h4>
+          <p class="desc" data-i18n="f6p">Full-HD outdoor camera with 20 m infrared night vision, IP67 weather sealing and 12 V DC power.</p>
+          <div class="specs"><span>1080p</span><span>20 m IR</span><span>IP67</span><span>DC 12 V</span></div>
+          <div class="cfoot"><span class="cprice" data-price><span data-i18n="f_quote">Price on request</span></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+      <a class="card" href="range.html?p=TM-9932CC" data-sku="TM-9932CC">
+        <div class="top"><img src="TM-9932CC.webp" alt="9/32 cascade multiswitch — Truman TM-9932CC" loading="lazy"><span class="badge" data-i18n="f_b7">Distribution</span></div>
+        <div class="body">
+          <span class="model">TM-9932CC</span>
+          <h4 data-i18n="f7h">9/32 Cascade Multiswitch</h4>
+          <p class="desc" data-i18n="f7p">The largest in the range: nine inputs feeding up to 32 subscribers, with 4K HDR and 3D support.</p>
+          <div class="specs"><span>9-in</span><span>32-out</span><span>4K HDR</span><span>3D</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+      <a class="card" href="range.html?p=COAX-RG6-250" data-sku="COAX-RG6-250">
+        <div class="top"><img src="COAX-RG6-250.webp" alt="RG6 coaxial cable drum, 250 yard" loading="lazy"><span class="badge" data-i18n="f_b8">Cables</span></div>
+        <div class="body">
+          <span class="model">COAX-RG6-250</span>
+          <h4 data-i18n="f8h">RG6 Coaxial — 250 Yard</h4>
+          <p class="desc" data-i18n="f8p">A full drum of weather- and heat-resistant RG6 with copper internals, for whole-building installs.</p>
+          <div class="specs"><span>RG6</span><span>250 yard</span><span>Copper</span><span>Weatherproof</span></div>
+          <div class="cfoot"><span class="cprice" data-price></span><span class="cgo" data-i18n="f_go">View →</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BUY ONLINE -->
+<section class="promise" aria-labelledby="promH">
+  <div class="wrap">
+    <h2 id="promH" class="sr" data-i18n="pr_h">Buying from Truman</h2>
+    <div class="prom stagger">
+      <div class="pr-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span>
+        <h4 data-i18n="pr1h">Delivered across Egypt</h4><p id="shipLine" data-i18n="pr1p">Order online and we deliver to your door, nationwide.</p></div>
+      <div class="pr-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/></svg></span>
+        <h4 data-i18n="pr2h">Pay your way</h4><p data-i18n="pr2p">Card, mobile wallet or kiosk, processed securely by Paymob.</p></div>
+      <div class="pr-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V5z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h4 data-i18n="pr3h">Warranty &amp; engineers</h4><p data-i18n="pr3p">After-sales coverage and field engineers in every governorate. Hotline <b>19903</b>.</p></div>
+      <div class="pr-i"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V10l6 3V9l6 3V5l6 3v13z"/><path d="M7 17h2M12 17h2M17 17h2"/></svg></span>
+        <h4 data-i18n="pr4h">Made in Egypt</h4><p data-i18n="pr4p">Built at Truman's own factory in Abu Rawash, backed by almost four decades of engineering.</p></div>
+    </div>
+    <div class="prom-cta rise">
+      <p data-i18n="pr_cta">Every model in the range, with <b>live prices</b> and checkout in minutes.</p>
+      <div class="row"><a href="shop.html" class="btn btn-solid" data-i18n="hero_cta2b">Shop online</a><a href="range.html" class="btn btn-ghost" data-i18n="fam_all">Browse the full range</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SATELLITE SOLUTIONS -->
+<section id="satellite" class="tier-band">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <div>
+        <span class="eyebrow" data-i18n="chain_eye">The signal chain</span>
+        <h2 class="h2" data-i18n="sat_h">Satellite TV solutions,<br>sized to the site.</h2>
+      </div>
+      <p data-i18n="sat_p">From a single apartment to a hotel or a stadium, Truman specifies the full chain — dish, distribution, receivers and pay-TV.</p>
+    </div>
+
+    <div class="chain rise" role="tablist" aria-label="Dish to LNB to multiswitch to receiver to screen">
+      <span class="beam" aria-hidden="true"></span>
+      <button type="button" class="node" role="tab" data-stage="dish" aria-selected="false" aria-controls="stage"><span class="nb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18a10 10 0 0 1 10-14"/><path d="M4 18L14 4"/><path d="M9 11l5 5"/><path d="M4 18h6"/></svg></span><b data-i18n="chain_1">Dish</b><i>01</i></button>
+      <button type="button" class="node" role="tab" data-stage="lnb" aria-selected="false" aria-controls="stage"><span class="nb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="3" width="8" height="10" rx="2"/><path d="M12 13v8M9 21h6"/></svg></span><b>LNB</b><i>02</i></button>
+      <button type="button" class="node" role="tab" data-stage="ms" aria-selected="false" aria-controls="stage"><span class="nb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="16" height="6" rx="1.5"/><path d="M8 9V5M16 9V5M7 15v4M12 15v4M17 15v4"/></svg></span><b data-i18n="chain_3">Multiswitch</b><i>03</i></button>
+      <button type="button" class="node" role="tab" data-stage="rx" aria-selected="false" aria-controls="stage"><span class="nb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="18" height="8" rx="1.5"/><circle cx="7" cy="12" r="1"/><path d="M11 12h6"/></svg></span><b data-i18n="chain_4">Receiver</b><i>04</i></button>
+      <button type="button" class="node" role="tab" data-stage="tv" aria-selected="false" aria-controls="stage"><span class="nb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></span><b data-i18n="chain_5">Screen</b><i>05</i></button>
+    </div>
+    <span class="chain-hint" data-i18n="ch_hint">Tap a stage to see the Truman hardware for it</span>
+    <div class="stage" id="stage" role="tabpanel" aria-live="polite" hidden></div>
+
+    <div class="tiers stagger">
+      <div class="tier">
+        <span class="lvl">Tier 01</span>
+        <h3 data-i18n="tier1h">Residential</h3>
+        <span class="for" data-i18n="tier1f">Homes &amp; apartments</span>
+        <ul>
+          <li data-i18n="t1a">Single-dish reception with 4K receiver</li>
+          <li data-i18n="t1b">DiSEqC switching for multiple satellites</li>
+          <li data-i18n="t1c">Clean coax runs and wall mounting</li>
+          <li data-i18n="t1d">Optional pay-TV activation</li>
+        </ul>
+        <a class="tcta" href="#contact" data-topic="Retail order" data-i18n="t1cta">Plan a home setup →</a>
+      </div>
+      <div class="tier mid">
+        <span class="lvl">Tier 02</span>
+        <h3 data-i18n="tier2h">Hospitality</h3>
+        <span class="for" data-i18n="tier2f">Hotels &amp; resorts</span>
+        <ul>
+          <li data-i18n="t2a">Head-end distribution to every room</li>
+          <li data-i18n="t2b">Multiswitch &amp; amplifier backbone</li>
+          <li data-i18n="t2c">Hotel set-top boxes and IPTV-ready</li>
+          <li data-i18n="t2d">beIN Sports &amp; OSN bundle options</li>
+        </ul>
+        <a class="tcta" href="#contact" data-topic="Project (hotel, building, campus)" data-i18n="t2cta">Design a hotel system →</a>
+      </div>
+      <div class="tier">
+        <span class="lvl">Tier 03</span>
+        <h3 data-i18n="tier3h">Enterprise</h3>
+        <span class="for" data-i18n="tier3f">Campuses &amp; venues</span>
+        <ul>
+          <li data-i18n="t3a">Large-scale enterprise dishes</li>
+          <li data-i18n="t3b">Encoders, middleware &amp; CAS</li>
+          <li data-i18n="t3c">Redundant signal architecture</li>
+          <li data-i18n="t3d">Managed rollout with field engineers</li>
+        </ul>
+        <a class="tcta" href="#contact" data-topic="Project (hotel, building, campus)" data-i18n="t3cta">Scope an enterprise rollout →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL REACH -->
+<section id="reach">
+  <div class="wrap">
+    <div class="reach">
+      <div class="rise">
+        <span class="eyebrow" data-i18n="reach_eye">Global reach</span>
+        <h2 class="h2" style="margin-top:18px" data-i18n="reach_h">Made in Egypt.<br>Trusted across the region.</h2>
+        <p class="body" data-i18n="reach_p">A state-of-the-art manufacturing facility and a robust distribution network keep delivery fast and after-sales reliable at home — while a Dubai export hub carries the brand into the Middle East, North Africa and Russia.</p>
+        <div class="routes">
+          <div class="route"><span class="place" data-i18n="r1a">Cairo, Egypt</span><span class="role" data-i18n="r1b">Headquarters · Manufacturing</span></div>
+          <div class="route"><span class="place" data-i18n="r2a">Dubai, UAE</span><span class="role" data-i18n="r2b">Export Hub</span></div>
+          <div class="route"><span class="place" data-i18n="r3a">MENA Region</span><span class="role" data-i18n="r3b">Distribution</span></div>
+          <div class="route"><span class="place" data-i18n="r4a">Russia</span><span class="role" data-i18n="r4b">Export Market</span></div>
+        </div>
+      </div>
+      <div class="map rise" aria-hidden="true">
+        <svg viewBox="0 0 700 440">
+          <defs>
+            <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1" fill="#2a4e61"/></pattern>
+            <radialGradient id="fade" cx=".55" cy=".6" r=".6"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+            <mask id="m"><rect width="700" height="440" fill="url(#fade)"/></mask>
+          </defs>
+          <rect width="700" height="440" fill="url(#dots)" mask="url(#m)"/>
+          <g stroke="#1d3b4b" stroke-width="1">
+            <line x1="0" y1="110" x2="700" y2="110"/><line x1="0" y1="220" x2="700" y2="220"/><line x1="0" y1="330" x2="700" y2="330"/>
+            <line x1="162" y1="0" x2="162" y2="440"/><line x1="324" y1="0" x2="324" y2="440"/><line x1="486" y1="0" x2="486" y2="440"/>
+          </g>
+          <!-- arcs -->
+          <path class="arc-path" d="M371 320 Q 480 270 588 368"/>
+          <path class="arc-path" d="M588 368 Q 560 170 428 62"/>
+          <path class="arc-path" d="M371 320 Q 250 230 118 262"/>
+          <path class="arc-path" d="M588 368 Q 560 400 510 383"/>
+          <!-- cities -->
+          <g transform="translate(371,320)"><circle class="city-ring" r="6"/><circle class="city" r="5"/><text x="12" y="-8">CAIRO</text><text class="sub" x="12" y="5">HQ · FACTORY</text></g>
+          <g transform="translate(588,368)"><circle class="city-ring" r="6" style="animation-delay:.9s"/><circle class="city" r="5"/><text x="12" y="-6">DUBAI</text><text class="sub" x="12" y="7">EXPORT HUB</text></g>
+          <g transform="translate(428,62)"><circle class="city-ring" r="6" style="animation-delay:1.8s"/><circle class="city" r="4"/><text x="12" y="4">MOSCOW</text></g>
+          <g transform="translate(118,262)"><circle class="city" r="3.5"/><text x="-8" y="-12">MAGHREB</text></g>
+          <g transform="translate(510,383)"><circle class="city" r="3.5"/><text x="-18" y="22">GULF</text></g>
+          <text class="sub" x="18" y="428">EST. 1987 · CAIRO → REGION</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERITAGE -->
+<section id="heritage" class="heritage">
+  <span class="her-year" aria-hidden="true">1987</span>
+  <div class="wrap">
+    <div class="her-grid">
+      <div class="rise">
+        <span class="eyebrow" data-i18n="her_eye">Since 1987</span>
+        <h2 class="h2" data-i18n="her_h">Nearly four decades of engineering trust.</h2>
+        <div class="her-count"><b id="yrs">39</b><span data-i18n="her_yrs">Years engineering in Egypt</span></div>
+      </div>
+      <div class="her-body rise">
+        <p data-i18n="her_p1">Truman Electronics has led Egypt's electronics and satellite systems industry since 1987, pairing advanced German technology with decades of local expertise. What began with satellite receivers now spans televisions, air conditioners, household appliances and surveillance.</p>
+        <p data-i18n="her_p2">The company is built on job creation and contribution to the Egyptian economy — and on a forward-looking vision that leans into the Internet of Things and the next generation of connected home technology.</p>
+        <div class="pillars">
+          <div class="pill"><h5 data-i18n="pil1h">Innovation</h5><p data-i18n="pil1p">An expanding portfolio built around IoT and evolving customer needs.</p></div>
+          <div class="pill"><h5 data-i18n="pil2h">Performance</h5><p data-i18n="pil2p">German technology and a modern facility behind efficient delivery.</p></div>
+          <div class="pill"><h5 data-i18n="pil3h">Integrity</h5><p data-i18n="pil3p">Trusted partnerships and dependable after-sales support.</p></div>
+          <div class="pill"><h5 data-i18n="pil4h">Vision</h5><p data-i18n="pil4p">Becoming a global leader in satellite and household technology.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="rise">
+        <span class="eyebrow" data-i18n="con_eye">Contact sales</span>
+        <h2 class="h2" data-i18n="con_h">Let's talk supply, spec or partnership.</h2>
+        <p class="body" data-i18n="con_p2">Distributors, installers, project buyers and customers: tell us what you need and the right team will get back to you.</p>
+        <form class="cform" id="cform" novalidate>
+          <label class="sr" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+          <label class="fld"><span data-i18n="cf_name">Name</span><input name="name" autocomplete="name" required></label>
+          <label class="fld"><span data-i18n="cf_email">Email</span><input name="email" type="email" autocomplete="email" required dir="ltr"></label>
+          <label class="fld"><span data-i18n="cf_phone">Phone (optional)</span><input name="phone" type="tel" autocomplete="tel" dir="ltr"></label>
+          <label class="fld"><span data-i18n="cf_topic">I'm interested in</span>
+            <select name="topic">
+              <option value="Retail order" data-i18n="cf_t1">Buying for my home</option>
+              <option value="Distributor / dealer" data-i18n="cf_t2">Becoming a dealer / distributor</option>
+              <option value="Installer" data-i18n="cf_t3">Installer pricing &amp; stock</option>
+              <option value="Project (hotel, building, campus)" data-i18n="cf_t4">A project (hotel, building, campus)</option>
+              <option value="After-sales & warranty" data-i18n="cf_t5">After-sales &amp; warranty</option>
+              <option value="Other" data-i18n="cf_t6">Something else</option>
+            </select></label>
+          <label class="fld full"><span data-i18n="cf_msg">Message</span><textarea name="message" required></textarea></label>
+          <div class="cform-foot full"><button class="btn btn-solid" type="submit"><span data-i18n="cf_send">Send message</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+            <span class="cform-msg" id="cformMsg" role="status" aria-live="polite"></span></div>
+        </form>
+      </div>
+      <div class="rise cside">
+        <div class="quick">
+          <a class="qk" href="tel:19903"><span class="k" data-i18n="ck_hot">Hotline</span><span class="v">19903</span></a>
+          <a class="qk alt" href="mailto:info@trumanelectronics.com"><span class="k" data-i18n="ck_email">Email</span><span class="v">info@trumanelectronics.com</span></a>
+        </div>
+        <div class="cline"><span class="k" data-i18n="ck_phone">Phone</span><span class="v"><a href="tel:+20223956003" dir="ltr">(+202) 2395 6003</a> · <a href="tel:+20223956004" dir="ltr">(+202) 2395 6004</a></span></div>
+        <div class="cline"><span class="k" data-i18n="ck_eg">Egypt</span><span class="v"><a href="https://www.google.com/maps/search/?api=1&amp;query=174+Tahrir+St,+Bab+El+Louq,+Cairo" target="_blank" rel="noopener">174 Tahrir St., Babellouk, Cairo</a> · <span data-i18n="ck_factory">Factory: Abu Rawash</span></span></div>
+        <div class="cline"><span class="k" data-i18n="ck_uae">UAE</span><span class="v">Al Nakheel St., Naif Deira, Dubai · P.O. Box 86567</span></div>
+        <a href="Truman-Catalogue.pdf" download="Truman-Catalogue.pdf" class="btn btn-ghost" data-catalogue><span data-i18n="con_cat">Download the catalogue</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2v9M4 7l4 4 4-4M3 14h10"/></svg></a>
+        <a class="social" href="https://www.facebook.com/trumanelectronics" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"/></svg>facebook.com/trumanelectronics</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="logo.png" alt="Truman Electronics" class="logo-img" width="130" height="34" loading="lazy">
+        <small style="display:block;margin-top:12px" data-i18n="foot_tag">Your life partner · Since 1987 · Hotline 19903</small>
+        <small style="display:block;margin-top:6px">174 Tahrir St., Babellouk, Cairo</small>
+      </div>
+      <div>
+        <h6 data-i18n="foot_explore">Explore</h6>
+        <div class="flinks">
+          <a href="#products" data-i18n="nav_products">Products</a>
+          <a href="shop.html" data-i18n="nav_shop">Shop</a>
+          <a href="range.html" data-i18n="nav_range">Range</a>
+          <a href="#satellite" data-i18n="nav_sat">Satellite Systems</a>
+          <a href="#contact" data-i18n="foot_dealer">Become a dealer</a>
+        </div>
+      </div>
+      <div>
+        <h6 data-i18n="nav_company">Company</h6>
+        <div class="flinks">
+          <a href="#reach" data-i18n="nav_reach">Global Reach</a>
+          <a href="#heritage" data-i18n="foot_about">About Truman</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
+          <a href="Truman-Catalogue.pdf" download="Truman-Catalogue.pdf" data-catalogue data-i18n="foot_cat">Catalogue (PDF)</a>
+          <a href="https://www.facebook.com/trumanelectronics" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <small>© <span id="yr">2026</span> Truman Electronics. <span data-i18n="foot_rights">All rights reserved.</span></small>
+      <small>Cairo · Dubai</small>
+    </div>
+  </div>
+</footer>
+
+<a class="callfab" href="tel:19903"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>19903</a>
+
+<script>
+/* Truman Electronics — shared EN/AR i18n. English is read from the page's
+   data-i18n defaults; this file supplies the Arabic strings + toggle logic. */
+(function () {
+  var AR = {
+    // nav
+    nav_products:"المنتجات", nav_range:"التشكيلة", nav_sat:"أنظمة الساتلايت",
+    nav_reach:"الانتشار", nav_company:"الشركة", nav_cta:"تواصل مع المبيعات", nav_contact:"اتصل بنا",
+    // hero
+    hero_tag:"إشارة مثبّتة · ساتلايت وإلكترونيات منزلية",
+    hero_sub:'استقبالٌ <span class="glow">تبني حوله بيتك.</span>',
+    hero_lede:"منذ 1987، تصنع ترومان رسيفرات الساتلايت والشاشات والأجهزة المنزلية في مصر — بتكنولوجيا ألمانية المستوى، مصنوعة وبخدمة عبر المنطقة.",
+    hero_cta1:"تصفح المنتجات", hero_cta2:"حلول الساتلايت",
+    // stats
+    stat1:"تأسست في مصر", stat2:"عائلات المنتجات", stat3:"مصر · روسيا · الخليج", stat4:"رسيفرات رائدة",
+    // products
+    prod_h:"تشكيلة كاملة،<br>من الطبق إلى غرفة المعيشة.",
+    prod_p:"تسع عائلات منتجات صُمّمت لتعمل معًا — استقبال وعرض وراحة وتوصيل تحت علامة واحدة.",
+    cat_view:"عرض التشكيلة ←",
+    fam1h:"أجهزة الترفيه", fam1p:'شاشات LED وذكية من 32" إلى 43"، للمنزل والقاعات التجارية.',
+    fam2h:"رسيفرات الساتلايت", fam2p:"الخط الرائد — استقبال 4K، سعة 8000 قناة، دليل برامج ومؤقّت.",
+    fam3h:"التكييفات", fam3p:"وحدات سبليت مهيّأة لمناخ المنطقة، من 1.5 حصان للمنازل والمكاتب.",
+    fam4h:"راحة المنزل", fam4p:"مراوح عمودية ومبرّدات مياه تُبقي المساحات اليومية باردة وعاملة.",
+    fam5h:"أجهزة المطبخ", fam5p:"بوتاجازات وغلايات وخلاطات بمعيار المتانة نفسه.",
+    fam6h:"الأمان والدخول", fam6p:"كاميرات مراقبة وأجهزة تسجيل وأقفال ذكية للمنازل والمحلات والفنادق.",
+    fam7h:"أجهزة التوزيع", fam7p:"مالتي سويتش، مفاتيح DiSEqC، وحدات LNB، مضخّمات وأجهزة ضبط الطبق.",
+    fam8h:"الكابلات والتوصيل", fam8p:"كابلات HDMI 4K وCat-6 ومحورية بإشارة ثابتة خالية من التشويش.",
+    fam9h:"الخدمة والدعم", fam9p:"مهندسون مهرة وتغطية ما بعد البيع لكل وحدة في جميع أنحاء مصر.",
+    // featured
+    feat_h:"منتجات مختارة", feat_p:"أفضل موديل من كل عائلة منتجات ترومان، من شاشة 4K الرائدة إلى أكبر مالتي سويتش.",
+    f_b1:"الترفيه", f_b2:"الرسيفرات", f_b3:"التكييفات", f_b4:"راحة المنزل", f_b5:"المطبخ", f_b6:"الأمان", f_b7:"التوزيع", f_b8:"الكابلات",
+    f_quote:"السعر عند الطلب", f_go:"عرض ←",
+    f1h:'شاشة UHD ذكية "50', f1p:"قمة تشكيلة الشاشات: دقة 4K (3840×2160) وسطوع 250 شمعة/م² مع ثلاثة منافذ HDMI ومنفذ RJ45.",
+    f2h:"رسيفر I World Pro", f2p:"قمة خط الرسيفرات: معالج Sunplus 2517 وذاكرة 2 جيجا وريموت بلوتوث وواي-فاي داخلي وتسجيل USB.",
+    f3h:"تكييف سبليت 3 حصان", f3p:"أكبر وحدة في تشكيلة السبليت، لغرف المعيشة الكبيرة والمكاتب. متوفر بارد وبارد/ساخن.",
+    f4h:"مروحة عمودية", f4p:"مروحة بخمس ريش مع لوحة تحكم رقمية وعمود كروم قابل لضبط الارتفاع.",
+    f5h:"بوتاجاز — سطح رخامي", f5p:"سطح بتشطيب رخامي مع ثلاث شعلات من الحديد الزهر وإشعال أوتوماتيكي وتحكم دقيق في اللهب. 3.1 كيلوواط، غاز LPG.",
+    f6h:"كاميرا 1080p خارجية", f6p:"كاميرا خارجية Full HD برؤية ليلية بالأشعة تحت الحمراء حتى 20 مترًا، وعزل IP67 وتغذية 12 فولت.",
+    f7h:"مالتي سويتش متتابع 9/32", f7p:"الأكبر في التشكيلة: تسعة مداخل تغذي حتى 32 مشتركًا، مع دعم 4K HDR والأبعاد الثلاثية.",
+    f8h:"كابل محوري RG6 — 250 ياردة", f8p:"بكرة كاملة من كابل RG6 المقاوم للطقس والحرارة بمكونات نحاسية، لتمديدات المباني بالكامل.",
+    // satellite tiers
+    sat_h:"حلول تلفزيون الساتلايت،<br>بمقاس كل موقع.",
+    sat_p:"من شقة واحدة إلى فندق أو ملعب، تحدّد ترومان السلسلة الكاملة — الطبق والتوزيع والرسيفرات والاشتراكات.",
+    tier1h:"سكني", tier1f:"المنازل والشقق",
+    t1a:"استقبال بطبق واحد مع رسيفر 4K", t1b:"تبديل DiSEqC لعدة أقمار",
+    t1c:"تمديدات محورية نظيفة وتثبيت جداري", t1d:"تفعيل اختياري للاشتراكات",
+    tier2h:"الضيافة", tier2f:"الفنادق والمنتجعات",
+    t2a:"توزيع مركزي لكل غرفة", t2b:"عمود فقري من مالتي سويتش ومضخّمات",
+    t2c:"أجهزة فندقية وجاهزة لـ IPTV", t2d:"باقات beIN Sports وOSN",
+    tier3h:"المؤسسات", tier3f:"الحرم والمنشآت",
+    t3a:"أطباق مؤسسية واسعة النطاق", t3b:"مشفّرات وميدلوير وأنظمة تشفير",
+    t3c:"بنية إشارة احتياطية", t3d:"تنفيذ مُدار مع مهندسين ميدانيين",
+    // reach
+    reach_eye:"انتشار عالمي", reach_h:"صُنع في مصر.<br>موثوق عبر المنطقة.",
+    reach_p:"مصنع حديث وشبكة توزيع قوية يضمنان تسليمًا سريعًا وخدمة ما بعد بيع موثوقة محليًا — بينما يحمل مركز التصدير في دبي العلامة إلى الشرق الأوسط وشمال إفريقيا وروسيا.",
+    r1a:"القاهرة، مصر", r1b:"المقر · التصنيع",
+    r2a:"دبي، الإمارات", r2b:"مركز التصدير",
+    r3a:"الشرق الأوسط", r3b:"التوزيع",
+    r4a:"روسيا", r4b:"سوق التصدير",
+    // heritage
+    her_eye:"منذ 1987", her_h:"قرابة أربعة عقود من ثقة الهندسة.",
+    her_p1:"تتصدّر ترومان إلكترونيكس صناعة الإلكترونيات وأنظمة الساتلايت في مصر منذ 1987، بالجمع بين التكنولوجيا الألمانية المتقدمة وعقود من الخبرة المحلية. وما بدأ برسيفرات الساتلايت يمتد اليوم إلى الشاشات والتكييفات والأجهزة المنزلية والمراقبة.",
+    her_p2:"الشركة قائمة على خلق فرص العمل والإسهام في الاقتصاد المصري — وعلى رؤية استشرافية تنحاز إلى إنترنت الأشياء والجيل القادم من تكنولوجيا المنزل المتصل.",
+    pil1h:"الابتكار", pil1p:"تشكيلة تتوسّع حول إنترنت الأشياء واحتياجات العملاء المتغيرة.",
+    pil2h:"الأداء", pil2p:"تكنولوجيا ألمانية ومصنع حديث خلف تسليم بكفاءة.",
+    pil3h:"النزاهة", pil3p:"شراكات موثوقة ودعم ما بعد بيع يُعتمد عليه.",
+    pil4h:"الرؤية", pil4p:"أن نصبح روّادًا عالميين في الساتلايت وتكنولوجيا المنزل.",
+    // contact
+    con_eye:"تواصل مع المبيعات", con_h:"لنتحدث في التوريد أو المواصفات أو الشراكة.",
+    con_p:"للموزّعين والفنيّين ومشتري المشاريع — تواصلوا مع الفريق للكتالوجات والأسعار وتصميم حلول الساتلايت.",
+    con_cat:"تحميل الكتالوج",
+    ck_hot:"الخط الساخن", ck_email:"البريد", ck_phone:"الهاتف", ck_eg:"مصر", ck_uae:"الإمارات",
+    foot_tag:"شريك حياتك · منذ 1987 · الخط الساخن 19903",
+    // ===== range page =====
+    rp_title:"تشكيلة المنتجات", rp_intro:"كل موديل عبر الرسيفرات والشاشات والمطبخ وأنظمة الساتلايت والإكسسوارات والكابلات والمزيد.",
+    rp_back:"← العودة للرئيسية", rp_specs:"مواصفات على الطلب",
+    s_entertainment:"أجهزة الترفيه", s_receivers:"رسيفرات الساتلايت", s_ac:"التكييفات",
+    s_comfort:"راحة المنزل", s_kitchen:"أجهزة المطبخ", s_security:"الأمان والمراقبة",
+    s_distribution:"أجهزة التوزيع", s_cables:"الكابلات والتوصيل", s_service:"الخدمة والدعم",
+    g_tv:"شاشات LED و UHD", g_rx:"الرسيفرات", g_ac:"وحدات سبليت", g_fan:"مراوح ومبرّدات مياه",
+    g_stove:"بوتاجازات", g_kettle:"غلايات", g_cam:"كاميرات وأجهزة تسجيل", g_lock:"أقفال ذكية",
+    g_ms:"مالتي سويتش", g_lnb:"وحدات LNB", g_diseqc:"مفاتيح DiSEqC", g_finder:"جهاز ضبط الطبق",
+    nav_shop:"المتجر", sh_title:"المتجر", sh_cart:"السلة", sh_yourcart:"سلتك",
+    sh_intro:"اطلب منتجات ترومان أونلاين. ادفع بأمان بالبطاقة أو المحفظة أو من خلال أقرب منفذ — التوصيل لكل أنحاء مصر.",
+    nav_home:"الرئيسية", g_mount:"حوامل شاشات", g_rx2:"الرسيفرات (تابع)",
+    g_coax:"كابلات محورية", g_cat6:"كابلات Cat-6", g_hdmi:"كابلات HDMI 4K",
+    n_ac:"تشكيلة تكييفات كاملة (1.5 و3 حصان، بارد/ساخن) متوفرة عبر خدمة المبيعات.",
+    n_comfort:"مراوح عمودية ومبرّدات مياه ساخنة/باردة — تفاصيل الموديلات على الطلب.",
+    n_security:"كاميرات مراقبة وأجهزة XVR وأقفال ذكية — تفاصيل المشاريع على الطلب.",
+    n_service:"مهندسون مهرة وضمان وتغطية ما بعد البيع في جميع أنحاء مصر. تواصل مع الخط الساخن 19903.",
+
+    // ===== index v2 additions =====
+    hero_hot:"الخط الساخن", stat3u:"مناطق",
+    prod_eye:"عائلات المنتجات", fam_flag:"الخط الرائد",
+    fam_note:"كل عائلة مدعومة بضمان ترومان وخدمة ما بعد البيع في كل أنحاء مصر.", fam_all:"تصفّح التشكيلة كاملة",
+    feat_eye:"الأفضل من كل عائلة",
+    chain_eye:"سلسلة الإشارة", chain_1:"الطبق", chain_3:"مالتي سويتش", chain_4:"الرسيفر", chain_5:"الشاشة",
+    her_yrs:"عامًا من الهندسة في مصر",
+    foot_explore:"تصفّح", foot_about:"عن ترومان", foot_cat:"الكتالوج (PDF)", foot_rights:"جميع الحقوق محفوظة.",
+    rp_cta:"للأسعار وتوافر المخزون، حمّل الكتالوج الكامل أو تواصل مع فريق المبيعات.",
+    // upgrade
+    sp_h:"منتج مميّز", sp_more:"المواصفات", sp_add:"أضف للسلة",
+    hs_lbl:"ابحث في التشكيلة", hs_go:"بحث", hs_pop:"الأكثر بحثًا:", hs_smart:"شاشة ذكية", hs_ms:"مالتي سويتش", hs_kettle:"غلاية",
+    hero_cta2b:"تسوّق أونلاين",
+    pr_h:"الشراء من ترومان",
+    pr1h:"توصيل لكل أنحاء مصر", pr1p:"اطلب أونلاين ونوصّل حتى باب بيتك في كل المحافظات.",
+    pr2h:"ادفع بطريقتك", pr2p:"بطاقة أو محفظة موبايل أو من خلال منفذ دفع، بأمان عبر Paymob.",
+    pr3h:"ضمان ومهندسون", pr3p:"خدمة ما بعد البيع ومهندسون ميدانيون في كل المحافظات. الخط الساخن <b>19903</b>.",
+    pr4h:"صُنع في مصر", pr4p:"تُصنع في مصنع ترومان في أبو رواش، بخبرة هندسية تقارب أربعة عقود.",
+    pr_cta:"كل موديلات التشكيلة <b>بأسعار محدّثة</b> ودفع في دقائق.",
+    ch_hint:"اضغط على أي مرحلة لترى أجهزة ترومان الخاصة بها",
+    t1cta:"خطّط لنظام منزلي ←", t2cta:"صمّم نظامًا لفندق ←", t3cta:"حدّد نطاق مشروع مؤسسي ←",
+    con_p2:"موزّعون وفنيّون ومشترو مشاريع وعملاء: أخبرنا بما تحتاجه وسيتواصل معك الفريق المختص.",
+    cf_name:"الاسم", cf_email:"البريد الإلكتروني", cf_phone:"الهاتف (اختياري)", cf_topic:"أنا مهتم بـ",
+    cf_t1:"الشراء للمنزل", cf_t2:"أن أصبح موزّعًا / وكيلًا", cf_t3:"أسعار ومخزون الفنيّين", cf_t4:"مشروع (فندق، مبنى، مجمّع)", cf_t5:"خدمة ما بعد البيع والضمان", cf_t6:"شيء آخر",
+    cf_msg:"الرسالة", cf_send:"إرسال الرسالة", ck_factory:"المصنع: أبو رواش", foot_dealer:"كن موزّعًا"
+  };
+
+  var EN = {};
+  function els(){ return document.querySelectorAll('[data-i18n]'); }
+
+  function cache(){ els().forEach(function(el){ var k=el.getAttribute('data-i18n'); if(!(k in EN)) EN[k]=el.innerHTML; }); }
+
+  function apply(lang){
+    var rtl = lang === 'ar';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = rtl ? 'rtl' : 'ltr';
+    els().forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      var v = rtl ? AR[k] : EN[k];
+      if(v!=null) el.innerHTML = v;
+    });
+    var b=document.getElementById('langbtn'); if(b) b.textContent = rtl ? 'English' : 'العربية';
+    try{ localStorage.setItem('truman_lang', lang); }catch(e){}
+  }
+
+  function init(){
+    cache();
+    var saved='en'; try{ saved = localStorage.getItem('truman_lang')||'en'; }catch(e){}
+    if(saved==='ar') apply('ar');
+    var b=document.getElementById('langbtn');
+    if(b) b.addEventListener('click', function(){ apply(document.documentElement.dir==='rtl' ? 'en' : 'ar'); });
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
+
+</script>
+<script>
+(function(){
+
+  // years since founding
+  var y=new Date().getFullYear();
+  var yr=document.getElementById('yr'); if(yr) yr.textContent=y;
+  var yrs=document.getElementById('yrs'); if(yrs) yrs.textContent=y-1987;
+
+  // header state + mobile menu
+  var hdr=document.getElementById('hdr'), burger=document.getElementById('burger');
+  function onScroll(){ hdr.classList.toggle('scrolled', window.scrollY>30); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  burger.addEventListener('click',function(){ var o=hdr.classList.toggle('open'); burger.setAttribute('aria-expanded',o); });
+  document.querySelectorAll('#menu a').forEach(function(a){ a.addEventListener('click',function(){ hdr.classList.remove('open'); burger.setAttribute('aria-expanded',false); }); });
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.1, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rise,.stagger').forEach(function(el){ io.observe(el); });
+
+  // active nav link
+  var links={}; document.querySelectorAll('#menu a[href^="#"]').forEach(function(a){ links[a.getAttribute('href').slice(1)]=a; });
+  var so=new IntersectionObserver(function(es){
+    es.forEach(function(e){ var l=links[e.target.id]; if(!l) return;
+      if(e.isIntersecting){ Object.keys(links).forEach(function(k){ links[k].classList.remove('active'); }); l.classList.add('active'); } });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(links).forEach(function(id){ var s=document.getElementById(id); if(s) so.observe(s); });
+
+
+  // catalogue: if the PDF isn't on the server, fall back to requesting it by email
+  (function(){
+    var links=document.querySelectorAll('a[data-catalogue]'); if(!links.length || location.protocol==='file:') return;
+    fetch(links[0].getAttribute('href'),{method:'HEAD'}).then(function(r){
+      if(!r.ok) throw 0;
+    }).catch(function(){
+      links.forEach(function(a){
+        a.removeAttribute('download');
+        a.href='mailto:info@trumanelectronics.com?subject='+encodeURIComponent('Catalogue request — Truman Electronics');
+      });
+    });
+  })();
+  // hide broken family photos gracefully
+  document.querySelectorAll('.fam-img').forEach(function(img){ img.addEventListener('error',function(){ img.style.display='none'; }); });
+})();
+
+/* featured lineup: live prices from the shop catalogue */
+(function(){
+  var cards=document.querySelectorAll('.prods .card[data-sku]'); if(!cards.length) return;
+  var prices={};
+  function paint(){
+    var ar=document.documentElement.lang==='ar';
+    cards.forEach(function(c){
+      var el=c.querySelector('[data-price]'), v=prices[c.getAttribute('data-sku')];
+      if(v==null){ el.innerHTML='<span data-i18n="f_quote">'+(ar?'السعر عند الطلب':'Price on request')+'</span>'; return; }
+      var n=(v/100).toLocaleString('en-US',{maximumFractionDigits:2});
+      el.innerHTML='<small>'+(ar?'ج.م':'EGP')+'</small>'+n;
+    });
+  }
+  function load(u){ return fetch(u).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
+  load('/api/catalog').catch(function(){ return load('catalog.json'); }).then(function(d){
+    (d.products||[]).forEach(function(p){ if(p.in_stock!==false && p.price_cents!=null) prices[p.sku]=p.price_cents; });
+    paint();
+    new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  }).catch(function(){});
+})();
+
+/* ===== shared catalogue + cart (same storage as shop.html / range.html) ===== */
+(function(){
+  var AR=function(){ return document.documentElement.lang==='ar'; };
+  function t(en,ar){ return AR()?ar:en; }
+  function esc(x){ return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function money(c){ return (c/100).toLocaleString('en-US',{maximumFractionDigits:2}); }
+  function priceHTML(c){ return c==null ? '<span data-q>'+t('Price on request','السعر عند الطلب')+'</span>' : '<small>'+t('EGP','ج.م')+'</small>'+money(c); }
+  var BY={}, SHIP=null;
+
+  // ---- cart ----
+  function cart(){ try{ return JSON.parse(localStorage.getItem('truman_cart')||'{}')||{}; }catch(e){ return {}; } }
+  function syncCart(bump){
+    var c=cart(), n=0; for(var k in c) n+=+c[k]||0;
+    document.querySelectorAll('.cartlink').forEach(function(a){ var el=a.querySelector('.count'); el.textContent=n; el.setAttribute('data-n',n);
+      if(bump){ a.classList.remove('bump'); void a.offsetWidth; a.classList.add('bump'); } });
+  }
+  var toastEl=document.createElement('div'); toastEl.className='toast'; toastEl.setAttribute('role','status'); document.body.appendChild(toastEl);
+  var toastT;
+  function add(sku){
+    var p=BY[sku]; if(!p) return;
+    var c=cart(); c[sku]=Math.min(20,(c[sku]||0)+1);
+    try{ localStorage.setItem('truman_cart',JSON.stringify(c)); }catch(e){}
+    syncCart(true);
+    toastEl.innerHTML='<img src="'+esc(p.image)+'" alt=""><span><b>'+esc(t(p.name_en,p.name_ar||p.name_en))+'</b> '+t('added to cart','أُضيف للسلة')+'</span><a href="shop.html">'+t('Checkout →','الدفع ←')+'</a>';
+    toastEl.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(function(){ toastEl.classList.remove('on'); },3200);
+  }
+  syncCart();
+  window.addEventListener('storage',function(e){ if(e.key==='truman_cart') syncCart(); });
+
+  // ---- spotlight ----
+  var SPOT=['TM-5001SK','TM-IWORLD-PRO','TM-7K','TM-9932CC','TM-G2503','3700GC'], si=0, timer, MS=6000, spot=document.getElementById('spot');
+  function drawSpot(i, animate){
+    var list=SPOT.filter(function(k){ return BY[k]; }); if(!list.length) return;
+    si=(i+list.length)%list.length; var p=BY[list[si]];
+    function fill(){
+      document.getElementById('spotImg').src=p.image; document.getElementById('spotImg').alt=t(p.name_en,p.name_ar||p.name_en);
+      document.getElementById('spotSku').textContent=p.sku;
+      document.getElementById('spotName').textContent=t(p.name_en,p.name_ar||p.name_en);
+      document.getElementById('spotSpecs').innerHTML=(p.specs||[]).slice(0,4).map(function(x){ return '<span>'+esc(x)+'</span>'; }).join('');
+      document.getElementById('spotPrice').innerHTML=priceHTML(p.price_cents);
+      var href='range.html?p='+encodeURIComponent(p.sku);
+      document.getElementById('spotLink').href=href; document.getElementById('spotMore').href=href;
+      document.getElementById('spotAdd').setAttribute('data-sku',p.sku);
+      document.getElementById('spotN').textContent=('0'+(si+1)).slice(-2)+' / '+('0'+list.length).slice(-2);
+      var dots=document.getElementById('spotDots');
+      if(dots.children.length!==list.length){
+        dots.innerHTML=list.map(function(k,n){ return '<button type="button" role="tab" aria-label="'+esc(k)+'" data-i="'+n+'"></button>'; }).join('');
+      }
+      [].forEach.call(dots.children,function(b,n){ b.className=n<si?'done':''; b.setAttribute('aria-selected',n===si); });
+      var cur=dots.children[si]; void cur.offsetWidth; cur.className='on';
+      spot.classList.remove('swap');
+    }
+    if(animate){ spot.classList.add('swap'); setTimeout(fill,320); } else fill();
+    clearTimeout(timer);
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches) timer=setTimeout(tick,MS);
+  }
+  var paused=false;
+  function tick(){ if(paused||document.hidden){ timer=setTimeout(tick,800); return; } drawSpot(si+1,true); }
+  if(spot){
+    spot.style.setProperty('--spot-ms',MS+'ms');
+    spot.addEventListener('mouseenter',function(){ paused=true; });
+    spot.addEventListener('mouseleave',function(){ paused=false; });
+    spot.addEventListener('focusin',function(){ paused=true; spot.classList.add('paused'); });
+    spot.addEventListener('focusout',function(){ paused=false; spot.classList.remove('paused'); });
+    document.getElementById('spotDots').addEventListener('click',function(e){ var b=e.target.closest('button'); if(b) drawSpot(+b.getAttribute('data-i'),true); });
+    document.getElementById('spotAdd').addEventListener('click',function(){ add(this.getAttribute('data-sku')); });
+    var sx=null;
+    spot.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; },{passive:true});
+    spot.addEventListener('touchend',function(e){ if(sx==null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40) drawSpot(si+((dx<0)!==AR()?1:-1),true); sx=null; });
+  }
+
+  // ---- signal-chain stages ----
+  var STAGES={
+    dish:{en:'Aim & switch',ar:'الضبط والتبديل',den:'Get the dish on target with the 3700 GC meter, then switch between satellites with a DiSEqC switch.',dar:'اضبط الطبق بدقة بجهاز 3700 GC، ثم بدّل بين الأقمار بمفتاح DiSEqC.',q:'DiSEqC',skus:['3700GC','TR-801-4','TR-801-8']},
+    lnb:{en:'Universal Ku-band LNBs',ar:'وحدات LNB يونيفرسال',den:'0.1 dB noise figure, from a single receiver up to eight from one dish.',dar:'معامل ضوضاء 0.1 ديسيبل، من رسيفر واحد حتى ثمانية رسيفرات من طبق واحد.',q:'LNB',skus:['TM-121','TM-221','TM-421','TM-821']},
+    ms:{en:'Cascade multiswitches',ar:'مالتي سويتش متتابع',den:'Carry satellite and terrestrial signal from one dish to 8, 16, 24 or 32 outlets in a building.',dar:'توصّل إشارة الساتلايت والأرضي من طبق واحد إلى 8 أو 16 أو 24 أو 32 مخرجًا في المبنى.',q:'multiswitch',skus:['TM-9908CC','TM-9916CC','TM-9924CC','TM-9932CC']},
+    rx:{en:'Satellite receivers',ar:'رسيفرات الساتلايت',den:'DVB-S2 receivers from HD to 4K, with up to 8,000 channels, Wi-Fi and phone mirroring.',dar:'رسيفرات DVB-S2 من HD إلى 4K بسعة حتى 8000 قناة مع واي-فاي وبث شاشة الهاتف.',q:'receiver',cat:'receivers'},
+    tv:{en:'Screens & connection',ar:'الشاشات والتوصيل',den:'LED, Full-HD and 4K smart screens, plus 4K HDMI to connect the receiver.',dar:'شاشات LED وFull HD و4K ذكية، مع كابلات HDMI 4K لتوصيل الرسيفر.',q:'TV',cat:'tv',extra:['HDMI-4K-1.5M','HDMI-4K-3M']}
+  };
+  var curStage='rx', P=[];
+  function drawStage(key){
+    var S=STAGES[key], box=document.getElementById('stage'); if(!S||!box) return;
+    curStage=key;
+    document.querySelectorAll('.chain .node').forEach(function(n){ n.setAttribute('aria-selected', n.getAttribute('data-stage')===key); });
+    var items=(S.skus||[]).map(function(k){ return BY[k]; });
+    if(S.cat) items=P.filter(function(p){ return p.category===S.cat; }).sort(function(a,b){ return (b.price_cents||0)-(a.price_cents||0); });
+    (S.extra||[]).forEach(function(k){ items.push(BY[k]); });
+    items=items.filter(Boolean);
+    box.innerHTML='<div class="stage-h"><div><h3>'+esc(t(S.en,S.ar))+'</h3><p>'+esc(t(S.den,S.dar))+'</p></div>'+
+      '<a href="range.html?q='+encodeURIComponent(S.q)+'">'+t('See all in the range →','عرض الكل في التشكيلة ←')+'</a></div>'+
+      '<div class="shelf">'+items.map(function(p,n){
+        return '<a class="mini" style="animation-delay:'+(n*40)+'ms" href="range.html?p='+encodeURIComponent(p.sku)+'"><span class="im"><img src="'+esc(p.image)+'" alt="" loading="lazy"></span>'+
+          '<span class="tx"><span class="sku">'+esc(p.sku)+'</span><b>'+esc(t(p.name_en,p.name_ar||p.name_en))+'</b><span class="pr">'+priceHTML(p.price_cents)+'</span></span></a>';
+      }).join('')+'</div>';
+    box.hidden=false;
+  }
+  document.querySelectorAll('.chain .node').forEach(function(n){
+    n.addEventListener('click',function(){ drawStage(n.getAttribute('data-stage')); });
+    n.addEventListener('keydown',function(e){
+      var nodes=[].slice.call(document.querySelectorAll('.chain .node')), i=nodes.indexOf(n), d=0;
+      if(e.key==='ArrowRight') d=AR()?-1:1; if(e.key==='ArrowLeft') d=AR()?1:-1;
+      if(d){ e.preventDefault(); var m=nodes[(i+d+nodes.length)%nodes.length]; m.focus(); drawStage(m.getAttribute('data-stage')); }
+    });
+  });
+
+  // ---- shipping line ----
+  function drawShip(){
+    var el=document.getElementById('shipLine'); if(!el||!SHIP) return;
+    var flat=SHIP.flat_rate_cents, free=SHIP.free_over_cents;
+    if(free!=null && flat) el.innerHTML=t('Free delivery on orders over <b>EGP '+money(free)+'</b>, otherwise a flat <b>EGP '+money(flat)+'</b> anywhere in Egypt.',
+                                          'توصيل مجاني للطلبات فوق <b>'+money(free)+' ج.م</b>، وإلا رسوم ثابتة <b>'+money(flat)+' ج.م</b> لأي مكان في مصر.');
+    else if(!flat) el.innerHTML=t('<b>Free delivery</b> to your door, anywhere in Egypt.','<b>توصيل مجاني</b> حتى باب بيتك في أي مكان في مصر.');
+  }
+
+  function redraw(){ if(P.length){ drawSpot(si,false); drawStage(curStage); drawShip(); }
+    var hq=document.getElementById('hq'), narrow=innerWidth<520, n=P.length||'';
+    if(hq) hq.placeholder=(narrow ? t('Search '+n+' models','ابحث في '+n+' موديل') : t('Search '+n+' models — try “4K receiver”','ابحث في '+n+' موديل — جرّب «رسيفر 4K»')).replace('  ',' '); }
+  new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+
+  function load(u){ return fetch(u).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
+  load('/api/catalog').catch(function(){ return load('catalog.json'); }).then(function(d){
+    P=(d.products||[]).filter(function(p){ return p && p.in_stock!==false; });
+    P.forEach(function(p){ BY[p.sku]=p; });
+    SHIP=d.shipping||null;
+    if(spot) spot.hidden=false;
+    redraw();
+  }).catch(function(){
+    // no catalogue: keep the page static, hide the parts that need live data
+    var hint=document.querySelector('.chain-hint'); if(hint) hint.hidden=true;
+  });
+
+  // ---- contact form ----
+  var form=document.getElementById('cform');
+  document.querySelectorAll('[data-topic]').forEach(function(a){
+    a.addEventListener('click',function(){ var sel=form&&form.querySelector('select[name=topic]'); if(sel) sel.value=a.getAttribute('data-topic');
+      setTimeout(function(){ var m=form.querySelector('[name=name]'); if(m) m.focus({preventScroll:true}); },600); });
+  });
+  if(form){
+    var msg=document.getElementById('cformMsg');
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var f=form.elements, bad=null;
+      [['name',function(v){ return v.trim().length>1; }],['email',function(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.trim()); }],['message',function(v){ return v.trim().length>4; }]]
+        .forEach(function(r){ var ok=r[1](f[r[0]].value); f[r[0]].setAttribute('aria-invalid',!ok); if(!ok&&!bad) bad=f[r[0]]; });
+      if(bad){ msg.className='cform-msg err'; msg.textContent=t('Please fill in your name, a valid email and a message.','من فضلك اكتب الاسم وبريدًا إلكترونيًا صحيحًا ورسالة.'); bad.focus(); return; }
+      var body={ website:f.website.value, name:f.name.value.trim(), email:f.email.value.trim(), topic:f.topic.value,
+        message:f.message.value.trim()+(f.phone.value.trim()?'\n\nPhone: '+f.phone.value.trim():'')+'\nLanguage: '+(AR()?'Arabic':'English') };
+      msg.className='cform-msg'; msg.textContent=t('Sending…','جارٍ الإرسال…');
+      var btn=form.querySelector('button[type=submit]'); btn.disabled=true;
+      fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+        .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ if(!r.ok||!j.ok) throw 0; return j; }); })
+        .then(function(j){ form.classList.add('sent'); msg.className='cform-msg ok'; var fn=body.name.split(' ')[0];
+          msg.innerHTML = j.delivered===false
+            ? t('Thanks, '+esc(fn)+'. We\u2019ve received your message. For anything urgent, call <a href="tel:19903">19903</a>.','شكرًا '+esc(fn)+'، استلمنا رسالتك. للأمور العاجلة اتصل بـ <a href="tel:19903">19903</a>.')
+            : t('Thanks, '+esc(fn)+'. Your message is with the sales team and they\u2019ll reply by email.','شكرًا '+esc(fn)+'، رسالتك الآن لدى فريق المبيعات وسيردّون عليك بالبريد الإلكتروني.'); })
+        .catch(function(){ btn.disabled=false; msg.className='cform-msg err';
+          msg.innerHTML=t('That didn’t go through. Please call <a href="tel:19903">19903</a> or email <a href="mailto:info@trumanelectronics.com">info@trumanelectronics.com</a>.',
+                          'تعذّر الإرسال. اتصل بـ <a href="tel:19903">19903</a> أو راسلنا على <a href="mailto:info@trumanelectronics.com">info@trumanelectronics.com</a>.'); });
+    });
+    form.addEventListener('input',function(e){ if(e.target.getAttribute('aria-invalid')==='true') e.target.removeAttribute('aria-invalid'); });
+  }
+})();
+</script>
 </body>
 </html>

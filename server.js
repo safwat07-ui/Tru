@@ -24,12 +24,15 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const db = require('./lib/db');
-const auth = require('./lib/auth');
-const shop = require('./lib/shop');
-const admin = require('./lib/admin');
-const mail = require('./lib/mail');
-const { send, json } = require('./lib/util');
+// Code files may sit in lib/ or directly next to this file (both layouts work).
+const fsx = require('fs');
+const mod = name => require(fsx.existsSync(require('path').join(__dirname, 'lib', name + '.js')) ? './lib/' + name : './' + name);
+const db = mod('db');
+const auth = mod('auth');
+const shop = mod('shop');
+const admin = mod('admin');
+const mail = mod('mail');
+const { send, json } = mod('util');
 
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
@@ -164,8 +167,15 @@ const server = http.createServer(async (req, res) => {
     if (route === '/catalog.json') return dbReady ? json(res, 200, await shop.getCatalog()) : unavailable(res);
 
     // admin dashboard pages
-    if (route === '/admin' || route === '/admin/') return serveFile(req, res, path.join(ROOT, 'admin', 'index.html'), ADMIN_HEADERS);
-    if (route === '/admin/app.js' || route === '/admin/app.css' || route === '/admin/qrcode.js') return serveFile(req, res, path.join(ROOT, route), ADMIN_HEADERS);
+    // (dashboard files may be in admin/ or next to this file, with the page named admin.html)
+    if (route === '/admin' || route === '/admin/' || route === '/admin.html') {
+      const page = fs.existsSync(path.join(ROOT, 'admin', 'index.html')) ? path.join(ROOT, 'admin', 'index.html') : path.join(ROOT, 'admin.html');
+      return serveFile(req, res, page, ADMIN_HEADERS, true);
+    }
+    if (route === '/admin/app.js' || route === '/admin/app.css' || route === '/admin/qrcode.js') {
+      const inDir = path.join(ROOT, route), flat = path.join(ROOT, path.basename(route));
+      return serveFile(req, res, fs.existsSync(inDir) ? inDir : flat, ADMIN_HEADERS, true);
+    }
 
     if (route === '/payment-result') return serveFile(req, res, path.join(ROOT, 'payment-result.html'));
     if (route === '/shop')           return serveFile(req, res, path.join(ROOT, 'shop.html'));
