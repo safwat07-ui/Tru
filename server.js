@@ -121,7 +121,7 @@ async function startDb() {
 function storageWarning() {
   if (db.dialect !== 'sqlite' || !process.env.RAILWAY_ENVIRONMENT) return null;
   if (process.env.RAILWAY_VOLUME_MOUNT_PATH || process.env.DATA_DIR) return null;
-  return 'Orders and accounts are on a temporary disk and will be lost on the next deploy. Add a MySQL database (or a Volume) in Railway.';
+  return 'Orders, staff accounts and photos are on a temporary disk and will be lost on the next deploy. In Railway, add a Volume to this service (mount path /app/data) and redeploy.';
 }
 shop.storageWarning = storageWarning;
 const unavailable = res => json(res, 503, { ok: false, error: 'The shop is temporarily unavailable. Please try again shortly or call 19903.' });

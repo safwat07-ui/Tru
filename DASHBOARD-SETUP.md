@@ -13,24 +13,26 @@ In the repo on github.com: **Add file → Upload files**, drag in everything fro
 | `admin/` | new — the dashboard pages |
 | `lib/` | new — database, shop, Paymob, email, login and admin logic |
 | `server.js` | replaces the old one (the old one had copies of every page built in) |
-| `package.json` | replaces — adds the MySQL driver, uses Node 22 |
-| `railway.json` | replaces — health check now tests the database too |
+| `package.json` | replaces — uses Node 22 (needed for the built-in database) |
+| `railway.json` | replaces — health check now waits for the database to be ready |
 | `shop.html`, `payment-result.html` | replace — small fixes for stock messages and new order statuses |
 
 Railway redeploys automatically when the commit lands.
 
-## 2. Add a database (required on Railway)
+## 2. Add a Volume (one-time, required)
 
-Railway wipes its disk on every deploy, so orders, staff accounts and photos must
-live in a database.
+The dashboard keeps orders, staff accounts and product photos in a small database
+file that comes built into Node. You don't need a database service. But Railway wipes
+its disk on every deploy, so that file needs a permanent place:
 
-1. In your Railway project: **+ New → Database → MySQL**.
-2. Open your **website** service → **Variables** → **New Variable**:
-   - Name: `MYSQL_URL`
-   - Value: `${{MySQL.MYSQL_URL}}` (Railway fills in the real address)
+1. In Railway, open your **website** service → **Settings** → **Volumes** → **+ Add Volume**
+   (or right-click the service → **Attach Volume**).
+2. Mount path: `/app/data`
+3. Redeploy.
 
-The app creates its tables and imports the products from `catalog.json` on first start.
-If this step is missing, the dashboard shows a red warning that data will be lost on the next deploy.
+The app finds the Volume by itself. On first start it creates the database and imports the
+products from `catalog.json`. If the Volume is missing, the dashboard shows a red warning
+that data will be lost on the next deploy.
 
 ## 3. Create your owner login
 
