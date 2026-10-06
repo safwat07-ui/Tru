@@ -204,12 +204,13 @@
     accessories:['Accessories','إكسسوارات'],
     cables:    ['Cables','كابلات']
   };
+  function esc(x){ return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
   function renderFilters(){
     var present = ['all'].concat(PRODUCTS.map(function(p){return p.category;})
       .filter(function(v,i,a){ return a.indexOf(v)===i; }));
     document.getElementById('filters').innerHTML = present.map(function(c){
-      var lbl = CATS[c] ? t(CATS[c][0], CATS[c][1]) : c;
-      return '<button class="filt'+(c===FILTER?' on':'')+'" data-cat="'+c+'">'+lbl+'</button>';
+      var lbl = CATS[c] ? t(CATS[c][0], CATS[c][1]) : esc(c);
+      return '<button class="filt'+(c===FILTER?' on':'')+'" data-cat="'+esc(c)+'">'+lbl+'</button>';
     }).join('');
   }
   document.getElementById('filters').addEventListener('click', function(e){
@@ -221,15 +222,15 @@
     var list = PRODUCTS.filter(function(p){ return FILTER==='all' || p.category===FILTER; });
     document.getElementById('grid').innerHTML = list.map(function(p){
       return '<article class="card">'+
-        '<div class="ph" style="background-image:url(\''+p.image+'\'),var(--tile)"></div>'+
+        '<div class="ph" style="background-image:url(\''+esc(p.image)+'\'),var(--tile)"></div>'+
         '<div class="body">'+
-          '<span class="sku">'+p.sku+'</span>'+
-          '<h3>'+(isAr()? p.name_ar : p.name_en)+'</h3>'+
-          '<p class="desc">'+(isAr()? p.desc_ar : p.desc_en)+'</p>'+
-          '<div class="specs">'+(p.specs||[]).map(function(s){return '<span>'+s+'</span>';}).join('')+'</div>'+
+          '<span class="sku">'+esc(p.sku)+'</span>'+
+          '<h3>'+esc(isAr()? p.name_ar : p.name_en)+'</h3>'+
+          '<p class="desc">'+esc(isAr()? p.desc_ar : p.desc_en)+'</p>'+
+          '<div class="specs">'+(p.specs||[]).map(function(s){return '<span>'+esc(s)+'</span>';}).join('')+'</div>'+
           '<div class="buyrow">'+
             '<span class="price">'+money(p.price_cents)+'</span>'+
-            '<button class="add" data-sku="'+p.sku+'">'+t('Add to cart','أضف للسلة')+'</button>'+
+            '<button class="add" data-sku="'+esc(p.sku)+'">'+t('Add to cart','أضف للسلة')+'</button>'+
           '</div>'+
         '</div></article>';
     }).join('');
@@ -264,11 +265,11 @@
 
     document.getElementById('ditems').innerHTML = L.length ? L.map(function(l){
       return '<div class="citem">'+
-        '<div class="thumb" style="background-image:url(\''+l.p.image+'\'),var(--tile)"></div>'+
-        '<div><div class="nm">'+(isAr()? l.p.name_ar : l.p.name_en)+'</div>'+
-        '<div class="sk">'+l.p.sku+'</div>'+
-        '<div class="qty"><button data-dec="'+l.p.sku+'">−</button><span>'+l.qty+'</span><button data-inc="'+l.p.sku+'">+</button></div>'+
-        '<button class="rm" data-rm="'+l.p.sku+'">'+t('Remove','إزالة')+'</button></div>'+
+        '<div class="thumb" style="background-image:url(\''+esc(l.p.image)+'\'),var(--tile)"></div>'+
+        '<div><div class="nm">'+esc(isAr()? l.p.name_ar : l.p.name_en)+'</div>'+
+        '<div class="sk">'+esc(l.p.sku)+'</div>'+
+        '<div class="qty"><button data-dec="'+esc(l.p.sku)+'">−</button><span>'+l.qty+'</span><button data-inc="'+esc(l.p.sku)+'">+</button></div>'+
+        '<button class="rm" data-rm="'+esc(l.p.sku)+'">'+t('Remove','إزالة')+'</button></div>'+
         '<div class="lt">'+money(l.total)+'</div></div>';
     }).join('') : '<p class="empty">'+t('Your cart is empty.','سلتك فارغة.')+'</p>';
 
@@ -370,6 +371,15 @@
         var m = document.getElementById('coMsg');
         m.textContent = err.message === 'empty_cart'
           ? t('Your cart is empty.','سلتك فارغة.')
+          : err.message === 'stock_changed'
+          ? t('Some items in your cart are no longer available in that quantity. Please refresh the page and check your cart.',
+              'بعض المنتجات في سلتك لم تعد متوفرة بهذه الكمية. يرجى تحديث الصفحة ومراجعة السلة.')
+          : err.message === 'invalid_billing'
+          ? t('Please check your name, email and Egyptian mobile number.',
+              'يرجى مراجعة الاسم والبريد الإلكتروني ورقم الموبايل.')
+          : err.message === 'too_many_attempts'
+          ? t('Too many attempts. Please wait a few minutes, or call 19903.',
+              'محاولات كثيرة. يرجى الانتظار بضع دقائق أو الاتصال بـ 19903.')
           : t('Could not start payment. Please try again, or call 19903.',
               'تعذّر بدء الدفع. يرجى المحاولة مرة أخرى أو الاتصال بـ 19903.');
         m.classList.add('on');

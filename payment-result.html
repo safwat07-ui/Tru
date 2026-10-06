@@ -63,6 +63,7 @@
   try { isAr = (localStorage.getItem('truman_lang') === 'ar'); } catch(e){}
   if(isAr){ document.documentElement.lang='ar'; document.documentElement.dir='rtl'; }
   function t(en, ar){ return isAr ? ar : en; }
+  function h(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
 
   var ref = q.get('order') || q.get('merchant_order_id') || q.get('special_reference');
   if(!ref){ try { ref = localStorage.getItem('truman_last_order'); } catch(e){} }
@@ -92,14 +93,14 @@
     var sum = '';
     if(order && order.lines && order.lines.length){
       sum = '<div class="sum">' + order.lines.map(function(l){
-        return '<div class="ln"><span>'+l.name+' × '+l.qty+'</span><span>'+money(l.line_total_cents)+'</span></div>';
+        return '<div class="ln"><span>'+((isAr && l.name_ar) || l.name)+' × '+l.qty+'</span><span>'+money(l.line_total_cents)+'</span></div>';
       }).join('') +
       '<div class="ln tot"><span>'+t('Total','الإجمالي')+'</span><span>'+money(order.total_cents)+'</span></div></div>';
     }
 
     document.getElementById('panel').innerHTML =
       icon + '<h1>'+title+'</h1><p class="lede">'+lede+'</p>' +
-      (ref ? '<div class="ref">'+t('Order reference','رقم الطلب')+': '+ref+'</div>' : '') +
+      (ref ? '<div class="ref">'+t('Order reference','رقم الطلب')+': '+h(ref)+'</div>' : '') +
       sum +
       (demo ? '<div class="demo">'+t('Demo mode — no live payment keys are configured, so no money was charged. Add your Paymob keys to take real payments.',
                                      'وضع تجريبي — لم يتم ضبط مفاتيح الدفع، ولم يُخصم أي مبلغ. أضف مفاتيح Paymob لاستقبال مدفوعات حقيقية.')+'</div>' : '') +
@@ -123,8 +124,8 @@
       .then(function(r){ return r.json(); })
       .then(function(o){
         if(!o.ok){ render('pending', null); return; }
-        if(o.status === 'paid'){ render('paid', o); return; }
-        if(o.status === 'payment_failed' || o.status === 'failed'){ render('failed', o); return; }
+        if(o.paid || o.status === 'paid'){ render('paid', o); return; }
+        if(o.status === 'payment_failed' || o.status === 'failed' || o.status === 'expired' || o.status === 'cancelled'){ render('failed', o); return; }
         render(demo ? 'pending' : 'pending', o);
         if(++tries < 10) setTimeout(poll, 2000);
       })
